@@ -36,11 +36,10 @@ const Menu: React.FC = () => {
   ];
 
   return (
-    <div>
-      <div>
-        <span>{datestring}</span> <span>{timestring}</span>
-      </div>
-      <div>
+    <div className="wii-menu">
+      <div className="wii-header">
+        <span>{datestring}</span>
+        <span>{timestring}</span>
         <button onClick={toggleThemas}>
           Tema: {themas ? 'Oscuro' : 'Claro'}
         </button>
@@ -48,11 +47,15 @@ const Menu: React.FC = () => {
           Sonido: {sonido ? 'Activado' : 'Desactivado'}
         </button>
       </div>
-      <ul>
+      <div className="wii-channels">
         {channels.map(channel => (
-          <li key={channel.id}>{channel.title}</li>
+          <div className="wii-channel" key={channel.id}>
+            {/* para un futuro poner fotos de proyecto  */}
+            <div className="wii-channel-icon">{channel.icon && <img src={channel.icon} alt={channel.title} />}</div>
+            <div className="wii-channel-title">{channel.title}</div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

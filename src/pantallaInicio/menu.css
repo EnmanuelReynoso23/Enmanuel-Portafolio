@@ -1,7 +1,75 @@
-style.h1{ 
+.wii-menu { 
 
-    margin-right: auto;
-    margin-left: auto;          
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    min-height: 100vh; 
+    background-color: white;
+    
+}
 
+
+.wii-header { 
+
+    display : flex; 
+    gap : 1rem; 
+    margin: 2rem 0; 
+    align-items: center; 
+
+}
+
+.wii-channels { 
+
+    display: flex;
+    flex-wrap: wrap; 
+    gap : 2rem; 
+    justify-content: center;
+
+}
+
+.wii-channels  { 
+
+    width: 140px; 
+    height: 120px; 
+    background-color: white ;
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: colum; 
+    align-items: center; 
+    
+
+      /* para el cursor
+                 no e decidido bien como ponerla bien  */
+
+transition: transform 0.2s; 
+/*suavizado para transformaciones a futuro */
+
+
+}
+
+
+.wii-channels:hover { 
+
+     transform: scale(1.05); 
+     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.wii-channels  img { 
+
+    width: 48px; 
+    height: 48px; 
+    margin-bottom   : 8px;
+}
+
+
+.wii-channels-title { 
+
+
+    font-size : 1.1rem; 
+    font-weight: bold; 
+    text-align: center;
 
 }
