@@ -1,0 +1,202 @@
+/* ===== Estilos Compartidos de Páginas ===== */
+
+/* Card genérica */
+.page-card {
+  background: var(--page-card-bg);
+  border: var(--page-card-border);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.page-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--page-text);
+  margin-bottom: 8px;
+}
+
+.page-card__subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.page-card__text {
+  color: var(--page-text);
+  opacity: 0.85;
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.page-card__period {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* Tags de tecnología */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--accent);
+}
+
+/* Barra de skill */
+.skill-item {
+  margin-bottom: 14px;
+}
+
+.skill-item__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.skill-item__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--page-text);
+}
+
+.skill-item__level {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.skill-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.skill-bar__fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.8s ease;
+}
+
+/* Sección */
+.page-section {
+  margin-bottom: 28px;
+}
+
+.page-section__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-soft);
+}
+
+/* Grid de proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* Info de contacto */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: var(--page-card-bg);
+  border: var(--page-card-border);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.contact-link:hover {
+  background: var(--accent-soft);
+}
+
+/* Perfil (Sobre Mí) */
+.profile {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.profile__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid var(--accent);
+}
+
+.profile__avatar img {
+  width: 60px;
+  height: 60px;
+}
+
+.profile__info {
+  flex: 1;
+}
+
+.profile__name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.profile__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.profile__location {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.profile__bio {
+  color: var(--page-text);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
