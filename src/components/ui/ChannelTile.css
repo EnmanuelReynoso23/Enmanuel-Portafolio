@@ -1,0 +1,101 @@
+/* ===== Tile de Canal Wii Auténtico ===== */
+.channel-tile {
+  width: 100%;
+  height: 100%;
+  /* Gris muy sutil como el Wii real, casi crema/blanco */
+  background: #f7f7f7;
+  border-radius: 8px; /* Menos redondeado, más cuadrado */
+  border: var(--tile-border);
+  box-shadow: 
+    inset 0 2px 5px rgba(255, 255, 255, 1),
+    0 4px 6px rgba(0, 0, 0, 0.1); /* Efecto 3D sutil hacia afuera */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, outline 0.1s ease;
+  animation: tile-enter 0.4s ease forwards;
+  animation-delay: var(--enter-delay, 0ms);
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.channel-tile:hover,
+.channel-tile:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 
+    inset 0 2px 5px rgba(255, 255, 255, 1),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+  outline: 4px solid #00aaff;
+  outline-offset: -1px;
+  background: #ffffff;
+}
+
+.channel-tile:active {
+  transform: scale(0.97);
+}
+
+/* Tile vacío (placeholder) */
+.channel-tile--empty {
+  background: var(--tile-empty-bg);
+  border: var(--tile-empty-border);
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.7);
+  cursor: default;
+}
+
+.channel-tile--empty:hover,
+.channel-tile--empty:focus-visible {
+  transform: none;
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.7);
+  outline: none;
+}
+
+.channel-tile--empty-text {
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #dddddd; /* Color gris translúcido para "Wii" */
+  user-select: none;
+  letter-spacing: 2px;
+}
+
+/* Ícono */
+.channel-tile__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.channel-tile__icon img,
+.channel-tile__icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Título */
+.channel-tile__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--tile-text);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Animación de entrada */
+@keyframes tile-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

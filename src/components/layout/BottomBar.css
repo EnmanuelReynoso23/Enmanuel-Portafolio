@@ -1,0 +1,331 @@
+/* ===== Barra Inferior Estilo Wii ===== */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: var(--bottombar-bg);
+  border-top: 2px solid var(--bottombar-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+  /* Contenido centrado y compacto */
+  padding: 0 calc((100% - 900px) / 2 + 24px);
+}
+
+/* Curva central — fondo blanco limpio */
+.bottom-bar::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  height: 22px;
+  background: var(--bottombar-bg);
+  border-top: 2px solid var(--bottombar-border);
+  border-left: 2px solid var(--bottombar-border);
+  border-right: 2px solid var(--bottombar-border);
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  z-index: -1;
+}
+
+/* Layout de las 3 secciones */
+.bottom-bar__left,
+.bottom-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Separación entre botones */
+  z-index: 2;
+  position: relative;
+}
+
+.bottom-bar__center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -12px;
+}
+
+/* Reloj */
+.bottom-bar__time {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: baseline;
+  color: rgba(0,0,0,0.35);
+  font-family: 'Courier New', monospace;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.9);
+}
+
+.bottom-bar__time-ampm {
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+.bottom-bar__date {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: rgba(0,0,0,0.35);
+  margin-top: 1px;
+}
+
+/* ===== Botones circulares ===== */
+.circle-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 3px solid var(--btn-border);
+  box-shadow:
+    inset -1px -1px 3px rgba(0,0,0,0.08),
+    0 3px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: rgba(0,0,0,0.4);
+}
+
+.circle-btn:hover {
+  background: linear-gradient(145deg, #ffffff, #d8d8d8);
+  border-color: #aaa;
+}
+
+.circle-btn:active {
+  transform: scale(0.94);
+  background: linear-gradient(145deg, #ddd, #ccc);
+}
+
+.circle-btn__icon {
+  width: 24px;
+  height: 24px;
+  color: rgba(0,0,0,0.4);
+}
+
+.circle-btn--active {
+  background: linear-gradient(145deg, #e8e8e8, #d0d0d0);
+  border-color: #999;
+}
+
+/* ===== Panel Flotante del Reproductor ===== */
+.music-popup {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 300px;
+  background: var(--popup-bg);
+  border: 2px solid var(--popup-border);
+  border-radius: 14px;
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.12);
+  z-index: 200;
+  animation: popupSlideIn 0.2s ease-out;
+  overflow: hidden;
+}
+
+.music-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--popup-header-bg);
+  border-bottom: 1px solid var(--popup-border);
+}
+
+.music-popup__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(0,0,0,0.55);
+  font-family: sans-serif;
+}
+
+.music-popup__close {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: rgba(0,0,0,0.35);
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: all 0.15s;
+}
+
+.music-popup__close:hover {
+  background: rgba(0,0,0,0.08);
+  color: var(--text-primary);
+}
+
+/* Miniatura del video */
+.music-popup__video {
+  width: 100%;
+  height: 130px;
+  position: relative;
+  overflow: hidden;
+  background: #222;
+}
+
+.music-popup__thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.music-popup__video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background: linear-gradient(180deg, transparent 50%, rgba(245,245,245,0.9) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.music-popup__playing-indicator {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.45);
+  font-family: sans-serif;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Controles */
+.music-popup__controls {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.music-popup__playpause {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  background: var(--input-bg);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.55);
+  font-family: sans-serif;
+  transition: all 0.15s;
+}
+
+.music-popup__playpause:hover {
+  border-color: #aaa;
+  background: #fafafa;
+}
+
+.music-popup__playpause svg {
+  width: 22px;
+  height: 22px;
+  color: rgba(0,0,0,0.5);
+}
+
+/* Campo URL */
+.music-popup__url-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.music-popup__url-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.4);
+  font-family: sans-serif;
+}
+
+.music-popup__url-input {
+  padding: 7px 10px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 0.73rem;
+  font-family: monospace;
+  outline: none;
+  transition: border-color 0.15s;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.music-popup__url-input:focus {
+  border-color: #999;
+}
+
+@keyframes popupSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes popupSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+}
+
+.music-popup--closing {
+  animation: popupSlideOut 0.2s ease-in forwards;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .bottom-bar {
+    padding: 0 12px;
+    height: 65px;
+  }
+  .circle-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .bottom-bar::before {
+    width: 200px;
+    top: -18px;
+    height: 18px;
+  }
+  .bottom-bar__time {
+    font-size: 1.4rem;
+  }
+  .circle-btn__icon {
+    width: 20px;
+    height: 20px;
+  }
+  .music-popup {
+    right: 12px;
+    width: 260px;
+  }
+}

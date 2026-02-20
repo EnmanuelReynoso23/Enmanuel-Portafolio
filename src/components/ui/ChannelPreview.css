@@ -1,0 +1,280 @@
+.channel-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9000;
+  background-color: var(--bg-color);
+  background-image: var(--bg-pattern), var(--bg-gradient);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.channel-preview-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 120px; /* Space for the bottom bar */
+}
+
+/* Icono grande animado */
+.channel-preview-icon {
+  width: 250px;
+  height: 250px;
+  background: white;
+  border: 4px solid var(--bar-border-top);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.channel-preview-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Título de Canal y Descripción */
+.channel-preview-info {
+  text-align: center;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.channel-preview-title {
+  font-size: 3rem;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  opacity: 0; /* Starts hidden for animation */
+  animation: slideUpFade 0.3s ease forwards;
+}
+
+.channel-preview-desc {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  opacity: 0; /* Starts hidden for animation */
+  animation: slideUpFade 0.3s ease forwards;
+  animation-delay: 0.05s;
+}
+
+/* Área de los botones inferiores (Barra gris) */
+.channel-preview-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 130px;
+  background: #f0f0f0;
+  border-top: 4px solid var(--bar-border-top);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15vw; /* Más separados */
+  padding: 0;
+  z-index: 20;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+}
+
+.preview-btn {
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  border: 4px solid #b0b0b0;
+  border-radius: 60px; /* Forma de píldora */
+  padding: 15px 40px;
+  min-width: 250px;
+  font-size: 1.8rem;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.1s, box-shadow 0.1s, filter 0.2s;
+}
+
+.preview-btn:hover {
+  filter: brightness(1.05);
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.preview-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.preview-btn--start {
+  border-color: #88c0d0; /* Color distintivo para el botón principal */
+}
+
+/* Botones de Navegación Laterales (Flechas clásicas de Wii) */
+.preview-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.4);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #aaaaaa;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.preview-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #00aaff;
+  transform: translateY(-50%) scale(1.1);
+  border-color: #00aaff;
+}
+
+.preview-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.preview-nav-btn svg {
+  width: 40px;
+  height: 40px;
+}
+
+.preview-nav-btn--left {
+  left: 8vw; /* Un poco mas para el medio */
+}
+
+.preview-nav-btn--right {
+  right: 8vw; /* Un poco mas para el medio */
+}
+
+/* Animaciones Principales */
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.fade-in {
+  animation: previewFadeIn 0.3s ease-out forwards;
+}
+
+.fade-out {
+  animation: previewFadeOut 0.3s ease-in forwards;
+}
+
+.zoom-in {
+  animation: previewZoomIn 0.75s ease-in forwards;
+}
+
+@keyframes previewFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes previewFadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes previewZoomIn {
+  from { opacity: 1; transform: scale(1); filter: brightness(1); }
+  to { opacity: 1; transform: scale(4); filter: brightness(4); }
+}
+
+/* Animaciones de Contenido al Cambiar (Next/Prev) */
+.animate-icon {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animaciones Idle para cada Canal */
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+@keyframes floatGentle {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-swing {
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(138, 12, 37, 0)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(138, 12, 37, 0.6)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(138, 12, 37, 0)); }
+}
+
+.animate-bounce-slight {
+  animation: bounceSlight 2s ease-in-out infinite;
+}
+
+@keyframes bounceSlight {
+  0%, 100% { transform: translateY(0); }
+  10% { transform: translateY(-15px); }
+  25% { transform: translateY(0); }
+  40% { transform: translateY(-7px); }
+  50% { transform: translateY(0); }
+}
+
+.animate-wiggle {
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-15deg); }
+  20% { transform: rotate(10deg); }
+  30% { transform: rotate(-5deg); }
+  40% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+}

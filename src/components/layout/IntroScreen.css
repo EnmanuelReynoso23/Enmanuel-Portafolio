@@ -1,0 +1,136 @@
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+}
+
+.intro-screen--exiting {
+  animation: introFadeOut 0.4s ease-in forwards;
+}
+
+@keyframes introFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.05); /* Ligeramente más grande al salir, como encendiendo la consola */
+  }
+}
+
+.intro-screen__container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.intro-card {
+  background: var(--tile-bg);
+  border: var(--tile-border);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro-card__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid var(--bar-border-top);
+  padding-bottom: 20px;
+}
+
+.intro-card__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  padding: 10px;
+  object-fit: contain;
+}
+
+.intro-card__name {
+  font-size: 1.8rem;
+  margin: 0 0 5px 0;
+  color: var(--accent);
+}
+
+.intro-card__title {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.intro-card__body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.intro-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.intro-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.intro-btn--primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 10px var(--accent-soft);
+}
+
+.intro-btn--primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--accent-soft);
+}
+
+.intro-btn--secondary {
+  background: var(--btn-bg);
+  color: var(--text-primary);
+  border: var(--tile-border);
+}
+
+.intro-btn--secondary:hover {
+  background: var(--tile-bg-hover);
+}
+
+.fade-in {
+  animation: introFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes introFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

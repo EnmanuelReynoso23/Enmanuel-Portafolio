@@ -1,0 +1,57 @@
+/* ===== Volume Slider ===== */
+.volume-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.volume-slider__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--page-text);
+  min-width: 120px;
+}
+
+.volume-slider__input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 160px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  outline: none;
+}
+
+.volume-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease;
+}
+
+.volume-slider__input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.volume-slider__input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.volume-slider__value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--page-text);
+  min-width: 40px;
+  text-align: right;
+}

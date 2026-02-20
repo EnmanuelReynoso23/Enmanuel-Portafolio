@@ -1,0 +1,129 @@
+/* ===== TEMA WII AUTÉNTICO ===== */
+:root {
+  /* Fondo estilo TV CRT con líneas (scanlines) sutiles */
+  --bg-pattern: repeating-linear-gradient(
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.03) 3px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  --bg-color: #f0f0f0;
+  --bg-gradient: radial-gradient(circle at center, #ffffff 0%, #e0e0e0 100%);
+
+  /* Tarjetas (Canales) */
+  --tile-bg: rgba(255, 255, 255, 0.95);
+  --tile-bg-hover: #ffffff;
+  --tile-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --tile-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15), 0 0 0 4px #00aaff;
+  --tile-border: 1px solid #d0d0d0;
+  --tile-text: #555555;
+  --tile-empty-bg: repeating-linear-gradient(
+    -45deg,
+    #f2f2f2,
+    #f2f2f2 10px,
+    #e9e9e9 10px,
+    #e9e9e9 20px
+  );
+  --tile-empty-border: 1px solid #cccccc;
+
+  /* Barra Inferior */
+  --bar-bg: linear-gradient(to bottom, #f5f5f5, #d9d9d9);
+  --bar-border-top: 3px solid #00c3ff;
+  --bar-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  --bar-text: #707070;
+
+  /* Tipografía global */
+  --text-primary: #555555;
+  --text-secondary: #888888;
+  
+  /* Acentos y colores funcionales */
+  --accent: #00aaff;
+  --accent-hover: #0088cc;
+  --accent-soft: rgba(0, 170, 255, 0.15);
+
+  /* Fondos de páginas internas */
+  --page-bg: #f8f9fa;
+  --page-text: #444444;
+  --page-card-bg: #ffffff;
+  --page-card-border: 1px solid #dddddd;
+
+  /* BottomBar y popup */
+  --bottombar-bg: linear-gradient(180deg, #f0f0f0 0%, #e0e0e0 100%);
+  --bottombar-border: #d0d0d0;
+  --btn-bg: linear-gradient(145deg, #ffffff, #e6e6e6);
+  --btn-border: #c0c0c0;
+  --btn-icon: rgba(0,0,0,0.4);
+  --popup-bg: #f5f5f5;
+  --popup-header-bg: #eee;
+  --popup-border: #d0d0d0;
+  --input-bg: #ffffff;
+  --input-border: #ccc;
+}
+
+/* ===== TEMA OSCURO ===== */
+[data-theme="dark"] {
+  --bg-pattern: repeating-linear-gradient(
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.02) 3px,
+    rgba(255, 255, 255, 0.02) 4px
+  );
+  --bg-color: #1a1a1a;
+  --bg-gradient: radial-gradient(circle at center, #2a2a2a 0%, #111111 100%);
+
+  --tile-bg: rgba(40, 40, 40, 0.95);
+  --tile-bg-hover: #333333;
+  --tile-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --tile-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 0 4px #00aaff;
+  --tile-border: 1px solid #3a3a3a;
+  --tile-text: #cccccc;
+  --tile-empty-bg: repeating-linear-gradient(
+    -45deg,
+    #222222,
+    #222222 10px,
+    #2a2a2a 10px,
+    #2a2a2a 20px
+  );
+  --tile-empty-border: 1px solid #333333;
+
+  --bar-bg: linear-gradient(to bottom, #222222, #111111);
+  --bar-border-top: 3px solid #00aaff;
+  --bar-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  --bar-text: #999999;
+
+  --text-primary: #dddddd;
+  --text-secondary: #999999;
+
+  --accent: #00aaff;
+  --accent-hover: #33bbff;
+  --accent-soft: rgba(0, 170, 255, 0.2);
+
+  --page-bg: #1e1e1e;
+  --page-text: #cccccc;
+  --page-card-bg: #2a2a2a;
+  --page-card-border: 1px solid #3a3a3a;
+
+  --bottombar-bg: linear-gradient(180deg, #222 0%, #1a1a1a 100%);
+  --bottombar-border: #333;
+  --btn-bg: linear-gradient(145deg, #333, #252525);
+  --btn-border: #444;
+  --btn-icon: rgba(255,255,255,0.5);
+  --popup-bg: #2a2a2a;
+  --popup-header-bg: #333;
+  --popup-border: #444;
+  --input-bg: #1e1e1e;
+  --input-border: #444;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: var(--bg-pattern), var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+}
+
+/* ===== Mantener compatibilidad con ToggleSwitch de tamaño ===== */
+[data-font-size='small'] { font-size: 14px; }
+[data-font-size='medium'] { font-size: 16px; }
+[data-font-size='large'] { font-size: 18px; }
+

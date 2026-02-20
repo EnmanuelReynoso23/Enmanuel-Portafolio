@@ -1,0 +1,116 @@
+/* ===== Contenedor del Navegador Wii ===== */
+.channel-grid-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0 4vw; /* Espacio responsivo desde el borde de pantalla */
+  position: relative;
+  gap: 30px; /* Espacio extra entre flechas y cuadricula */
+}
+
+/* ===== Flechas de Navegación Clásicas ===== */
+.nav-arrow {
+  background: rgba(255, 255, 255, 0.4);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #aaaaaa;
+  transition: all 0.2s ease;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #00aaff;
+  transform: scale(1.1);
+  border-color: #00aaff;
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+.nav-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+/* ===== Viewport para el Efecto de Desplazamiento ===== */
+.channel-grid-viewport {
+  width: 100%;
+  max-width: var(--grid-max-width, 850px);
+  overflow: hidden; /* Oculta lo que está deslizando fuera */
+  position: relative;
+  padding: 20px 10px; /* Margen para las sombras y el borde azul de hover */
+}
+
+/* ===== Cuadrícula de Canales Dinámica ===== */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 3), 1fr); 
+  grid-auto-rows: minmax(var(--tile-min-height, 130px), var(--tile-max-height, 180px)); 
+  gap: var(--grid-gap, 24px);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ===== Animaciones de Desplazamiento (Paginación) ===== */
+.slide-left {
+  animation: slideOutLeft 0.3s ease-in-out forwards;
+}
+
+.slide-right {
+  animation: slideOutRight 0.3s ease-in-out forwards;
+}
+
+@keyframes slideOutLeft {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .channel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: 16px;
+  }
+  .nav-arrow {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 520px) {
+  .channel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
+    gap: 12px;
+  }
+  .channel-grid-container {
+    gap: 5px;
+  }
+  .nav-arrow {
+    width: 35px;
+    height: 35px;
+    border-width: 2px;
+  }
+  .nav-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}
