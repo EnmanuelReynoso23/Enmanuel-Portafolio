@@ -1,4 +1,4 @@
-import { User, Briefcase, Wrench, Cpu, GraduationCap, Mail, FolderCode } from 'lucide-react'
+import { User, Briefcase, Wrench, Cpu, GraduationCap, Mail, FolderCode, Award, Languages } from 'lucide-react'
 import type { Canal } from '@/types'
 import { datosPortafolio } from './portfolio'
 
@@ -26,7 +26,7 @@ export const canales: Canal[] = [
     titulo: 'Habilidades',
     icono: <Wrench {...iconProps} color="#e63946" />,
     ruta: '/habilidades',
-    descripcion: 'Mis habilidades blandas y de gestión',
+    descripcion: 'Habilidades técnicas y profesionales',
     animacion: 'animate-spin-slow'
   },
   {
@@ -47,6 +47,22 @@ export const canales: Canal[] = [
   },
   {
     id: 6,
+    titulo: 'Certificaciones',
+    icono: <Award {...iconProps} color="#f2b705" />,
+    ruta: '/certificaciones',
+    descripcion: 'Licencias y certificados',
+    animacion: 'animate-pulse-glow'
+  },
+  {
+    id: 7,
+    titulo: 'Idiomas',
+    icono: <Languages {...iconProps} color="#2a9d8f" />,
+    ruta: '/idiomas',
+    descripcion: 'Idiomas que domino',
+    animacion: 'animate-float-gentle'
+  },
+  {
+    id: 8,
     titulo: 'Contacto',
     icono: <Mail {...iconProps} color="#2a9d8f" />,
     ruta: '/contacto',
@@ -54,10 +70,11 @@ export const canales: Canal[] = [
     animacion: 'animate-wiggle'
   },
   ...datosPortafolio.proyectos.map((proyecto, index) => ({
-    id: 7 + index,
+    id: 9 + index,
     titulo: proyecto.titulo,
     icono: <FolderCode {...iconProps} color="#a0c4ff" />,
     ruta: `/proyecto/${proyecto.id}`,
-    descripcion: proyecto.descripcion.slice(0, 50) + (proyecto.descripcion.length > 50 ? '...' : ''),
+    descripcion: proyecto.subtitulo || proyecto.descripcion.slice(0, 50) + (proyecto.descripcion.length > 50 ? '...' : ''),
+    animacion: 'animate-bounce-slight',
   })),
 ]

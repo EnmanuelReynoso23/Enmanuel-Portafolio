@@ -7,16 +7,24 @@ export function StackTecnico() {
 
   return (
     <PageShell title="Stack Técnico">
-      {stackTecnico.map(category => (
-        <div key={category.categoria} className="page-card">
-          <h3 className="page-card__title">{category.categoria}</h3>
-          <div className="tech-tags">
-            {category.tecnologias.map(tech => (
-              <span key={tech} className="tech-tag">{tech}</span>
-            ))}
+      <p className="page-intro">
+        Tecnologías y herramientas que utilizo para construir productos de principio a fin.
+      </p>
+      <div className="stack-grid">
+        {stackTecnico.map(category => (
+          <div key={category.categoria} className="page-card stack-card">
+            <h3 className="stack-card__title">
+              {category.icono && <span className="stack-card__icon">{category.icono}</span>}
+              {category.categoria}
+            </h3>
+            <div className="tech-tags">
+              {category.tecnologias.map(tech => (
+                <span key={tech} className="tech-tag">{tech}</span>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </PageShell>
   )
 }

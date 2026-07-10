@@ -13,7 +13,7 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
   const [step, setStep] = useState<Step>('info')
   const [isExiting, setIsExiting] = useState(false)
   const { togglePlay, isPlaying } = useAudio()
-  const { nombre, titulo, biografia, avatar } = datosPortafolio.sobreMi
+  const { nombre, headline, biografia, avatar } = datosPortafolio.sobreMi
 
   const handleContinueInfo = () => {
     setStep('music_ask')
@@ -49,7 +49,7 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
               <img src={avatar} alt="Avatar" className="intro-card__avatar" />
               <div>
                 <h1 className="intro-card__name">{nombre}</h1>
-                <h2 className="intro-card__title">{titulo}</h2>
+                <h2 className="intro-card__title">{headline}</h2>
               </div>
             </div>
             

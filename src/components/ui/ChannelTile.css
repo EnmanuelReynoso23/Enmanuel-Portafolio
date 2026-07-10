@@ -1,10 +1,9 @@
-/* ===== Tile de Canal Wii Auténtico ===== */
+/* ===== Tarjeta de Canal ===== */
 .channel-tile {
   width: 100%;
   height: 100%;
-  /* Gris muy sutil como el Wii real, casi crema/blanco */
   background: #f7f7f7;
-  border-radius: 8px; /* Menos redondeado, más cuadrado */
+  border-radius: 8px;
   border: var(--tile-border);
   box-shadow: 
     inset 0 2px 5px rgba(255, 255, 255, 1),
@@ -52,15 +51,6 @@
   transform: none;
   box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.7);
   outline: none;
-}
-
-.channel-tile--empty-text {
-  font-family: sans-serif;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #dddddd; /* Color gris translúcido para "Wii" */
-  user-select: none;
-  letter-spacing: 2px;
 }
 
 /* Ícono */
