@@ -35,6 +35,7 @@ export interface DatosPortafolio {
   educacion: EntradaEducacion[]
   certificaciones: Certificacion[]
   idiomas: Idioma[]
+  recomendaciones: Recomendacion[]
   contacto: InfoContacto
 }
 
@@ -99,6 +100,17 @@ export interface EntradaEducacion {
   titulo: string
   periodo: string
   descripcion: string
+  imagen?: string
+}
+
+export interface Recomendacion {
+  autor: string
+  cargo: string
+  entidad: string
+  fecha: string
+  resumen: string
+  imagen: string
+  color?: string
 }
 
 export interface Certificacion {

@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { PageShell } from '@/components/layout/PageShell'
+import { ImageLightbox } from '@/components/ui/ImageLightbox'
 import { datosPortafolio } from '@/data/portfolio'
 import './pages.css'
 
 export function Educacion() {
   const { educacion } = datosPortafolio
+  const [imagen, setImagen] = useState<{ src: string; title: string } | null>(null)
 
   return (
     <PageShell title="Educación">
@@ -21,10 +24,27 @@ export function Educacion() {
               </div>
               <p className="edu-card__institution">{entry.institucion}</p>
               <p className="page-card__text">{entry.descripcion}</p>
+              {entry.imagen && (
+                <button
+                  className="edu-card__cert-btn"
+                  onClick={() => setImagen({ src: entry.imagen!, title: entry.titulo })}
+                >
+                  📄 Ver título
+                </button>
+              )}
             </div>
           </div>
         ))}
       </div>
+
+      {imagen && (
+        <ImageLightbox
+          src={imagen.src}
+          alt={imagen.title}
+          title={imagen.title}
+          onClose={() => setImagen(null)}
+        />
+      )}
     </PageShell>
   )
 }

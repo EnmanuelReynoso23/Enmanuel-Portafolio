@@ -44,7 +44,15 @@ export function Certificaciones() {
           <button className="cert-lightbox__close" onClick={() => setSeleccionada(null)} aria-label="Cerrar">✕</button>
           <div className="cert-lightbox__content" onClick={(e) => e.stopPropagation()}>
             <div className="cert-lightbox__cert">
-              <CertificateVisual cert={seleccionada} nombre={sobreMi.nombre} />
+              {seleccionada.imagen ? (
+                <img
+                  src={seleccionada.imagen}
+                  alt={`Certificado: ${seleccionada.titulo}`}
+                  className="cert-lightbox__photo"
+                />
+              ) : (
+                <CertificateVisual cert={seleccionada} nombre={sobreMi.nombre} />
+              )}
             </div>
             <div className="cert-lightbox__info">
               <h3 className="cert-lightbox__title">{seleccionada.titulo}</h3>

@@ -216,11 +216,12 @@ export const datosPortafolio: DatosPortafolio = {
         'Formación universitaria en desarrollo de sistemas informáticos, abarcando teoría de sistemas, análisis y calidad de software. Aptitudes: trabajo en equipo, lógica de programación y más.',
     },
     {
-      institucion: 'Politécnico Prof. Juan Bosch',
-      titulo: 'Técnico en Gestión Administrativa y Tributaria',
+      institucion: 'Politécnico Prof. Juan Emilio Bosch Gaviño',
+      titulo: 'Bachiller Técnico en Gestión Administrativa y Tributaria',
       periodo: '2021 - 2024',
       descripcion:
-        'Bachillerato Técnico Profesional certificado por el MINERD, con exención de pasantía por experiencia laboral previa.',
+        'Bachillerato Técnico Profesional (Ord. 14\'2017) certificado por el MINERD, con exención de pasantía por experiencia laboral previa.',
+      imagen: '/certificados/bachiller.jpg',
     },
   ],
 
@@ -234,16 +235,26 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       titulo: 'Desarrollo Web Front-End con Angular',
-      entidad: 'ITLA',
-      fecha: 'Oct. 2025',
+      entidad: 'ITLA — Instituto Tecnológico de las Américas',
+      fecha: 'Ene. 2026',
+      horas: '40 horas',
       color: '#dd0031',
     },
     {
       titulo: 'Desarrollo Web Full Stack — Nivel Intermedio',
-      entidad: 'Cymetria Group / INDOTEL',
+      entidad: 'Cymetria Group / INDOTEL / BID',
       fecha: 'Ene. 2026',
       horas: '80 horas',
       color: '#0a7d55',
+    },
+    {
+      titulo: 'Google Play Store Listing Certificate',
+      entidad: 'Google Play Academy',
+      fecha: 'Sep. 2025',
+      vencimiento: 'Sep. 2028',
+      credencialId: '160885006',
+      color: '#4285f4',
+      imagen: '/certificados/google-play.png',
     },
     {
       titulo: 'Python Essentials 1',
@@ -253,17 +264,20 @@ export const datosPortafolio: DatosPortafolio = {
       color: '#f2b705',
     },
     {
-      titulo: 'Herramientas Tecnológicas Colaborativas y Gestión de Proyectos',
+      titulo: 'Uso de Herramientas Tecnológicas Colaborativas y de Gestión de Proyectos',
       entidad: 'Universidad Iberoamericana (UNIBE)',
-      fecha: 'Oct. 2025 - Dic. 2025',
-      horas: '40 horas',
+      fecha: 'Mar. 2025',
+      horas: '8 horas',
       color: '#6a2c91',
+      imagen: '/certificados/unibe.png',
     },
     {
-      titulo: 'Diplomado en el Idioma Inglés',
-      entidad: 'Natural Language Institute (NALIN)',
-      fecha: '2017 - 2020',
+      titulo: 'Diploma en el Idioma Inglés',
+      entidad: 'Natural Languages Institute (NLI)',
+      fecha: 'Dic. 2019',
+      credencialId: 'Reg. 519448',
       color: '#c0392b',
+      imagen: '/certificados/ingles.jpg',
     },
   ],
 
@@ -281,6 +295,29 @@ export const datosPortafolio: DatosPortafolio = {
       porcentaje: 70,
       detalle: 'Duolingo English Test: 115 · Mar. 2026',
       bandera: '🇺🇸',
+    },
+  ],
+
+  recomendaciones: [
+    {
+      autor: 'Mtra. Alejandra Hernández Acosta',
+      cargo: 'Rectora',
+      entidad: 'Universidad Abierta para Adultos (UAPA)',
+      fecha: 'Ago. 2025',
+      resumen:
+        'Felicitaciones oficiales por obtener el 3er lugar en el Concurso de Emprendimiento del MESCyT con el proyecto AsistoYA: «Su talento y esfuerzo han sido valorados en un escenario tan competitivo y prestigioso. ¡Siga soñando en grande, trabajando con pasión y creyendo en el poder de sus ideas!»',
+      imagen: '/certificados/carta-uapa.jpg',
+      color: '#1d3557',
+    },
+    {
+      autor: 'Lic. Wilson Manuel Sosa',
+      cargo: 'Contador Público Autorizado (Exequátur 156-07)',
+      entidad: 'Politécnico Prof. Juan Bosch',
+      fecha: 'May. 2024',
+      resumen:
+        'Constancia de las actividades formativas desempeñadas por Enmanuel en el área de Gestión Administrativa y Tributaria: atención al cliente, organización de facturas y digitación de cobros de la DGII, avalando su desempeño profesional.',
+      imagen: '/certificados/carta-wilson.jpg',
+      color: '#2a9d8f',
     },
   ],
 
