@@ -1,4 +1,4 @@
-import { User, Briefcase, Wrench, Cpu, GraduationCap, Mail, FolderCode, Award, Languages } from 'lucide-react'
+import { User, Briefcase, Wrench, Cpu, GraduationCap, Mail, FolderCode, Award, Languages, Quote } from 'lucide-react'
 import type { Canal } from '@/types'
 import { datosPortafolio } from './portfolio'
 
@@ -63,6 +63,14 @@ export const canales: Canal[] = [
   },
   {
     id: 8,
+    titulo: 'Recomendaciones',
+    icono: <Quote {...iconProps} color="#1d3557" />,
+    ruta: '/recomendaciones',
+    descripcion: 'Cartas y reconocimientos',
+    animacion: 'animate-swing'
+  },
+  {
+    id: 9,
     titulo: 'Contacto',
     icono: <Mail {...iconProps} color="#2a9d8f" />,
     ruta: '/contacto',
@@ -70,7 +78,7 @@ export const canales: Canal[] = [
     animacion: 'animate-wiggle'
   },
   ...datosPortafolio.proyectos.map((proyecto, index) => ({
-    id: 9 + index,
+    id: 10 + index,
     titulo: proyecto.titulo,
     icono: <FolderCode {...iconProps} color="#a0c4ff" />,
     ruta: `/proyecto/${proyecto.id}`,

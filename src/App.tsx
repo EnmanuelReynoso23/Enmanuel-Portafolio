@@ -12,6 +12,7 @@ import { Proyecto } from '@/pages/Proyecto'
 import { Educacion } from '@/pages/Educacion'
 import { Certificaciones } from '@/pages/Certificaciones'
 import { Idiomas } from '@/pages/Idiomas'
+import { Recomendaciones } from '@/pages/Recomendaciones'
 import { Contacto } from '@/pages/Contacto'
 import { Configuracion } from '@/pages/Configuracion'
 import './App.css'
@@ -38,6 +39,7 @@ function AppContent() {
       <Route path="/educacion" element={<Educacion />} />
       <Route path="/certificaciones" element={<Certificaciones />} />
       <Route path="/idiomas" element={<Idiomas />} />
+      <Route path="/recomendaciones" element={<Recomendaciones />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/configuracion" element={<Configuracion />} />
     </Routes>
