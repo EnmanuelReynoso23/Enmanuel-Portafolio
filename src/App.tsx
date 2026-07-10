@@ -10,6 +10,8 @@ import { StackTecnico } from '@/pages/StackTecnico'
 import { Experiencia } from '@/pages/Experiencia'
 import { Proyecto } from '@/pages/Proyecto'
 import { Educacion } from '@/pages/Educacion'
+import { Certificaciones } from '@/pages/Certificaciones'
+import { Idiomas } from '@/pages/Idiomas'
 import { Contacto } from '@/pages/Contacto'
 import { Configuracion } from '@/pages/Configuracion'
 import './App.css'
@@ -34,6 +36,8 @@ function AppContent() {
       <Route path="/experiencia" element={<Experiencia />} />
       <Route path="/proyecto/:id" element={<Proyecto />} />
       <Route path="/educacion" element={<Educacion />} />
+      <Route path="/certificaciones" element={<Certificaciones />} />
+      <Route path="/idiomas" element={<Idiomas />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/configuracion" element={<Configuracion />} />
     </Routes>

@@ -33,15 +33,27 @@ export interface DatosPortafolio {
   experiencia: EntradaExperiencia[]
   proyectos: Proyecto[]
   educacion: EntradaEducacion[]
+  certificaciones: Certificacion[]
+  idiomas: Idioma[]
   contacto: InfoContacto
+}
+
+export interface Logro {
+  icono: string
+  valor: string
+  etiqueta: string
 }
 
 export interface SobreMi {
   nombre: string
   titulo: string
+  headline: string
   biografia: string
   avatar: string
   ubicacion: string
+  disponibilidad: string
+  aptitudesPrincipales: string[]
+  logros: Logro[]
 }
 
 export interface Habilidad {
@@ -52,6 +64,7 @@ export interface Habilidad {
 
 export interface CategoriaTecnologica {
   categoria: string
+  icono?: string
   tecnologias: string[]
 }
 
@@ -61,16 +74,24 @@ export interface EntradaExperiencia {
   periodo: string
   descripcion: string
   tecnologias: string[]
+  tipo?: string
+  ubicacion?: string
+  actual?: boolean
 }
 
 export interface Proyecto {
   id: number
   titulo: string
+  subtitulo?: string
   descripcion: string
   imagen: string
   tecnologias: string[]
+  caracteristicas?: string[]
+  logros?: string[]
+  destacado?: boolean
   urlEnVivo?: string
   urlRepositorio?: string
+  urlGooglePlay?: string
 }
 
 export interface EntradaEducacion {
@@ -80,9 +101,29 @@ export interface EntradaEducacion {
   descripcion: string
 }
 
+export interface Certificacion {
+  titulo: string
+  entidad: string
+  fecha: string
+  vencimiento?: string
+  credencialId?: string
+  urlCredencial?: string
+  horas?: string
+}
+
+export interface Idioma {
+  nombre: string
+  nivel: string
+  porcentaje: number
+  detalle?: string
+  bandera?: string
+}
+
 export interface InfoContacto {
-  gmail: string;
-  github: string;
-  linkedin: string;
-  twitter?: string;
+  gmail: string
+  github: string
+  linkedin: string
+  twitter?: string
+  telefono?: string
+  sitioWeb?: string
 }
