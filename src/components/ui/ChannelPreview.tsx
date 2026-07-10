@@ -61,13 +61,13 @@ export function ChannelPreview({ canal, onClose, onStart, onNext, onPrev }: Chan
           </p>
         </div>
 
-        {/* Botones estilo Wii abajo */}
+        {/* Botones de navegación */}
         <div className="channel-preview-buttons">
           <button className="preview-btn preview-btn--back" onClick={handleClose}>
-            Menú de Wii
+            ‹ Volver
           </button>
           <button className="preview-btn preview-btn--start" onClick={handleStart}>
-            Comenzar
+            Entrar
           </button>
         </div>
 

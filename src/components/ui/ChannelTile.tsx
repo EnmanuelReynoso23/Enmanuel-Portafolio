@@ -22,7 +22,7 @@ export function ChannelTile({ canal, index, onClick }: ChannelTileProps) {
       style={{ '--enter-delay': `${index * 60}ms` } as React.CSSProperties}
       disabled={canal.estaVacio}
     >
-      {!canal.estaVacio ? (
+      {!canal.estaVacio && (
         <>
           <div className="channel-tile__icon">
             {canal.icono && (
@@ -33,8 +33,6 @@ export function ChannelTile({ canal, index, onClick }: ChannelTileProps) {
           </div>
           <span className="channel-tile__title">{canal.titulo}</span>
         </>
-      ) : (
-        <span className="channel-tile--empty-text">Wii</span>
       )}
     </button>
   )

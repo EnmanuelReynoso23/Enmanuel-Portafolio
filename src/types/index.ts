@@ -109,6 +109,10 @@ export interface Certificacion {
   credencialId?: string
   urlCredencial?: string
   horas?: string
+  /** Ruta a una imagen/escaneo real del certificado (opcional). Ej: '/certificados/typescript.png' */
+  imagen?: string
+  /** Color de acento del certificado (opcional). */
+  color?: string
 }
 
 export interface Idioma {

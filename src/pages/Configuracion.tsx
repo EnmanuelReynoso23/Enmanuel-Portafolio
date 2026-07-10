@@ -90,8 +90,8 @@ export function Configuracion() {
         <h2 className="page-section__title">ℹ️ Información</h2>
         <div className="page-card">
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
-            Este portafolio está inspirado en la interfaz del Nintendo Wii. 
-            Navega por los canales para conocer más sobre mí, mis proyectos y habilidades.
+            Portafolio interactivo de Enmanuel Reynoso Salazar. Navega por los canales
+            para conocer mi experiencia, proyectos, habilidades y certificaciones.
           </p>
         </div>
       </div>
