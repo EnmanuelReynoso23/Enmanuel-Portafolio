@@ -14,7 +14,7 @@ export const datosPortafolio: DatosPortafolio = {
     logros: [
       { icono: '🏆', valor: '3er Lugar', etiqueta: 'Nacional MESCyT 2025' },
       { icono: '💰', valor: 'RD$400K', etiqueta: 'Capital semilla levantado' },
-      { icono: '📱', valor: 'Google Play', etiqueta: 'Producto lanzado' },
+      { icono: '📱', valor: 'iOS y Android', etiqueta: 'Publicada en ambas tiendas' },
       { icono: '💼', valor: '3 años', etiqueta: 'De trayectoria laboral' },
     ],
   },
@@ -102,7 +102,7 @@ export const datosPortafolio: DatosPortafolio = {
       ubicacion: 'República Dominicana',
       actual: true,
       descripcion:
-        'Fundé AsistoYA para resolver un problema real: la asistencia escolar manual es lenta y no avisa a los padres cuando un estudiante no llega a la escuela.\n\nDesarrollé una app impulsada por IA y reconocimiento facial que notifica a las familias en tiempo real sobre llegadas, salidas o ausencias. El resultado: 3er lugar nacional (MESCyT 2025), capital semilla levantado y producto lanzado con éxito en Google Play Store.',
+        'Fundé AsistoYA para resolver un problema real: la asistencia escolar manual es lenta y no avisa a los padres cuando un estudiante no llega a la escuela.\n\nDesarrollé una app impulsada por IA y reconocimiento facial que notifica a las familias en tiempo real sobre llegadas, salidas o ausencias. El resultado: 3er lugar nacional (MESCyT 2025), capital semilla levantado y producto lanzado con éxito en Google Play y la App Store.',
       tecnologias: ['Computer Vision', 'IA', 'Liderazgo', 'Gestión de Producto', 'Innovación'],
     },
     {
@@ -153,7 +153,7 @@ export const datosPortafolio: DatosPortafolio = {
       titulo: 'AsistoYA',
       subtitulo: 'Plataforma EdTech con IA y Reconocimiento Facial',
       descripcion:
-        'AsistoYA es una plataforma de gestión educativa que automatiza el control de asistencia escolar mediante reconocimiento facial e inteligencia artificial, y fortalece la comunicación entre la escuela y las familias.\n\nComo fundador y CEO lideré el producto desde la idea hasta su lanzamiento: ganamos el 3er lugar en la Competencia Nacional de Emprendimiento (MESCyT 2025) tras ser seleccionados entre 40 ideas y competir contra 21 universidades, levantamos RD$400,000 de capital semilla y publicamos la app en Google Play Store.',
+        'AsistoYA es una plataforma de gestión educativa que automatiza el control de asistencia escolar mediante reconocimiento facial e inteligencia artificial, y fortalece la comunicación entre la escuela y las familias.\n\nComo fundador y CEO lideré el producto desde la idea hasta su lanzamiento: ganamos el 3er lugar en la Competencia Nacional de Emprendimiento (MESCyT 2025) tras ser seleccionados entre 40 ideas y competir contra 21 universidades, levantamos RD$400,000 de capital semilla y publicamos la app en Google Play y la App Store.',
       imagen: '',
       destacado: true,
       tecnologias: ['Computer Vision', 'Reconocimiento Facial', 'IA', 'Liderazgo', 'Gestión de Producto'],
@@ -169,10 +169,10 @@ export const datosPortafolio: DatosPortafolio = {
       logros: [
         '🏆 3er lugar nacional — MESCyT 2025',
         '💰 RD$400,000 de capital semilla',
-        '📱 Lanzada en Google Play Store',
+        '📱 Publicada en Google Play y App Store',
       ],
       urlEnVivo: 'https://asistoya.com',
-      // TODO: poner la URL real de la ficha en Google Play.
+      // TODO: poner las URL reales de las fichas en Google Play y App Store.
       // Apuntaba a play.google.com/store (la tienda genérica), no a la app.
     },
     {

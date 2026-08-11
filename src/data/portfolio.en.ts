@@ -22,7 +22,7 @@ export const portfolioData: DatosPortafolio = {
     logros: [
       { icono: '🏆', valor: '3rd place', etiqueta: 'MESCyT 2025, national' },
       { icono: '💰', valor: 'RD$400K', etiqueta: 'Seed capital raised' },
-      { icono: '📱', valor: 'Google Play', etiqueta: 'Product shipped' },
+      { icono: '📱', valor: 'iOS & Android', etiqueta: 'Shipped on both stores' },
       { icono: '💼', valor: '3 years', etiqueta: 'Of work experience' },
     ],
   },
@@ -110,7 +110,7 @@ export const portfolioData: DatosPortafolio = {
       ubicacion: 'Dominican Republic',
       actual: true,
       descripcion:
-        'I founded AsistoYA to solve a real problem: manual attendance tracking is slow, and families are not told when a student never arrives at school.\n\nI built an AI and facial-recognition app that notifies families in real time about arrivals, departures and absences. The result: 3rd place nationally (MESCyT 2025), seed capital raised, and the product shipped on the Google Play Store.',
+        'I founded AsistoYA to solve a real problem: manual attendance tracking is slow, and families are not told when a student never arrives at school.\n\nI built an AI and facial-recognition app that notifies families in real time about arrivals, departures and absences. The result: 3rd place nationally (MESCyT 2025), seed capital raised, and the product shipped on both the Google Play Store and the App Store.',
       tecnologias: ['Computer vision', 'AI', 'Leadership', 'Product management', 'Innovation'],
     },
     {
@@ -161,7 +161,7 @@ export const portfolioData: DatosPortafolio = {
       titulo: 'AsistoYA',
       subtitulo: 'EdTech platform with AI and facial recognition',
       descripcion:
-        'AsistoYA is a school management platform that automates attendance tracking through facial recognition and AI, and strengthens the link between school and family.\n\nAs founder and CEO I led the product from idea to launch: 3rd place in the National Entrepreneurship Competition (MESCyT 2025) after being selected from 40 ideas and competing against 21 universities, RD$400,000 raised in seed capital, and the app published on the Google Play Store.',
+        'AsistoYA is a school management platform that automates attendance tracking through facial recognition and AI, and strengthens the link between school and family.\n\nAs founder and CEO I led the product from idea to launch: 3rd place in the National Entrepreneurship Competition (MESCyT 2025) after being selected from 40 ideas and competing against 21 universities, RD$400,000 raised in seed capital, and the app published on both the Google Play Store and the App Store.',
       imagen: '',
       destacado: true,
       tecnologias: ['Computer vision', 'Facial recognition', 'AI', 'Leadership', 'Product management'],
@@ -177,7 +177,7 @@ export const portfolioData: DatosPortafolio = {
       logros: [
         '🏆 3rd place nationally — MESCyT 2025',
         '💰 RD$400,000 in seed capital',
-        '📱 Shipped on the Google Play Store',
+        '📱 Shipped on Google Play and the App Store',
       ],
       urlEnVivo: 'https://asistoya.com',
     },
