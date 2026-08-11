@@ -14,11 +14,20 @@ body,
   width: 100%;
 }
 
+html {
+  /* Chrome en Android agranda por su cuenta el texto de algunos bloques
+     ("font boosting") y descuadra layouts calculados al píxel. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  /* Sin esto, el rebote del scroll en Android muestra franjas blancas */
+  overscroll-behavior: none;
 }
 
 img {

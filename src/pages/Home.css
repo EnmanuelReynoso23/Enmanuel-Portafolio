@@ -1,6 +1,9 @@
 /* ===== Pantalla Principal ===== */
 .home {
-  height: 100vh;
+  /* dvh en vez de vh: en Android la barra de direcciones aparece y
+     desaparece, y con vh el contenido quedaba cortado por debajo. */
+  height: 100dvh;
+  min-height: 100vh;
   background: var(--bg-gradient);
   display: flex;
   align-items: center;
@@ -14,5 +17,14 @@
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 100px; /* Compensate for the curved bottom bar */
+  padding-bottom: 100px; /* Compensa la barra inferior curva */
+}
+
+@media (max-width: 600px) {
+  .home__grid-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    /* La barra inferior es más alta en móvil (reloj en su propia fila) */
+    padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+  }
 }

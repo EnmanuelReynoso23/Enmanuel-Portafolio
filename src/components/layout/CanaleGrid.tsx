@@ -4,6 +4,7 @@ import { ChannelTile } from '@/components/ui/ChannelTile'
 import { ChannelPreview } from '@/components/ui/ChannelPreview'
 import { useCanales } from '@/data/channels'
 import { useOrdenCanales } from '@/hooks/useOrdenCanales'
+import { useGestosCanales } from '@/hooks/useGestosCanales'
 import { useTextos } from '@/i18n/useLanguage'
 import type { Canal } from '@/types'
 import { GRID_CONFIG, CHANNELS_PER_PAGE } from './gridConfig'
@@ -62,18 +63,6 @@ export function ChannelGrid() {
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('')
   const [isAnimating, setIsAnimating] = useState(false)
 
-  // Reordenado por arrastre
-  const [arrastrado, setArrastrado] = useState<number | null>(null)
-  const [objetivo, setObjetivo] = useState<number | null>(null)
-
-  const soltar = () => {
-    if (arrastrado !== null && objetivo !== null) {
-      mover(arrastrado, objetivo)
-    }
-    setArrastrado(null)
-    setObjetivo(null)
-  }
-
   const handlePrevPage = () => {
     if (isAnimating) return
     setSlideDirection('left')
@@ -96,9 +85,15 @@ export function ChannelGrid() {
     }, 300)
   }
 
+  const { arrastrado, objetivo, propsCanal, propsContenedor, arrastrando } = useGestosCanales({
+    onMover: mover,
+    onAnterior: handlePrevPage,
+    onSiguiente: handleNextPage,
+  })
+
   const handleChannelClick = (canal: Canal) => {
-    // Al soltar un arrastre el navegador dispara también el click.
-    if (arrastrado !== null) return
+    // Al soltar un reordenado el navegador dispara también el click.
+    if (arrastrando) return
     if (!canal.estaVacio) {
       setSelectedChannel(canal)
     }
@@ -155,8 +150,11 @@ export function ChannelGrid() {
           </svg>
         </button>
 
-        <div className="channel-grid-viewport" style={gridStyles}>
-          <div className={`channel-grid ${slideDirection ? `slide-${slideDirection}` : ''}`} key={paginaValida}>
+        <div className="channel-grid-viewport" style={gridStyles} {...propsContenedor}>
+          <div
+            className={`channel-grid ${slideDirection ? `slide-${slideDirection}` : ''} ${arrastrando ? 'channel-grid--reordenando' : ''}`}
+            key={paginaValida}
+          >
             {currentChannels.map((canal, index) => (
               <ChannelTile
                 key={`${canal.id}-${paginaValida}`}
@@ -164,16 +162,27 @@ export function ChannelGrid() {
                 index={index}
                 onClick={() => handleChannelClick(canal)}
                 arrastrando={arrastrado === canal.id}
-                esObjetivo={objetivo === canal.id && arrastrado !== canal.id}
-                onDragStart={() => setArrastrado(canal.id)}
-                onDragEnter={() => {
-                  if (!canal.estaVacio && arrastrado !== null) setObjetivo(canal.id)
-                }}
-                onDragEnd={soltar}
+                esObjetivo={objetivo === canal.id}
+                gestos={propsCanal(canal.id, !canal.estaVacio)}
               />
             ))}
           </div>
           <p className="channel-grid__hint">{t.reordenarPista}</p>
+
+          {totalPages > 1 && (
+            <div className="channel-grid__dots" role="tablist" aria-label={t.paginas}>
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  role="tab"
+                  aria-selected={i === paginaValida}
+                  aria-label={`${t.pagina} ${i + 1}`}
+                  className={`channel-grid__dot ${i === paginaValida ? 'is-active' : ''}`}
+                  onClick={() => setCurrentPage(i)}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <button className="nav-arrow nav-arrow--right" onClick={handleNextPage} aria-label={t.siguiente}>

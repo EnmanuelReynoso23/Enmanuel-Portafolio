@@ -12,6 +12,8 @@ export const textos = {
     volverInicio: 'Volver al inicio',
     idioma: 'Idioma',
     cambiarIdioma: 'Cambiar a inglés',
+    paginas: 'Páginas',
+    pagina: 'Página',
     anterior: 'Página anterior',
     siguiente: 'Página siguiente',
 
@@ -143,6 +145,8 @@ export const textos = {
     volverInicio: 'Back to home',
     idioma: 'Language',
     cambiarIdioma: 'Switch to Spanish',
+    paginas: 'Pages',
+    pagina: 'Page',
     anterior: 'Previous page',
     siguiente: 'Next page',
 

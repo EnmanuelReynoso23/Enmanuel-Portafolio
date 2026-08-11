@@ -145,3 +145,78 @@
 .channel-grid-viewport:hover .channel-grid__hint {
   opacity: 0.75;
 }
+
+/* ===== Táctil ===== */
+/* Mientras se reordena, el navegador no debe desplazar la página con el dedo */
+.channel-grid--reordenando {
+  touch-action: none;
+}
+
+.channel-tile {
+  /* Evita el retardo de 300 ms y el zoom por doble toque en Android */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 520px) {
+  .channel-grid-container {
+    /* Las flechas se montaban sobre las tarjetas en pantallas estrechas */
+    gap: 2px;
+    padding: 0 2vw;
+  }
+
+  .nav-arrow {
+    flex-shrink: 0;
+  }
+
+  /* En móvil se cambia de página deslizando, así que la pista sobra */
+  .channel-grid__hint {
+    display: none;
+  }
+}
+
+/* ===== Indicador de páginas ===== */
+.channel-grid__dots {
+  display: none;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.channel-grid__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.45);
+  transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+}
+
+.channel-grid__dot.is-active {
+  width: 24px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+@media (max-width: 520px) {
+  /* Las flechas se comían 70 px de 360: el grid quedaba en 232 px y los
+     títulos no cabían. En táctil se cambia de página deslizando, así que
+     se sustituyen por los puntos. */
+  .nav-arrow {
+    display: none;
+  }
+
+  .channel-grid__dots {
+    display: flex;
+  }
+
+  .channel-grid-container {
+    padding: 0;
+    gap: 0;
+  }
+
+  .channel-grid {
+    grid-auto-rows: 142px;
+    gap: 14px;
+  }
+}

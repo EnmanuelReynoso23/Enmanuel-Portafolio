@@ -6,13 +6,12 @@ interface ChannelTileProps {
   canal: Canal
   index: number
   onClick?: () => void
-  /** Este canal es el que se está arrastrando. */
+  /** Este canal es el que se está moviendo. */
   arrastrando?: boolean
-  /** El canal arrastrado se soltaría aquí. */
+  /** El canal en movimiento se soltaría aquí. */
   esObjetivo?: boolean
-  onDragStart?: () => void
-  onDragEnter?: () => void
-  onDragEnd?: () => void
+  /** Handlers de gesto (pulsación larga para reordenar). */
+  gestos?: Record<string, unknown>
 }
 
 export function ChannelTile({
@@ -21,12 +20,9 @@ export function ChannelTile({
   onClick,
   arrastrando = false,
   esObjetivo = false,
-  onDragStart,
-  onDragEnter,
-  onDragEnd,
+  gestos,
 }: ChannelTileProps) {
   const t = useTextos()
-  const movible = !canal.estaVacio && Boolean(onDragStart)
 
   const handleClick = () => {
     if (!canal.estaVacio && onClick) {
@@ -48,24 +44,7 @@ export function ChannelTile({
       aria-label={canal.estaVacio ? t.canalVacio : `${t.abrirCanal} ${canal.titulo}`}
       style={{ '--enter-delay': `${index * 60}ms` } as React.CSSProperties}
       disabled={canal.estaVacio}
-      draggable={movible}
-      onDragStart={(e) => {
-        if (!movible) return
-        // Firefox no inicia el arrastre sin datos en el dataTransfer.
-        e.dataTransfer.setData('text/plain', String(canal.id))
-        e.dataTransfer.effectAllowed = 'move'
-        onDragStart?.()
-      }}
-      onDragEnter={onDragEnter}
-      onDragOver={(e) => {
-        // Sin preventDefault el navegador no considera esto un destino válido.
-        if (movible || esObjetivo) e.preventDefault()
-      }}
-      onDrop={(e) => {
-        e.preventDefault()
-        onDragEnd?.()
-      }}
-      onDragEnd={onDragEnd}
+      {...gestos}
     >
       {!canal.estaVacio && (
         <>

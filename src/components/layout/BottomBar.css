@@ -304,28 +304,104 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
+  /* El reloj estaba en position:absolute centrado, así que en pantallas
+     estrechas los botones le pasaban por encima y el último se salía
+     del borde. En móvil pasa a su propia fila, en flujo normal. */
   .bottom-bar {
-    padding: 0 12px;
-    height: 65px;
+    height: auto;
+    min-height: 96px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    row-gap: 2px;
+    column-gap: 8px;
+    /* Deja libre la barra de gestos de Android */
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
   }
+
+  .bottom-bar__center {
+    position: static;
+    transform: none;
+    margin-top: 0;
+    order: -1;
+    flex-basis: 100%;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .bottom-bar__left,
+  .bottom-bar__right {
+    gap: 8px;
+  }
+
+  .bottom-bar__time {
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+  }
+
+  .bottom-bar__date {
+    margin-top: 0;
+    font-size: 0.78rem;
+  }
+
   .circle-btn {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
   .bottom-bar::before {
-    width: 200px;
-    top: -18px;
-    height: 18px;
-  }
-  .bottom-bar__time {
-    font-size: 1.4rem;
+    display: none;
   }
   .circle-btn__icon {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
   }
   .music-popup {
     right: 12px;
     width: 260px;
+  }
+}
+
+/* Pantallas muy estrechas (≈320 px): los botones no caben a 42 px y la
+   barra los partía en dos filas desalineadas. */
+@media (max-width: 400px) {
+  .bottom-bar {
+    column-gap: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .bottom-bar__left,
+  .bottom-bar__right {
+    gap: 5px;
+  }
+
+  /* Apretar lo justo para que los seis controles quepan en una fila:
+     partidos en dos quedaban descentrados entre sí. */
+  .bottom-bar .lang-toggle {
+    padding: 2px;
+  }
+
+  .bottom-bar .lang-toggle__opt {
+    padding: 4px 7px;
+    font-size: 0.64rem;
+  }
+
+  .circle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .circle-btn__icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .bottom-bar__time {
+    font-size: 1.05rem;
+  }
+
+  .bottom-bar__date {
+    font-size: 0.72rem;
   }
 }

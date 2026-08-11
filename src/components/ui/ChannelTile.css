@@ -76,6 +76,10 @@
   color: var(--tile-text);
   text-align: center;
   line-height: 1.2;
+  /* Sin esto, «Certificaciones» se salía por los lados de la tarjeta */
+  max-width: 100%;
+  padding: 0 8px;
+  overflow-wrap: break-word;
 }
 
 /* Animación de entrada */
@@ -87,5 +91,12 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 400px) {
+  .channel-tile__title {
+    font-size: 0.72rem;
+    padding: 0 5px;
   }
 }

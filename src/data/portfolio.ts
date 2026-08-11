@@ -247,6 +247,7 @@ export const datosPortafolio: DatosPortafolio = {
   certificaciones: [
     {
       titulo: 'Diplomado en Bases de Datos',
+      imagen: '/certificados/itla-bases-datos.jpg',
       entidad: 'ITLA — Instituto Tecnológico de las Américas',
       fecha: 'Ago. 2026',
       horas: '300 horas',
