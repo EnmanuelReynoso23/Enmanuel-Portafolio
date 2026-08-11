@@ -253,6 +253,7 @@ export const portfolioData: DatosPortafolio = {
       titulo: 'TypeScript: From First Steps to Professional',
       entidad: 'Master.dev (formerly Frontend Masters)',
       fecha: 'Feb 2026',
+      horas: '8 hours',
       credencialId: 'baba173e58-jfuxcgueUy',
       color: '#3178c6',
     },
@@ -282,7 +283,7 @@ export const portfolioData: DatosPortafolio = {
     {
       titulo: 'Python Essentials 1',
       entidad: 'Cisco Networking Academy',
-      fecha: '2025',
+      fecha: 'Mar 2025',
       color: '#f2b705',
     },
     {
@@ -292,6 +293,14 @@ export const portfolioData: DatosPortafolio = {
       horas: '8 hours',
       color: '#6a2c91',
       imagen: '/certificados/unibe.png',
+    },
+    {
+      titulo: 'Legacy Responsive Web Design V8',
+      entidad: 'freeCodeCamp',
+      fecha: 'Oct 2024',
+      horas: '~300 hours',
+      urlCredencial: 'https://freecodecamp.org/certification/fcc3509f1c-94fd-4e6a-9a7b-dfb836aa8fb3/responsive-web-design',
+      color: '#0a0a23',
     },
     {
       titulo: 'English Language Diploma',
