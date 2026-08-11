@@ -1,5 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { datosPortafolio } from '@/data/portfolio'
+import { UserRound, Sparkles } from 'lucide-react'
 import './pages.css'
 
 export function SobreMi() {
@@ -34,7 +35,10 @@ export function SobreMi() {
 
       {/* Biografía */}
       <div className="page-section">
-        <h2 className="page-section__title">👋 Quién soy</h2>
+        <h2 className="page-section__title">
+          <span className="section-icon"><UserRound size={17} /></span>
+          Quién soy
+        </h2>
         <div className="page-card">
           <p className="page-card__text" style={{ whiteSpace: 'pre-line' }}>{sobreMi.biografia}</p>
         </div>
@@ -42,7 +46,10 @@ export function SobreMi() {
 
       {/* Aptitudes principales */}
       <div className="page-section">
-        <h2 className="page-section__title">⭐ Aptitudes principales</h2>
+        <h2 className="page-section__title">
+          <span className="section-icon"><Sparkles size={17} /></span>
+          Aptitudes principales
+        </h2>
         <div className="tech-tags">
           {sobreMi.aptitudesPrincipales.map(apt => (
             <span key={apt} className="tech-tag tech-tag--lg">{apt}</span>

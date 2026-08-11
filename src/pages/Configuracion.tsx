@@ -4,6 +4,7 @@ import { useTheme } from '@/context/ThemeContext'
 import { useAudio } from '@/context/AudioContext'
 import { useClock } from '@/hooks/useClock'
 import { useState } from 'react'
+import { Palette, Clock, Music, Info } from 'lucide-react'
 import './pages.css'
 
 export function Configuracion() {
@@ -23,7 +24,10 @@ export function Configuracion() {
     <PageShell title="Configuración">
       {/* Apariencia */}
       <div className="page-section">
-        <h2 className="page-section__title">🎨 Apariencia</h2>
+        <h2 className="page-section__title">
+          <span className="section-icon"><Palette size={17} /></span>
+          Apariencia
+        </h2>
         <div className="page-card">
           <ToggleSwitch
             label="Tema oscuro"
@@ -35,7 +39,10 @@ export function Configuracion() {
 
       {/* Reloj */}
       <div className="page-section">
-        <h2 className="page-section__title">🕐 Reloj</h2>
+        <h2 className="page-section__title">
+          <span className="section-icon"><Clock size={17} /></span>
+          Reloj
+        </h2>
         <div className="page-card" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <ToggleSwitch
             label="Formato 24 horas"
@@ -52,7 +59,10 @@ export function Configuracion() {
 
       {/* Música */}
       <div className="page-section">
-        <h2 className="page-section__title">🎵 Música de fondo</h2>
+        <h2 className="page-section__title">
+          <span className="section-icon"><Music size={17} /></span>
+          Música de fondo
+        </h2>
         <div className="page-card">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
@@ -87,7 +97,10 @@ export function Configuracion() {
 
       {/* Info */}
       <div className="page-section">
-        <h2 className="page-section__title">ℹ️ Información</h2>
+        <h2 className="page-section__title">
+          <span className="section-icon"><Info size={17} /></span>
+          Información
+        </h2>
         <div className="page-card">
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
             Portafolio interactivo de Enmanuel Reynoso Salazar. Navega por los canales

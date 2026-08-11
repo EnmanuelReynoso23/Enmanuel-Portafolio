@@ -1,6 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { PageShell } from '@/components/layout/PageShell'
 import { datosPortafolio } from '@/data/portfolio'
+import { FileText, Sparkles, Wrench, Link2 } from 'lucide-react'
 import './pages.css'
 
 export function Proyecto() {
@@ -45,7 +46,10 @@ export function Proyecto() {
 
       {/* Descripción */}
       <div className="page-section">
-        <h2 className="page-section__title">🗒️ Sobre este proyecto</h2>
+        <h2 className="page-section__title">
+            <span className="section-icon"><FileText size={17} /></span>
+            Sobre este proyecto
+          </h2>
         <div className="page-card">
           <p className="page-card__text" style={{ whiteSpace: 'pre-line' }}>{proyecto.descripcion}</p>
         </div>
@@ -54,7 +58,10 @@ export function Proyecto() {
       {/* Características */}
       {proyecto.caracteristicas && proyecto.caracteristicas.length > 0 && (
         <div className="page-section">
-          <h2 className="page-section__title">✨ Características</h2>
+          <h2 className="page-section__title">
+            <span className="section-icon"><Sparkles size={17} /></span>
+            Características
+          </h2>
           <div className="page-card">
             <ul className="feature-list">
               {proyecto.caracteristicas.map((c, i) => (
@@ -67,7 +74,10 @@ export function Proyecto() {
 
       {/* Tecnologías */}
       <div className="page-section">
-        <h2 className="page-section__title">🛠️ Tecnologías</h2>
+        <h2 className="page-section__title">
+            <span className="section-icon"><Wrench size={17} /></span>
+            Tecnologías
+          </h2>
         <div className="tech-tags">
           {proyecto.tecnologias.map((tech, i) => (
             <span key={i} className="tech-tag">{tech}</span>
@@ -78,7 +88,10 @@ export function Proyecto() {
       {/* Enlaces */}
       {(proyecto.urlEnVivo || proyecto.urlRepositorio || proyecto.urlGooglePlay) && (
         <div className="page-section">
-          <h2 className="page-section__title">🔗 Enlaces</h2>
+          <h2 className="page-section__title">
+            <span className="section-icon"><Link2 size={17} /></span>
+            Enlaces
+          </h2>
           <div style={{ display: 'grid', gap: '10px' }}>
             {proyecto.urlEnVivo && (
               <a href={proyecto.urlEnVivo} target="_blank" rel="noopener noreferrer" className="contact-link">
