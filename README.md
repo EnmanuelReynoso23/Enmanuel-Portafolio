@@ -66,8 +66,15 @@ ese archivo.
 Los escaneos de certificados y cartas van en `public/certificados/`, y se
 referencian desde `portfolio.ts` con el campo `imagen`.
 
-El CV en PDF está en `public/CV-Enmanuel-Reynoso.pdf` y se genera a partir de
-`cv/CV-Enmanuel-Reynoso.html` (abrir en el navegador e imprimir a PDF, A4).
+Los CV viven en `cv/` como HTML y se publican en `public/` como PDF:
+
+| Archivo | Uso |
+| --- | --- |
+| `CV-Enmanuel-Reynoso` | General. Es el que enlaza el portafolio. |
+| `CV-Enmanuel-Reynoso-Cloudbeds` | Variante enfocada a tecnología hotelera y datos. |
+
+Para regenerar un PDF: abrir el HTML en el navegador e imprimir a PDF en A4
+(los márgenes ya están definidos con `@page`).
 
 ## Detalles de implementación
 
