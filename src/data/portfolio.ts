@@ -15,7 +15,7 @@ export const datosPortafolio: DatosPortafolio = {
       { icono: '🏆', valor: '3er Lugar', etiqueta: 'Nacional MESCyT 2025' },
       { icono: '💰', valor: 'RD$400K', etiqueta: 'Capital semilla levantado' },
       { icono: '📱', valor: 'Google Play', etiqueta: 'Producto lanzado' },
-      { icono: '💼', valor: '5+ años', etiqueta: 'Experiencia laboral' },
+      { icono: '💼', valor: '3 años', etiqueta: 'De trayectoria laboral' },
     ],
   },
 
@@ -71,9 +71,9 @@ export const datosPortafolio: DatosPortafolio = {
       tecnologias: ['Git', 'GitHub', 'Docker', 'Nginx', 'VS Code', 'npm', 'Postman'],
     },
     {
-      categoria: 'CMS & No-Code',
+      categoria: 'Hostelería & CMS',
       icono: '🌐',
-      tecnologias: ['WordPress', 'Elementor', 'Motores de Reservas', 'SEO'],
+      tecnologias: ['Cloudbeds', 'Hotello (PMS)', 'Motores de Reservas', 'WordPress', 'Elementor', 'SEO'],
     },
     {
       categoria: 'Diseño & Productividad',
@@ -96,7 +96,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       empresa: 'AsistoYA',
-      rol: 'Fundador · CEO & Co-Founder',
+      rol: 'Fundador · CEO y Desarrollador Principal',
       periodo: 'Ago. 2025 - Actualidad',
       tipo: 'Emprendimiento',
       ubicacion: 'República Dominicana',
@@ -117,7 +117,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       empresa: 'Velero Beach Resort',
-      rol: 'Front Desk / Recepcionista',
+      rol: 'Recepcionista y Auditor Nocturno',
       periodo: 'Abr. 2025 - Feb. 2026',
       tipo: 'Jornada completa',
       ubicacion: 'República Dominicana',
@@ -127,7 +127,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       empresa: 'EyP Multiservices (Claro)',
-      rol: 'Asistente Administrativo',
+      rol: 'Asistente Administrativo y de Soporte Técnico',
       periodo: 'Nov. 2024 - Mar. 2025',
       tipo: 'Contrato temporal',
       ubicacion: 'República Dominicana · Presencial',
@@ -136,7 +136,7 @@ export const datosPortafolio: DatosPortafolio = {
       tecnologias: ['CRM', 'ERP', 'Microsoft Excel', 'Google Workspace', 'AnyDesk', 'Canva'],
     },
     {
-      empresa: 'Lic. Wilson Manuel Sosa',
+      empresa: 'Lic. Wilson Manuel Sosa, CPA',
       rol: 'Asistente de Contabilidad',
       periodo: 'Jul. 2023 - May. 2024',
       tipo: 'Jornada completa',

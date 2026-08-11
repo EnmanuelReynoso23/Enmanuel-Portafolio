@@ -23,7 +23,7 @@ export const portfolioData: DatosPortafolio = {
       { icono: '🏆', valor: '3rd place', etiqueta: 'MESCyT 2025, national' },
       { icono: '💰', valor: 'RD$400K', etiqueta: 'Seed capital raised' },
       { icono: '📱', valor: 'Google Play', etiqueta: 'Product shipped' },
-      { icono: '💼', valor: '5+ years', etiqueta: 'Work experience' },
+      { icono: '💼', valor: '3 years', etiqueta: 'Of work experience' },
     ],
   },
 
