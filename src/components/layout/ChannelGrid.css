@@ -114,3 +114,34 @@
     height: 20px;
   }
 }
+
+/* ===== Reordenado por arrastre (como mover canales en la Wii) ===== */
+.channel-tile--dragging {
+  opacity: 0.45;
+  transform: scale(0.96);
+  cursor: grabbing;
+}
+
+/* Hueco donde caería el canal arrastrado */
+.channel-tile--target {
+  outline: 3px dashed var(--accent);
+  outline-offset: 4px;
+  transform: scale(1.04);
+}
+
+.channel-grid__hint {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* La pista solo aparece al pasar por la cuadrícula: no compite con los
+   canales, pero está ahí cuando el visitante ya está mirando. */
+.channel-grid-viewport:hover .channel-grid__hint {
+  opacity: 0.75;
+}

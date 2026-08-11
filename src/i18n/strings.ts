@@ -15,6 +15,17 @@ export const textos = {
     anterior: 'Página anterior',
     siguiente: 'Página siguiente',
 
+    // Canales
+    canalVacio: 'Canal vacío',
+    abrirCanal: 'Abrir',
+    explorarCanal: 'Entra para explorar este canal.',
+    volver: 'Volver',
+    entrar: 'Entrar',
+    reordenarPista: 'Arrastra los canales para reordenarlos',
+    ordenCanales: 'Orden de los canales',
+    restablecerOrden: 'Restablecer el orden original',
+    ordenRestablecido: 'Orden original restaurado',
+
     // Títulos de página
     tituloSobreMi: 'Sobre Mí',
     tituloExperiencia: 'Experiencia Laboral',
@@ -98,6 +109,10 @@ export const textos = {
     musicaDeFondo: 'Música de fondo',
     informacion: 'Información',
 
+    temaOscuro: 'Tema oscuro',
+    formato24h: 'Formato 24 horas',
+    mostrarAno: 'Mostrar año en la fecha',
+
     // Intro
     continuar: 'Continuar',
     preguntaMusica: '¿Deseas activar la música de fondo?',
@@ -111,6 +126,7 @@ export const textos = {
     entendido: 'Entendido',
 
     // Reproductor
+    descargarCVCorto: 'Descargar CV',
     reproductor: 'Reproductor',
     pausar: 'Pausar',
     reproducir: 'Reproducir',
@@ -129,6 +145,17 @@ export const textos = {
     cambiarIdioma: 'Switch to Spanish',
     anterior: 'Previous page',
     siguiente: 'Next page',
+
+    // Channels
+    canalVacio: 'Empty channel',
+    abrirCanal: 'Open',
+    explorarCanal: 'Step in to explore this channel.',
+    volver: 'Back',
+    entrar: 'Enter',
+    reordenarPista: 'Drag the channels to rearrange them',
+    ordenCanales: 'Channel order',
+    restablecerOrden: 'Reset to the original order',
+    ordenRestablecido: 'Original order restored',
 
     // Page titles
     tituloSobreMi: 'About Me',
@@ -212,6 +239,10 @@ export const textos = {
     musicaDeFondo: 'Background music',
     informacion: 'Information',
 
+    temaOscuro: 'Dark theme',
+    formato24h: '24-hour format',
+    mostrarAno: 'Show the year in the date',
+
     // Intro
     continuar: 'Continue',
     preguntaMusica: 'Would you like background music?',
@@ -225,6 +256,7 @@ export const textos = {
     entendido: 'Got it',
 
     // Player
+    descargarCVCorto: 'Download CV',
     reproductor: 'Player',
     pausar: 'Pause',
     reproducir: 'Play',

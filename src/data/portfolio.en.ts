@@ -189,6 +189,7 @@ export const portfolioData: DatosPortafolio = {
         'I digitized the night-audit process I was running by hand at the hotel front desk: reconciling the day’s transactions sheet by sheet before closing the system.\n\nThe application records check-ins and check-outs, bills automatically, breaks sales down by category, shift and payment method, and shows a countdown to the system close.\n\nIt is the project that best explains what I do: it came out of a problem I lived in the operation, not a classroom exercise.',
       imagen: '',
       tecnologias: ['React', 'TypeScript', 'Tailwind CSS'],
+      urlEnVivo: 'https://sistema-de-auditoria-nocturna.vercel.app/',
       caracteristicas: [
         'Check-in and check-out records',
         'Automated billing',
@@ -211,7 +212,8 @@ export const portfolioData: DatosPortafolio = {
         'Academic data integration',
         'Digital payments module',
       ],
-      urlRepositorio: 'https://github.com/Elpensum/elpensum-frontend',
+      // El repositorio es privado: se enlaza el sitio público.
+      urlEnVivo: 'https://elpensum.com/inicio',
     },
     {
       id: 3,

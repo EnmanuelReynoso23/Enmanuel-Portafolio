@@ -5,11 +5,14 @@ import { useAudio } from '@/context/AudioContext'
 import { useTextos } from '@/i18n/useLanguage'
 import { useClock } from '@/hooks/useClock'
 import { useState } from 'react'
-import { Palette, Clock, Music, Info } from 'lucide-react'
+import { Palette, Clock, Music, Info, LayoutGrid, RotateCcw } from 'lucide-react'
+import { useCanales } from '@/data/channels'
+import { useOrdenCanales } from '@/hooks/useOrdenCanales'
 import './pages.css'
 
 export function Configuracion() {
   const t = useTextos()
+  const { restablecer, personalizado } = useOrdenCanales(useCanales())
   const { theme, toggleTheme } = useTheme()
   const { videoUrl, setVideoUrl } = useAudio()
   const { clockFormat, dateFormat, setClockFormat, setDateFormat } = useClock()
@@ -32,10 +35,29 @@ export function Configuracion() {
         </h2>
         <div className="page-card">
           <ToggleSwitch
-            label="Tema oscuro"
+            label={t.temaOscuro}
             checked={theme === 'dark'}
             onChange={toggleTheme}
           />
+        </div>
+      </div>
+
+      {/* Orden de los canales */}
+      <div className="page-section">
+        <h2 className="page-section__title">
+          <span className="section-icon"><LayoutGrid size={17} /></span>
+          {t.ordenCanales}
+        </h2>
+        <div className="page-card">
+          <p className="page-card__text" style={{ marginBottom: personalizado ? '14px' : 0 }}>
+            {personalizado ? t.reordenarPista : t.ordenRestablecido}
+          </p>
+          {personalizado && (
+            <button className="edu-card__cert-btn" onClick={restablecer}>
+              <RotateCcw size={14} style={{ verticalAlign: '-2px', marginRight: '6px' }} />
+              {t.restablecerOrden}
+            </button>
+          )}
         </div>
       </div>
 
@@ -47,12 +69,12 @@ export function Configuracion() {
         </h2>
         <div className="page-card" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <ToggleSwitch
-            label="Formato 24 horas"
+            label={t.formato24h}
             checked={clockFormat === '24h'}
             onChange={() => setClockFormat(clockFormat === '24h' ? '12h' : '24h')}
           />
           <ToggleSwitch
-            label="Mostrar año en la fecha"
+            label={t.mostrarAno}
             checked={dateFormat === 'long'}
             onChange={() => setDateFormat(dateFormat === 'long' ? 'short' : 'long')}
           />
@@ -76,7 +98,7 @@ export function Configuracion() {
               onChange={(e) => setUrlInput(e.target.value)}
               onBlur={applyUrl}
               onKeyDown={(e) => { if (e.key === 'Enter') applyUrl() }}
-              placeholder="Pega el enlace y presiona Enter"
+              placeholder={t.pegaEnlace}
               style={{
                 padding: '10px 14px',
                 border: '2px solid var(--input-border, #ccc)',

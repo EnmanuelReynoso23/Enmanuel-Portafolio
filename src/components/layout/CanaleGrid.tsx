@@ -1,34 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChannelTile } from '@/components/ui/ChannelTile'
 import { ChannelPreview } from '@/components/ui/ChannelPreview'
 import { useCanales } from '@/data/channels'
+import { useOrdenCanales } from '@/hooks/useOrdenCanales'
 import { useTextos } from '@/i18n/useLanguage'
 import type { Canal } from '@/types'
+import { GRID_CONFIG, CHANNELS_PER_PAGE } from './gridConfig'
 import './ChannelGrid.css'
 
-export const GRID_CONFIG = {
-  columnas: 3,                // Número de tarjetas a lo ancho (ej. 3 o 4)
-  filas: 2,                   // Número de tarjetas a lo alto (ej. 2 o 3)
-  anchoMaximo: 1150,          // Ancho máximo total de la cuadrícula en px
-  alturaMinimaTarjeta: 175,   // Altura mínima de cada tarjeta (px)
-  alturaMaximaTarjeta: 225,   // Altura máxima de cada tarjeta (px)
-  espaciado: 25,              // Espacio (gap) gris entre canales (px)
+const CLAVE_PAGINA = 'portafolio:pagina-canales'
+
+function paginaGuardada(): number {
+  try {
+    const valor = sessionStorage.getItem(CLAVE_PAGINA)
+    const n = valor ? parseInt(valor, 10) : 0
+    return Number.isFinite(n) && n > 0 ? n : 0
+  } catch {
+    return 0
+  }
 }
 
-const CHANNELS_PER_PAGE = GRID_CONFIG.columnas * GRID_CONFIG.filas
-
 export function ChannelGrid() {
-  const canales = useCanales()
   const t = useTextos()
-  const [currentPage, setCurrentPage] = useState(0)
+  const { canales, mover } = useOrdenCanales(useCanales())
+
+  // La página se recuerda: al volver de un canal de la segunda página,
+  // antes se regresaba siempre a la primera.
+  const [currentPage, setCurrentPage] = useState(paginaGuardada)
   const [selectedChannel, setSelectedChannel] = useState<Canal | null>(null)
   const navigate = useNavigate()
 
   // Aseguramos tener múltiplos de 6 para páginas completas
   const totalPages = Math.ceil(Math.max(canales.length, 12) / CHANNELS_PER_PAGE)
   const totalSlots = totalPages * CHANNELS_PER_PAGE
-  
+
   const canalesRellenos: Canal[] = [...canales]
   while (canalesRellenos.length < totalSlots) {
     canalesRellenos.push({
@@ -41,8 +47,32 @@ export function ChannelGrid() {
     })
   }
 
+  const paginaValida = Math.min(currentPage, totalPages - 1)
+
+  useEffect(() => {
+    // Si el número de páginas se reduce, no dejar una página fuera de rango.
+    if (paginaValida !== currentPage) setCurrentPage(paginaValida)
+    try {
+      sessionStorage.setItem(CLAVE_PAGINA, String(paginaValida))
+    } catch {
+      // Sin persistencia se comporta como antes.
+    }
+  }, [paginaValida, currentPage])
+
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('')
   const [isAnimating, setIsAnimating] = useState(false)
+
+  // Reordenado por arrastre
+  const [arrastrado, setArrastrado] = useState<number | null>(null)
+  const [objetivo, setObjetivo] = useState<number | null>(null)
+
+  const soltar = () => {
+    if (arrastrado !== null && objetivo !== null) {
+      mover(arrastrado, objetivo)
+    }
+    setArrastrado(null)
+    setObjetivo(null)
+  }
 
   const handlePrevPage = () => {
     if (isAnimating) return
@@ -67,6 +97,8 @@ export function ChannelGrid() {
   }
 
   const handleChannelClick = (canal: Canal) => {
+    // Al soltar un arrastre el navegador dispara también el click.
+    if (arrastrado !== null) return
     if (!canal.estaVacio) {
       setSelectedChannel(canal)
     }
@@ -102,8 +134,8 @@ export function ChannelGrid() {
 
   // Cortar los canales para la página actual
   const currentChannels = canalesRellenos.slice(
-    currentPage * CHANNELS_PER_PAGE,
-    (currentPage + 1) * CHANNELS_PER_PAGE
+    paginaValida * CHANNELS_PER_PAGE,
+    (paginaValida + 1) * CHANNELS_PER_PAGE
   )
 
   const gridStyles = {
@@ -124,16 +156,24 @@ export function ChannelGrid() {
         </button>
 
         <div className="channel-grid-viewport" style={gridStyles}>
-          <div className={`channel-grid ${slideDirection ? `slide-${slideDirection}` : ''}`} key={currentPage}>
+          <div className={`channel-grid ${slideDirection ? `slide-${slideDirection}` : ''}`} key={paginaValida}>
             {currentChannels.map((canal, index) => (
-              <ChannelTile 
-                key={`${canal.id}-${currentPage}`} 
-                canal={canal} 
-                index={index} 
+              <ChannelTile
+                key={`${canal.id}-${paginaValida}`}
+                canal={canal}
+                index={index}
                 onClick={() => handleChannelClick(canal)}
+                arrastrando={arrastrado === canal.id}
+                esObjetivo={objetivo === canal.id && arrastrado !== canal.id}
+                onDragStart={() => setArrastrado(canal.id)}
+                onDragEnter={() => {
+                  if (!canal.estaVacio && arrastrado !== null) setObjetivo(canal.id)
+                }}
+                onDragEnd={soltar}
               />
             ))}
           </div>
+          <p className="channel-grid__hint">{t.reordenarPista}</p>
         </div>
 
         <button className="nav-arrow nav-arrow--right" onClick={handleNextPage} aria-label={t.siguiente}>
@@ -144,10 +184,10 @@ export function ChannelGrid() {
       </div>
 
       {selectedChannel && (
-        <ChannelPreview 
-          canal={selectedChannel} 
-          onClose={handleClosePreview} 
-          onStart={handleStartChannel} 
+        <ChannelPreview
+          canal={selectedChannel}
+          onClose={handleClosePreview}
+          onStart={handleStartChannel}
           onNext={handleNextPreview}
           onPrev={handlePrevPreview}
         />

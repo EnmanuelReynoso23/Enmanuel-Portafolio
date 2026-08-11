@@ -17,9 +17,19 @@ export function CertificateVisual({ cert, nombre }: CertificateVisualProps) {
   const accent = cert.color || '#00aaff'
 
   if (cert.imagen) {
+    // El escaneo por sí solo no dice de qué es ni de cuándo: sin este pie,
+    // los certificados con foto se leían con menos datos que los generados.
     return (
       <div className="certificate certificate--photo" style={{ ['--cert-accent' as string]: accent }}>
         <img src={cert.imagen} alt={`${t.verCertificado}: ${cert.titulo}`} className="certificate__img" />
+        <div className="certificate__caption">
+          <span className="certificate__caption-title">{cert.titulo}</span>
+          <span className="certificate__caption-entity">{cert.entidad}</span>
+          <span className="certificate__caption-meta">
+            {cert.fecha}
+            {cert.horas && <> &middot; {cert.horas}</>}
+          </span>
+        </div>
       </div>
     )
   }

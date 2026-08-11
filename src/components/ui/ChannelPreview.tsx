@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Canal } from '@/types'
+import { useTextos } from '@/i18n/useLanguage'
 import './ChannelPreview.css'
 
 interface ChannelPreviewProps {
@@ -11,6 +12,7 @@ interface ChannelPreviewProps {
 }
 
 export function ChannelPreview({ canal, onClose, onStart, onNext, onPrev }: ChannelPreviewProps) {
+  const t = useTextos()
   const [isExiting, setIsExiting] = useState(false)
   const [isStarting, setIsStarting] = useState(false)
 
@@ -57,17 +59,17 @@ export function ChannelPreview({ canal, onClose, onStart, onNext, onPrev }: Chan
         <div className="channel-preview-info">
           <h1 className="channel-preview-title" key={`t-${canal.id}`}>{canal.titulo}</h1>
           <p className="channel-preview-desc" key={`d-${canal.id}`}>
-            {canal.descripcion || 'Entra para explorar este canal.'}
+            {canal.descripcion || t.explorarCanal}
           </p>
         </div>
 
         {/* Botones de navegación */}
         <div className="channel-preview-buttons">
           <button className="preview-btn preview-btn--back" onClick={handleClose}>
-            ‹ Volver
+            ‹ {t.volver}
           </button>
           <button className="preview-btn preview-btn--start" onClick={handleStart}>
-            Entrar
+            {t.entrar}
           </button>
         </div>
 

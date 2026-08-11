@@ -183,6 +183,7 @@ export const datosPortafolio: DatosPortafolio = {
         'Digitalicé el proceso de auditoría nocturna que yo mismo hacía a mano en la recepción del hotel: cuadrar a mano las transacciones del día antes de cerrar el sistema, hoja por hoja.\n\nLa aplicación registra check-ins y check-outs, factura automáticamente, desglosa las ventas por categoría, turno y método de pago, y muestra una cuenta regresiva para el cierre del sistema.\n\nEs el proyecto que mejor explica lo que hago: nació de un dolor que sufrí en la operación, no de un ejercicio de clase.',
       imagen: '',
       tecnologias: ['React', 'TypeScript', 'Tailwind CSS'],
+      urlEnVivo: 'https://sistema-de-auditoria-nocturna.vercel.app/',
       caracteristicas: [
         'Registro de check-in y check-out',
         'Facturación automática',
@@ -205,7 +206,8 @@ export const datosPortafolio: DatosPortafolio = {
         'Integración de datos académicos',
         'Sistema de cobros digitales',
       ],
-      urlRepositorio: 'https://github.com/Elpensum/elpensum-frontend',
+      // El repositorio es privado: se enlaza el sitio público.
+      urlEnVivo: 'https://elpensum.com/inicio',
     },
     {
       id: 3,
