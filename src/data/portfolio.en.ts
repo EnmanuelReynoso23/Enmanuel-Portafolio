@@ -252,6 +252,13 @@ export const portfolioData: DatosPortafolio = {
 
   certificaciones: [
     {
+      titulo: 'Diploma Program in Databases',
+      entidad: 'ITLA — Instituto Tecnológico de las Américas',
+      fecha: 'Aug 2026',
+      horas: '300 hours',
+      color: '#0b3c7d',
+    },
+    {
       titulo: 'TypeScript: From First Steps to Professional',
       imagen: '/certificados/masterdev.jpg',
       entidad: 'Master.dev (formerly Frontend Masters)',

@@ -246,6 +246,13 @@ export const datosPortafolio: DatosPortafolio = {
 
   certificaciones: [
     {
+      titulo: 'Diplomado en Bases de Datos',
+      entidad: 'ITLA — Instituto Tecnológico de las Américas',
+      fecha: 'Ago. 2026',
+      horas: '300 horas',
+      color: '#0b3c7d',
+    },
+    {
       titulo: 'TypeScript: From First Steps to Professional',
       imagen: '/certificados/masterdev.jpg',
       entidad: 'Master.dev (antes Frontend Masters)',
