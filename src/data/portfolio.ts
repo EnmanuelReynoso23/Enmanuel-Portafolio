@@ -294,7 +294,15 @@ export const datosPortafolio: DatosPortafolio = {
       entidad: 'freeCodeCamp',
       fecha: 'Oct. 2024',
       horas: '~300 horas',
-      urlCredencial: 'https://freecodecamp.org/certification/fcc3509f1c-94fd-4e6a-9a7b-dfb836aa8fb3/responsive-web-design',
+      urlCredencial: 'https://freecodecamp.org/certification/fccc3509f1c-94fd-4e6a-9a7b-dfb836aa8fb3/responsive-web-design',
+      color: '#0a0a23',
+    },
+    {
+      titulo: 'Scientific Computing with Python',
+      entidad: 'freeCodeCamp',
+      fecha: 'Oct. 2024',
+      horas: '~300 horas',
+      urlCredencial: 'https://freecodecamp.org/certification/fccc3509f1c-94fd-4e6a-9a7b-dfb836aa8fb3/scientific-computing-with-python-v7',
       color: '#0a0a23',
     },
     {
