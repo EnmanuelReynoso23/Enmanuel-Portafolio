@@ -247,6 +247,7 @@ export const datosPortafolio: DatosPortafolio = {
   certificaciones: [
     {
       titulo: 'TypeScript: From First Steps to Professional',
+      imagen: '/certificados/masterdev.jpg',
       entidad: 'Master.dev (antes Frontend Masters)',
       fecha: 'Feb. 2026',
       horas: '8 horas',
@@ -301,6 +302,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       titulo: 'Scientific Computing with Python',
+      imagen: '/certificados/fcc-python.png',
       entidad: 'freeCodeCamp',
       fecha: 'Oct. 2024',
       horas: '~300 horas',
