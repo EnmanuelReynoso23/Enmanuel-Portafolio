@@ -1,5 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { datosPortafolio } from '@/data/portfolio'
+import { Download } from 'lucide-react'
 import './pages.css'
 
 export function Contacto() {
@@ -14,10 +15,23 @@ export function Contacto() {
   ]
 
   return (
-    <PageShell title="Contacto">
+    <PageShell title="Contacto" subtitle="Disponible para oportunidades remotas">
       <p className="page-intro">
         ¿Tienes un proyecto en mente o una oportunidad? Hablemos. 🚀
       </p>
+
+      {contacto.cv && (
+        <a className="cv-download" href={contacto.cv} download>
+          <span className="cv-download__icon">
+            <Download size={20} />
+          </span>
+          <span className="cv-download__body">
+            <span className="cv-download__title">Descargar mi CV</span>
+            <span className="cv-download__meta">PDF · 2 páginas · En inglés</span>
+          </span>
+        </a>
+      )}
+
       <div className="contact-grid">
         {enlaces.map(enlace => (
           <a

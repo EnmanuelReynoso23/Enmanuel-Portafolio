@@ -3,14 +3,14 @@ import type { DatosPortafolio } from '@/types'
 export const datosPortafolio: DatosPortafolio = {
   sobreMi: {
     nombre: 'Enmanuel Reynoso Salazar',
-    titulo: 'Software Engineer & Founder',
-    headline: 'Software Engineer @ AsistoYA · EdTech AI SaaS · Computer Vision',
+    titulo: 'Tecnología Hotelera & Software Engineer',
+    headline: 'Tecnología hotelera · Cloudbeds y PMS · Ingeniería de Software',
     biografia:
-      'Ingeniero de Software en formación (UAPA) y fundador de AsistoYA, una plataforma EdTech impulsada por inteligencia artificial y visión por computadora. Combino el desarrollo de software con una sólida experiencia previa en atención al cliente, gestión administrativa y soporte técnico.\n\nMe motiva construir productos que unan creatividad y tecnología para resolver problemas reales. Del emprendimiento premiado a nivel nacional al desarrollo front-end profesional, busco siempre generar impacto y crecer como ingeniero.',
+      'He trabajado los dos lados de la tecnología hotelera. En recepción llevé la operación diaria sobre un PMS: reservas, check-in/check-out, facturación y auditoría nocturna. Hoy trabajo a diario en Cloudbeds y administro el sitio web y el motor de reservas de un hotel.\n\nDel otro lado construyo software. Soy fundador y desarrollador principal de AsistoYA, una plataforma SaaS multi-tenant en producción que ganó el 3er lugar nacional en el MESCyT 2025 y levantó RD$400,000 de capital semilla.\n\nCuando digitalicé la auditoría nocturna que yo mismo hacía a mano, entendí para qué sirve esta combinación: conocer el dolor de la operación y saber convertirlo en producto.',
     avatar: '/tipos/Imagenes/image.png',
     ubicacion: 'República Dominicana',
-    disponibilidad: 'Abierto a nuevas oportunidades',
-    aptitudesPrincipales: ['Python', 'JavaScript', 'TypeScript', 'Angular', 'React', 'Git'],
+    disponibilidad: 'Abierto a oportunidades remotas',
+    aptitudesPrincipales: ['Cloudbeds (PMS)', 'React', 'TypeScript', 'Python', 'Node.js', 'Git'],
     logros: [
       { icono: '🏆', valor: '3er Lugar', etiqueta: 'Nacional MESCyT 2025' },
       { icono: '💰', valor: 'RD$400K', etiqueta: 'Capital semilla levantado' },
@@ -91,8 +91,8 @@ export const datosPortafolio: DatosPortafolio = {
       ubicacion: 'República Dominicana · Presencial',
       actual: true,
       descripcion:
-        'Administración del sitio web del hotel (WordPress y Elementor), incluyendo actualización de contenido, configuración del motor de reservas y optimización de páginas.\n\nGestión de operaciones de recepción, check-in/check-out de huéspedes y manejo de reservas, garantizando una experiencia fluida para los clientes.',
-      tecnologias: ['WordPress', 'Elementor', 'SEO', 'Motor de Reservas'],
+        'Trabajo a diario en Cloudbeds: reservas, tarifas y disponibilidad, y configuración de la propiedad. Mantengo tarifas e inventario consistentes entre el motor de reservas y los canales OTA, detectando desajustes entre lo que tiene el PMS y lo que ve el huésped.\n\nAdministro el sitio web del hotel (WordPress y Elementor): actualización de contenido, configuración del motor de reservas y optimización de páginas.\n\nOperación de recepción: check-in/check-out, solicitudes de huéspedes y manejo de reservas por canal directo y OTA.',
+      tecnologias: ['Cloudbeds (PMS)', 'WordPress', 'Elementor', 'Motor de Reservas', 'OTA', 'SEO'],
     },
     {
       empresa: 'AsistoYA',
@@ -122,8 +122,8 @@ export const datosPortafolio: DatosPortafolio = {
       tipo: 'Jornada completa',
       ubicacion: 'República Dominicana',
       descripcion:
-        'Recepción en un exclusivo hotel-condominio frente al mar. Bienvenida y atención a huéspedes nacionales e internacionales con calidez y profesionalismo.\n\nGestión eficiente de reservas y check-in/check-out, resolución de solicitudes especiales e incidencias, y auditoría nocturna de las operaciones del día (recepción y restaurante).',
-      tecnologias: ['Hotello (PMS)', 'Expedia', 'Booking', 'Auditoría', 'Etiqueta telefónica'],
+        'Recepción en un exclusivo hotel-condominio frente al mar. Bienvenida y atención a huéspedes nacionales e internacionales con calidez y profesionalismo.\n\nAuditoría nocturna sobre Hotello (PMS): cuadre de las transacciones del día, ingresos y métodos de pago entre recepción y restaurante, resolución de descuadres y cierre del sistema.\n\nGestión de reservas y check-in/check-out, canales OTA (Booking.com, Expedia) y resolución de solicitudes especiales e incidencias.',
+      tecnologias: ['Hotello (PMS)', 'Auditoría nocturna', 'Booking.com', 'Expedia', 'Cuadre de caja'],
     },
     {
       empresa: 'EyP Multiservices (Claro)',
@@ -172,7 +172,24 @@ export const datosPortafolio: DatosPortafolio = {
         '📱 Lanzada en Google Play Store',
       ],
       urlEnVivo: 'https://asistoya.com',
-      urlGooglePlay: 'https://play.google.com/store',
+      // TODO: poner la URL real de la ficha en Google Play.
+      // Apuntaba a play.google.com/store (la tienda genérica), no a la app.
+    },
+    {
+      id: 4,
+      titulo: 'Sistema de Auditoría Nocturna',
+      subtitulo: 'Aplicación web para hoteles',
+      descripcion:
+        'Digitalicé el proceso de auditoría nocturna que yo mismo hacía a mano en la recepción del hotel: cuadrar a mano las transacciones del día antes de cerrar el sistema, hoja por hoja.\n\nLa aplicación registra check-ins y check-outs, factura automáticamente, desglosa las ventas por categoría, turno y método de pago, y muestra una cuenta regresiva para el cierre del sistema.\n\nEs el proyecto que mejor explica lo que hago: nació de un dolor que sufrí en la operación, no de un ejercicio de clase.',
+      imagen: '',
+      tecnologias: ['React', 'TypeScript', 'Tailwind CSS'],
+      caracteristicas: [
+        'Registro de check-in y check-out',
+        'Facturación automática',
+        'Desglose de ventas por categoría, turno y método de pago',
+        'Cuadre de transacciones del día',
+        'Cuenta regresiva para el cierre del sistema',
+      ],
     },
     {
       id: 2,
@@ -260,7 +277,7 @@ export const datosPortafolio: DatosPortafolio = {
       titulo: 'Python Essentials 1',
       entidad: 'Cisco',
       fecha: '2025',
-      urlCredencial: 'https://www.credly.com/',
+      // TODO: poner la URL real del badge en Credly (apuntaba a la raíz del sitio).
       color: '#f2b705',
     },
     {
@@ -326,5 +343,6 @@ export const datosPortafolio: DatosPortafolio = {
     github: 'https://github.com/EnmanuelReynoso23',
     linkedin: 'https://www.linkedin.com/in/enmanuel-reynoso-salazar/',
     sitioWeb: 'https://asistoya.com',
+    cv: '/CV-Enmanuel-Reynoso.pdf',
   },
 }

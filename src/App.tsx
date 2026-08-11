@@ -17,10 +17,26 @@ import { Contacto } from '@/pages/Contacto'
 import { Configuracion } from '@/pages/Configuracion'
 import './App.css'
 
+const CLAVE_INTRO = 'portafolio:intro-visto'
+
 function AppContent() {
-  const [showIntro, setShowIntro] = useState(true)
+  // El intro son tres pantallas encadenadas. Mostrarlo en cada carga obliga
+  // a quien abre un enlace directo a una sección a pasarlo otra vez, así que
+  // se recuerda por sesión del navegador.
+  const [showIntro, setShowIntro] = useState(() => {
+    try {
+      return sessionStorage.getItem(CLAVE_INTRO) !== '1'
+    } catch {
+      return true
+    }
+  })
 
   const handleIntroComplete = () => {
+    try {
+      sessionStorage.setItem(CLAVE_INTRO, '1')
+    } catch {
+      // Modo privado o storage bloqueado: se vuelve a mostrar, no pasa nada.
+    }
     setShowIntro(false)
   }
 

@@ -142,4 +142,6 @@ export interface InfoContacto {
   twitter?: string
   telefono?: string
   sitioWeb?: string
+  /** Ruta al CV en PDF dentro de public/. Ej: '/CV-Enmanuel-Reynoso.pdf' */
+  cv?: string
 }

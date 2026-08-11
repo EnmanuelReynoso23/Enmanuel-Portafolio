@@ -1034,6 +1034,54 @@
   justify-content: center;
 }
 
+/* ===== Descarga de CV =====
+   Acción principal de la página: se lee antes que la lista de enlaces. */
+.cv-download {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 22px;
+  margin-bottom: 22px;
+  border-radius: var(--r-md);
+  background: var(--accent-grad);
+  color: #fff;
+  box-shadow: var(--elev-2);
+  transition: transform 0.18s ease, box-shadow 0.22s ease;
+}
+
+.cv-download:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--elev-3), var(--glow);
+}
+
+.cv-download__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cv-download__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cv-download__title {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.cv-download__meta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
 /* ===== Contacto ===== */
 .contact-grid {
   display: grid;

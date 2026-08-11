@@ -14,15 +14,14 @@ export function Proyecto() {
   }
 
   return (
-    <PageShell title={proyecto.titulo}>
-      {/* Cabecera */}
-      <div className="project-hero">
-        <div className="project-hero__head">
-          <h2 className="project-hero__title">{proyecto.titulo}</h2>
-          {proyecto.destacado && <span className="badge badge--featured">★ Proyecto destacado</span>}
+    // El título y el subtítulo ya los pinta la cabecera del shell:
+    // repetirlos aquí duplicaba el nombre del proyecto en pantalla.
+    <PageShell title={proyecto.titulo} subtitle={proyecto.subtitulo}>
+      {proyecto.destacado && (
+        <div className="project-hero">
+          <span className="badge badge--featured">★ Proyecto destacado</span>
         </div>
-        {proyecto.subtitulo && <p className="project-hero__subtitle">{proyecto.subtitulo}</p>}
-      </div>
+      )}
 
       {/* Imagen si la hay */}
       {proyecto.imagen && (
