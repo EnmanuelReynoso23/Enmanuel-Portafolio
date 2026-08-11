@@ -58,10 +58,18 @@ src/
 
 ### Dónde se edita el contenido
 
-Todo el contenido vive en `src/data/portfolio.ts`: experiencia, proyectos,
-educación, certificaciones, idiomas, recomendaciones y contacto. Las páginas solo
-lo renderizan, así que para actualizar el portafolio normalmente basta con tocar
-ese archivo.
+Todo el contenido vive en `src/data/portfolio.ts` (español) y
+`src/data/portfolio.en.ts` (inglés): experiencia, proyectos, educación,
+certificaciones, idiomas, recomendaciones y contacto. Las páginas solo lo
+renderizan, así que para actualizar el portafolio normalmente basta con tocar
+esos dos archivos.
+
+**Los dos deben mantenerse en paralelo**: misma cantidad de entradas y mismo
+orden, para que el contenido no cambie de forma al cambiar de idioma.
+
+Los textos de la interfaz (botones, títulos de sección, etiquetas) están aparte,
+en `src/i18n/strings.ts`. Si le falta una clave al inglés, el proyecto deja de
+compilar.
 
 Los escaneos de certificados y cartas van en `public/certificados/`, y se
 referencian desde `portfolio.ts` con el campo `imagen`.
@@ -78,6 +86,9 @@ Para regenerar un PDF: abrir el HTML en el navegador e imprimir a PDF en A4
 
 ## Detalles de implementación
 
+- **Idiomas:** selector ES/EN con el idioma guardado en `localStorage`. En la
+  primera visita se detecta el del navegador. El `<html lang>` y el formato de
+  la fecha del reloj siguen al idioma activo.
 - **Temas:** `data-theme` en `<html>`, con dos bloques de custom properties en
   `src/App.css`. Nada de colores fijos en los componentes.
 - **Intro:** las tres pantallas de bienvenida se recuerdan por sesión

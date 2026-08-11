@@ -1,23 +1,24 @@
 import { PageShell } from '@/components/layout/PageShell'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { Download } from 'lucide-react'
 import './pages.css'
 
 export function Contacto() {
-  const { contacto } = datosPortafolio
+  const { contacto } = usePortafolio()
+  const t = useTextos()
 
   const enlaces = [
-    { icono: '✉️', etiqueta: 'Email', valor: contacto.gmail, href: `mailto:${contacto.gmail}` },
+    { icono: '✉️', etiqueta: t.etiquetaEmail, valor: contacto.gmail, href: `mailto:${contacto.gmail}` },
     { icono: '💼', etiqueta: 'LinkedIn', valor: 'in/enmanuel-reynoso-salazar', href: contacto.linkedin },
     { icono: '💻', etiqueta: 'GitHub', valor: 'EnmanuelReynoso23', href: contacto.github },
-    ...(contacto.sitioWeb ? [{ icono: '🌐', etiqueta: 'Sitio Web', valor: contacto.sitioWeb.replace(/^https?:\/\//, ''), href: contacto.sitioWeb }] : []),
+    ...(contacto.sitioWeb ? [{ icono: '🌐', etiqueta: t.etiquetaSitioWeb, valor: contacto.sitioWeb.replace(/^https?:\/\//, ''), href: contacto.sitioWeb }] : []),
     ...(contacto.twitter ? [{ icono: '🐦', etiqueta: 'Twitter', valor: contacto.twitter, href: contacto.twitter }] : []),
   ]
 
   return (
-    <PageShell title="Contacto" subtitle="Disponible para oportunidades remotas">
+    <PageShell title={t.tituloContacto} subtitle={t.subtituloContacto}>
       <p className="page-intro">
-        ¿Tienes un proyecto en mente o una oportunidad? Hablemos. 🚀
+        {t.introContacto} 🚀
       </p>
 
       {contacto.cv && (
@@ -26,8 +27,8 @@ export function Contacto() {
             <Download size={20} />
           </span>
           <span className="cv-download__body">
-            <span className="cv-download__title">Descargar mi CV</span>
-            <span className="cv-download__meta">PDF · 2 páginas · En inglés</span>
+            <span className="cv-download__title">{t.descargarCV}</span>
+            <span className="cv-download__meta">{t.metaCV}</span>
           </span>
         </a>
       )}

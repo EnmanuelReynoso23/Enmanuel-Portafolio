@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { PageShell } from '@/components/layout/PageShell'
 import { ImageLightbox } from '@/components/ui/ImageLightbox'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import './pages.css'
 
 export function Educacion() {
-  const { educacion } = datosPortafolio
+  const { educacion } = usePortafolio()
+  const t = useTextos()
   const [imagen, setImagen] = useState<{ src: string; title: string } | null>(null)
 
   return (
-    <PageShell title="Educación">
+    <PageShell title={t.tituloEducacion}>
       <p className="page-intro">
-        Mi formación académica y profesional.
+        {t.introEducacion}
       </p>
       <div className="edu-list">
         {educacion.map((entry, index) => (
@@ -29,7 +30,7 @@ export function Educacion() {
                   className="edu-card__cert-btn"
                   onClick={() => setImagen({ src: entry.imagen!, title: entry.titulo })}
                 >
-                  📄 Ver título
+                  📄 {t.verTitulo}
                 </button>
               )}
             </div>

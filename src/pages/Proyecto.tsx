@@ -1,13 +1,15 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { PageShell } from '@/components/layout/PageShell'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { FileText, Sparkles, Wrench, Link2 } from 'lucide-react'
 import './pages.css'
 
 export function Proyecto() {
   const { id } = useParams<{ id: string }>()
   const proyectoId = parseInt(id || '0', 10)
-  const proyecto = datosPortafolio.proyectos.find(p => p.id === proyectoId)
+  const { proyectos } = usePortafolio()
+  const t = useTextos()
+  const proyecto = proyectos.find(p => p.id === proyectoId)
 
   if (!proyecto) {
     return <Navigate to="/" replace />
@@ -19,7 +21,7 @@ export function Proyecto() {
     <PageShell title={proyecto.titulo} subtitle={proyecto.subtitulo}>
       {proyecto.destacado && (
         <div className="project-hero">
-          <span className="badge badge--featured">★ Proyecto destacado</span>
+          <span className="badge badge--featured">★ {t.proyectoDestacado}</span>
         </div>
       )}
 
@@ -47,7 +49,7 @@ export function Proyecto() {
       <div className="page-section">
         <h2 className="page-section__title">
             <span className="section-icon"><FileText size={17} /></span>
-            Sobre este proyecto
+            {t.sobreProyecto}
           </h2>
         <div className="page-card">
           <p className="page-card__text" style={{ whiteSpace: 'pre-line' }}>{proyecto.descripcion}</p>
@@ -59,7 +61,7 @@ export function Proyecto() {
         <div className="page-section">
           <h2 className="page-section__title">
             <span className="section-icon"><Sparkles size={17} /></span>
-            Características
+            {t.caracteristicas}
           </h2>
           <div className="page-card">
             <ul className="feature-list">
@@ -75,7 +77,7 @@ export function Proyecto() {
       <div className="page-section">
         <h2 className="page-section__title">
             <span className="section-icon"><Wrench size={17} /></span>
-            Tecnologías
+            {t.tecnologias}
           </h2>
         <div className="tech-tags">
           {proyecto.tecnologias.map((tech, i) => (
@@ -89,27 +91,27 @@ export function Proyecto() {
         <div className="page-section">
           <h2 className="page-section__title">
             <span className="section-icon"><Link2 size={17} /></span>
-            Enlaces
+            {t.enlaces}
           </h2>
           <div style={{ display: 'grid', gap: '10px' }}>
             {proyecto.urlEnVivo && (
               <a href={proyecto.urlEnVivo} target="_blank" rel="noopener noreferrer" className="contact-link">
                 <div style={{ fontSize: '1.2rem' }}>🌐</div>
-                <div style={{ flex: 1 }}>Visitar sitio en vivo</div>
+                <div style={{ flex: 1 }}>{t.verEnVivo}</div>
                 <div>→</div>
               </a>
             )}
             {proyecto.urlGooglePlay && (
               <a href={proyecto.urlGooglePlay} target="_blank" rel="noopener noreferrer" className="contact-link">
                 <div style={{ fontSize: '1.2rem' }}>📱</div>
-                <div style={{ flex: 1 }}>Descargar en Google Play</div>
+                <div style={{ flex: 1 }}>{t.verEnGooglePlay}</div>
                 <div>→</div>
               </a>
             )}
             {proyecto.urlRepositorio && (
               <a href={proyecto.urlRepositorio} target="_blank" rel="noopener noreferrer" className="contact-link">
                 <div style={{ fontSize: '1.2rem' }}>💻</div>
-                <div style={{ flex: 1 }}>Ver código fuente (Repo)</div>
+                <div style={{ flex: 1 }}>{t.verRepositorio}</div>
                 <div>→</div>
               </a>
             )}

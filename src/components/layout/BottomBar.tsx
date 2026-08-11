@@ -2,10 +2,13 @@ import { useState, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useClock } from '@/hooks/useClock'
 import { useAudio } from '@/context/AudioContext'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
+import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import './BottomBar.css'
 
 export function BottomBar() {
+  const { contacto } = usePortafolio()
+  const t = useTextos()
   const { timeString, dateString } = useClock()
   const navigate = useNavigate()
   const location = useLocation()
@@ -36,10 +39,11 @@ export function BottomBar() {
   return (
     <div className="bottom-bar">
       <div className="bottom-bar__left">
+        <LanguageToggle compact />
         <button
           className="circle-btn"
           onClick={() => navigate('/configuracion')}
-          title="Configuración"
+          title={t.tituloConfiguracion}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="circle-btn__icon">
             <circle cx="12" cy="12" r="3"></circle>
@@ -49,7 +53,7 @@ export function BottomBar() {
 
         {/* Enlace a GitHub */}
         <a
-          href={datosPortafolio.contacto.github}
+          href={contacto.github}
           target="_blank"
           rel="noopener noreferrer"
           className="circle-btn"
@@ -74,7 +78,7 @@ export function BottomBar() {
       <div className="bottom-bar__right">
         {/* Enlace a LinkedIn */}
         <a
-          href={datosPortafolio.contacto.linkedin}
+          href={contacto.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="circle-btn"
@@ -89,7 +93,7 @@ export function BottomBar() {
         {showPlayer && (
           <div className={`music-popup ${isClosing ? 'music-popup--closing' : ''}`}>
             <div className="music-popup__header">
-              <span className="music-popup__title">🎵 Reproductor</span>
+              <span className="music-popup__title">🎵 {t.reproductor}</span>
               <button className="music-popup__close" onClick={closePlayer}>✕</button>
             </div>
 
@@ -105,7 +109,7 @@ export function BottomBar() {
                 className="music-popup__thumbnail"
               />
               <div className="music-popup__video-overlay">
-                {isPlaying && <span className="music-popup__playing-indicator">♪ Reproduciendo...</span>}
+                {isPlaying && <span className="music-popup__playing-indicator">♪ {t.reproduciendo}</span>}
               </div>
             </div>
 
@@ -117,14 +121,14 @@ export function BottomBar() {
                 ) : (
                   <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><polygon points="5,3 19,12 5,21"/></svg>
                 )}
-                <span>{isPlaying ? 'Pausar' : 'Reproducir'}</span>
+                <span>{isPlaying ? t.pausar : t.reproducir}</span>
               </button>
 
               {/* URL — sin botón de confirmar, aplica con Enter o al salir */}
               <div className="music-popup__url-group">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <label className="music-popup__url-label">Enlace YouTube</label>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--accent)', fontWeight: 'bold' }}>Presiona Enter ↵</span>
+                  <label className="music-popup__url-label">{t.enlaceYoutube}</label>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--accent)', fontWeight: 'bold' }}>{t.presionaEnter}</span>
                 </div>
                 <input
                   type="text"
@@ -133,7 +137,7 @@ export function BottomBar() {
                   onChange={(e) => setUrlInput(e.target.value)}
                   onBlur={applyUrl}
                   onKeyDown={(e) => { if (e.key === 'Enter') applyUrl() }}
-                  placeholder="Pega el enlace y presiona Enter"
+                  placeholder={t.pegaEnlace}
                 />
               </div>
             </div>
@@ -144,7 +148,7 @@ export function BottomBar() {
         <button
           className={`circle-btn ${showPlayer ? 'circle-btn--active' : ''}`}
           onClick={() => showPlayer ? closePlayer() : setShowPlayer(true)}
-          title="Música"
+          title={t.musica}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="circle-btn__icon">
             <path d="M9 18V5l12-2v13"></path>

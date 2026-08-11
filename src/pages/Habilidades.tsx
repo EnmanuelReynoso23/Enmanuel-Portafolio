@@ -1,16 +1,17 @@
 import { PageShell } from '@/components/layout/PageShell'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import './pages.css'
 
 export function Habilidades() {
-  const { habilidades } = datosPortafolio
+  const { habilidades } = usePortafolio()
+  const t = useTextos()
 
   const categories = [...new Set(habilidades.map(s => s.categoria))]
 
   return (
-    <PageShell title="Habilidades">
+    <PageShell title={t.tituloHabilidades}>
       <p className="page-intro">
-        Un balance entre desarrollo de software, liderazgo de producto y habilidades profesionales.
+        {t.introHabilidades}
       </p>
       {categories.map(category => (
         <div key={category} className="page-section">

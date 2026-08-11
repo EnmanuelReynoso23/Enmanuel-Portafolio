@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AudioProvider } from '@/context/AudioContext'
 import { ThemeProvider } from '@/context/ThemeContext'
+import { LanguageProvider } from '@/context/LanguageContext'
 import { IntroScreen } from '@/components/layout/IntroScreen'
 import { Home } from '@/pages/Home'
 import { SobreMi } from '@/pages/SobreMi'
@@ -65,11 +66,13 @@ function AppContent() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <AudioProvider>
-          <AppContent />
-        </AudioProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <AudioProvider>
+            <AppContent />
+          </AudioProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </BrowserRouter>
   )
 }

@@ -2,12 +2,14 @@ import { PageShell } from '@/components/layout/PageShell'
 import { ToggleSwitch } from '@/components/ui/ToggleSwitch'
 import { useTheme } from '@/context/ThemeContext'
 import { useAudio } from '@/context/AudioContext'
+import { useTextos } from '@/i18n/useLanguage'
 import { useClock } from '@/hooks/useClock'
 import { useState } from 'react'
 import { Palette, Clock, Music, Info } from 'lucide-react'
 import './pages.css'
 
 export function Configuracion() {
+  const t = useTextos()
   const { theme, toggleTheme } = useTheme()
   const { videoUrl, setVideoUrl } = useAudio()
   const { clockFormat, dateFormat, setClockFormat, setDateFormat } = useClock()
@@ -21,12 +23,12 @@ export function Configuracion() {
   }
 
   return (
-    <PageShell title="Configuración">
+    <PageShell title={t.tituloConfiguracion}>
       {/* Apariencia */}
       <div className="page-section">
         <h2 className="page-section__title">
           <span className="section-icon"><Palette size={17} /></span>
-          Apariencia
+          {t.apariencia}
         </h2>
         <div className="page-card">
           <ToggleSwitch
@@ -41,7 +43,7 @@ export function Configuracion() {
       <div className="page-section">
         <h2 className="page-section__title">
           <span className="section-icon"><Clock size={17} /></span>
-          Reloj
+          {t.reloj}
         </h2>
         <div className="page-card" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <ToggleSwitch
@@ -61,7 +63,7 @@ export function Configuracion() {
       <div className="page-section">
         <h2 className="page-section__title">
           <span className="section-icon"><Music size={17} /></span>
-          Música de fondo
+          {t.musicaDeFondo}
         </h2>
         <div className="page-card">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -99,7 +101,7 @@ export function Configuracion() {
       <div className="page-section">
         <h2 className="page-section__title">
           <span className="section-icon"><Info size={17} /></span>
-          Información
+          {t.informacion}
         </h2>
         <div className="page-card">
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>

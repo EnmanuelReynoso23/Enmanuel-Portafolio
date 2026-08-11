@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { datosPortafolio } from '@/data/portfolio'
 import { useAudio } from '@/context/AudioContext'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
+import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import './IntroScreen.css'
 
 interface IntroScreenProps {
@@ -13,7 +14,8 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
   const [step, setStep] = useState<Step>('info')
   const [isExiting, setIsExiting] = useState(false)
   const { togglePlay, isPlaying } = useAudio()
-  const { nombre, headline, biografia, avatar } = datosPortafolio.sobreMi
+  const t = useTextos()
+  const { nombre, headline, biografia, avatar } = usePortafolio().sobreMi
 
   const handleContinueInfo = () => {
     setStep('music_ask')
@@ -45,6 +47,9 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
         
         {step === 'info' && (
           <div className="intro-card fade-in">
+            <div className="intro-card__lang">
+              <LanguageToggle />
+            </div>
             <div className="intro-card__header">
               <img src={avatar} alt="Avatar" className="intro-card__avatar" />
               <div>
@@ -59,7 +64,7 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
 
             <div className="intro-card__footer">
               <button className="intro-btn intro-btn--primary" onClick={handleContinueInfo}>
-                Continuar
+                {t.continuar}
               </button>
             </div>
           </div>
@@ -69,18 +74,18 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
           <div className="intro-card fade-in">
             <div className="intro-card__body" style={{ textAlign: 'center', margin: '40px 0' }}>
               <div style={{ fontSize: '3rem', marginBottom: '20px' }}>🎵</div>
-              <h2 style={{ marginBottom: '15px' }}>¿Deseas activar la música de fondo?</h2>
+              <h2 style={{ marginBottom: '15px' }}>{t.preguntaMusica}</h2>
               <p style={{ color: 'var(--text-secondary)' }}>
-                La experiencia original de este portafolio incluye música ambiente estilo retro.
+                {t.textoMusica}
               </p>
             </div>
 
             <div className="intro-card__footer" style={{ justifyContent: 'center', gap: '20px' }}>
               <button className="intro-btn intro-btn--secondary" onClick={handleMusicNo}>
-                No, gracias
+                {t.noGracias}
               </button>
               <button className="intro-btn intro-btn--primary" onClick={handleMusicYes}>
-                Sí, activar música
+                {t.siActivar}
               </button>
             </div>
           </div>
@@ -90,15 +95,15 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
           <div className="intro-card fade-in">
             <div className="intro-card__body" style={{ textAlign: 'center', margin: '40px 0' }}>
               <div style={{ fontSize: '3rem', marginBottom: '20px', filter: 'grayscale(100%)' }}>🎵</div>
-              <h2 style={{ marginBottom: '15px' }}>Música desactivada</h2>
+              <h2 style={{ marginBottom: '15px' }}>{t.musicaDesactivada}</h2>
               <p style={{ color: 'var(--text-secondary)' }}>
-                Recuerda que puedes activarla o cambiar la pista cuando lo desees usando el icono de música en la barra de control inferior.
+                {t.textoMusicaDesactivada}
               </p>
             </div>
 
             <div className="intro-card__footer" style={{ justifyContent: 'center' }}>
               <button className="intro-btn intro-btn--primary" onClick={handleUnderstood}>
-                Entendido
+                {t.entendido}
               </button>
             </div>
           </div>

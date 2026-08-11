@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChannelTile } from '@/components/ui/ChannelTile'
 import { ChannelPreview } from '@/components/ui/ChannelPreview'
-import { canales } from '@/data/channels'
+import { useCanales } from '@/data/channels'
+import { useTextos } from '@/i18n/useLanguage'
 import type { Canal } from '@/types'
 import './ChannelGrid.css'
 
@@ -18,6 +19,8 @@ export const GRID_CONFIG = {
 const CHANNELS_PER_PAGE = GRID_CONFIG.columnas * GRID_CONFIG.filas
 
 export function ChannelGrid() {
+  const canales = useCanales()
+  const t = useTextos()
   const [currentPage, setCurrentPage] = useState(0)
   const [selectedChannel, setSelectedChannel] = useState<Canal | null>(null)
   const navigate = useNavigate()
@@ -114,7 +117,7 @@ export function ChannelGrid() {
   return (
     <>
       <div className="channel-grid-container">
-        <button className="nav-arrow nav-arrow--left" onClick={handlePrevPage} aria-label="Página anterior">
+        <button className="nav-arrow nav-arrow--left" onClick={handlePrevPage} aria-label={t.anterior}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
@@ -133,7 +136,7 @@ export function ChannelGrid() {
           </div>
         </div>
 
-        <button className="nav-arrow nav-arrow--right" onClick={handleNextPage} aria-label="Página siguiente">
+        <button className="nav-arrow nav-arrow--right" onClick={handleNextPage} aria-label={t.siguiente}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>

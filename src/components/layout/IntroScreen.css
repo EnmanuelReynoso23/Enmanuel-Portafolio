@@ -134,3 +134,11 @@
     transform: translateY(0);
   }
 }
+
+/* Selector de idioma en la primera pantalla del intro: es el punto donde
+   el visitante decide en qué idioma quiere leerlo todo. */
+.intro-card__lang {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}

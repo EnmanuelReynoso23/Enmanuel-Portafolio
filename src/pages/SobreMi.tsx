@@ -1,13 +1,14 @@
 import { PageShell } from '@/components/layout/PageShell'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { UserRound, Sparkles } from 'lucide-react'
 import './pages.css'
 
 export function SobreMi() {
-  const { sobreMi } = datosPortafolio
+  const { sobreMi } = usePortafolio()
+  const t = useTextos()
 
   return (
-    <PageShell title="Sobre Mí">
+    <PageShell title={t.tituloSobreMi}>
       <div className="profile">
         <div className="profile__avatar">
           <img src={sobreMi.avatar} alt={sobreMi.nombre} />
@@ -37,7 +38,7 @@ export function SobreMi() {
       <div className="page-section">
         <h2 className="page-section__title">
           <span className="section-icon"><UserRound size={17} /></span>
-          Quién soy
+          {t.quienSoy}
         </h2>
         <div className="page-card">
           <p className="page-card__text" style={{ whiteSpace: 'pre-line' }}>{sobreMi.biografia}</p>
@@ -48,7 +49,7 @@ export function SobreMi() {
       <div className="page-section">
         <h2 className="page-section__title">
           <span className="section-icon"><Sparkles size={17} /></span>
-          Aptitudes principales
+          {t.aptitudesPrincipales}
         </h2>
         <div className="tech-tags">
           {sobreMi.aptitudesPrincipales.map(apt => (

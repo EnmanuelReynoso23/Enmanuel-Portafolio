@@ -1,4 +1,5 @@
 import type { Certificacion } from '@/types'
+import { useTextos } from '@/i18n/useLanguage'
 import './CertificateVisual.css'
 
 interface CertificateVisualProps {
@@ -12,12 +13,13 @@ interface CertificateVisualProps {
  * de lo contrario, renderiza un certificado estilizado en pantalla.
  */
 export function CertificateVisual({ cert, nombre }: CertificateVisualProps) {
+  const t = useTextos()
   const accent = cert.color || '#00aaff'
 
   if (cert.imagen) {
     return (
       <div className="certificate certificate--photo" style={{ ['--cert-accent' as string]: accent }}>
-        <img src={cert.imagen} alt={`Certificado: ${cert.titulo}`} className="certificate__img" />
+        <img src={cert.imagen} alt={`${t.verCertificado}: ${cert.titulo}`} className="certificate__img" />
       </div>
     )
   }
@@ -37,12 +39,12 @@ export function CertificateVisual({ cert, nombre }: CertificateVisualProps) {
               </svg>
             </div>
 
-            <span className="certificate__eyebrow">Certificado de finalización</span>
+            <span className="certificate__eyebrow">{t.certificadoDe}</span>
             <span className="certificate__entity">{cert.entidad}</span>
 
             <div className="certificate__divider" />
 
-            <span className="certificate__awarded">Otorgado a</span>
+            <span className="certificate__awarded">{t.otorgadoA}</span>
             <span className="certificate__name">{nombre}</span>
 
             <h3 className="certificate__title">{cert.titulo}</h3>

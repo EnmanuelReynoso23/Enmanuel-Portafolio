@@ -1,14 +1,15 @@
 import { PageShell } from '@/components/layout/PageShell'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import './pages.css'
 
 export function Idiomas() {
-  const { idiomas } = datosPortafolio
+  const { idiomas } = usePortafolio()
+  const t = useTextos()
 
   return (
-    <PageShell title="Idiomas">
+    <PageShell title={t.tituloIdiomas}>
       <p className="page-intro">
-        Idiomas que hablo y utilizo en entornos profesionales y de aprendizaje.
+        {t.introIdiomas}
       </p>
       <div className="lang-grid">
         {idiomas.map((idioma, index) => (

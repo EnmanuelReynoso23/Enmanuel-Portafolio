@@ -1,14 +1,15 @@
 import { PageShell } from '@/components/layout/PageShell'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import './pages.css'
 
 export function StackTecnico() {
-  const { stackTecnico } = datosPortafolio
+  const { stackTecnico } = usePortafolio()
+  const t = useTextos()
 
   return (
-    <PageShell title="Stack Técnico">
+    <PageShell title={t.tituloStack}>
       <p className="page-intro">
-        Tecnologías y herramientas que utilizo para construir productos de principio a fin.
+        {t.introStack}
       </p>
       <div className="stack-grid">
         {stackTecnico.map(category => (

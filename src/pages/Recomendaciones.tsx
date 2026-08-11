@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { PageShell } from '@/components/layout/PageShell'
 import { ImageLightbox } from '@/components/ui/ImageLightbox'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import type { Recomendacion } from '@/types'
 import './pages.css'
 
@@ -17,14 +17,14 @@ function iniciales(nombre: string) {
 }
 
 export function Recomendaciones() {
-  const { recomendaciones } = datosPortafolio
+  const { recomendaciones } = usePortafolio()
+  const t = useTextos()
   const [abierta, setAbierta] = useState<Recomendacion | null>(null)
 
   return (
-    <PageShell title="Recomendaciones">
+    <PageShell title={t.tituloRecomendaciones}>
       <p className="page-intro">
-        Cartas y reconocimientos que avalan mi trabajo y trayectoria.
-        Haz clic en «Ver carta» para leer el documento completo. 📄
+        {t.introRecomendaciones}
       </p>
 
       <div className="rec-grid">
@@ -41,7 +41,7 @@ export function Recomendaciones() {
               </div>
             </div>
             <button className="rec-card__view" onClick={() => setAbierta(rec)}>
-              📄 Ver carta completa
+              📄 {t.verCarta}
             </button>
           </div>
         ))}
@@ -50,7 +50,7 @@ export function Recomendaciones() {
       {abierta && (
         <ImageLightbox
           src={abierta.imagen}
-          alt={`Carta de recomendación de ${abierta.autor}`}
+          alt={`${t.cartaDe} ${abierta.autor}`}
           title={abierta.autor}
           subtitle={`${abierta.cargo} · ${abierta.entidad}`}
           onClose={() => setAbierta(null)}

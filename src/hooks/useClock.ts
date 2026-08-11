@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { useLanguage } from '@/i18n/useLanguage'
 
 export type ClockFormat = '12h' | '24h'
 export type DateFormat = 'short' | 'long'
@@ -14,6 +15,7 @@ interface ClockData {
 }
 
 export function useClock(): ClockData {
+  const { lang } = useLanguage()
   const [now, setNow] = useState(new Date())
   const [clockFormat, setClockFormat] = useLocalStorage<ClockFormat>('wii-clock-format', '12h')
   const [dateFormat, setDateFormat] = useLocalStorage<DateFormat>('wii-date-format', 'long')
@@ -35,20 +37,14 @@ export function useClock(): ClockData {
     timeString = `${hours12}:${minutes} ${ampm}`
   }
 
-  let dateString: string
-  if (dateFormat === 'long') {
-    // "jue 20/2/2026"
-    const weekday = now.toLocaleDateString('es-ES', { weekday: 'short' })
-    const day = now.getDate()
-    const month = now.getMonth() + 1
-    const year = now.getFullYear()
-    dateString = `${weekday} ${day}/${month}/${year}`
-  } else {
-    // "20/2"
-    const day = now.getDate()
-    const month = now.getMonth() + 1
-    dateString = `${day}/${month}`
-  }
+  // La fecha sigue al idioma activo: además del nombre del día, el orden
+  // día/mes se invierte en inglés, así que un 11/8 no se lee como 8 de noviembre.
+  const locale = lang === 'es' ? 'es-ES' : 'en-US'
+  const opciones: Intl.DateTimeFormatOptions =
+    dateFormat === 'long'
+      ? { weekday: 'short', day: 'numeric', month: 'numeric', year: 'numeric' }
+      : { day: 'numeric', month: 'numeric' }
+  const dateString = now.toLocaleDateString(locale, opciones).replace(',', '')
 
   return { timeString, dateString, clockFormat, dateFormat, setClockFormat, setDateFormat }
 }

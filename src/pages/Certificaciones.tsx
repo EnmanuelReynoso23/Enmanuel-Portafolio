@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { PageShell } from '@/components/layout/PageShell'
 import { CertificateVisual } from '@/components/ui/CertificateVisual'
-import { datosPortafolio } from '@/data/portfolio'
+import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import type { Certificacion } from '@/types'
 import './pages.css'
 
 export function Certificaciones() {
-  const { certificaciones, sobreMi } = datosPortafolio
+  const { certificaciones, sobreMi } = usePortafolio()
+  const t = useTextos()
   const [seleccionada, setSeleccionada] = useState<Certificacion | null>(null)
 
   useEffect(() => {
@@ -18,10 +19,9 @@ export function Certificaciones() {
   }, [])
 
   return (
-    <PageShell title="Certificaciones">
+    <PageShell title={t.tituloCertificaciones}>
       <p className="page-intro">
-        Formación continua en desarrollo de software, tecnologías web e idiomas.
-        Haz clic en un certificado para verlo en grande. 🔍
+        {t.introCertificaciones}
       </p>
 
       <div className="cert-gallery">
@@ -30,10 +30,10 @@ export function Certificaciones() {
             key={index}
             className="cert-thumb"
             onClick={() => setSeleccionada(cert)}
-            aria-label={`Ver certificado: ${cert.titulo}`}
+            aria-label={`${t.verCertificado}: ${cert.titulo}`}
           >
             <CertificateVisual cert={cert} nombre={sobreMi.nombre} />
-            <span className="cert-thumb__zoom">🔍 Ampliar</span>
+            <span className="cert-thumb__zoom">🔍 {t.ampliar}</span>
           </button>
         ))}
       </div>
@@ -41,13 +41,13 @@ export function Certificaciones() {
       {/* Lightbox */}
       {seleccionada && (
         <div className="cert-lightbox" onClick={() => setSeleccionada(null)}>
-          <button className="cert-lightbox__close" onClick={() => setSeleccionada(null)} aria-label="Cerrar">✕</button>
+          <button className="cert-lightbox__close" onClick={() => setSeleccionada(null)} aria-label={t.cerrar}>✕</button>
           <div className="cert-lightbox__content" onClick={(e) => e.stopPropagation()}>
             <div className="cert-lightbox__cert">
               {seleccionada.imagen ? (
                 <img
                   src={seleccionada.imagen}
-                  alt={`Certificado: ${seleccionada.titulo}`}
+                  alt={`${t.verCertificado}: ${seleccionada.titulo}`}
                   className="cert-lightbox__photo"
                 />
               ) : (
@@ -62,7 +62,7 @@ export function Certificaciones() {
                 {seleccionada.horas && <span className="cert-card__hours">{seleccionada.horas}</span>}
               </div>
               {seleccionada.credencialId && (
-                <p className="cert-lightbox__id">ID de la credencial: {seleccionada.credencialId}</p>
+                <p className="cert-lightbox__id">{t.idCredencial}: {seleccionada.credencialId}</p>
               )}
               {seleccionada.urlCredencial && (
                 <a
@@ -71,7 +71,7 @@ export function Certificaciones() {
                   rel="noopener noreferrer"
                   className="cert-lightbox__link"
                 >
-                  Ver credencial oficial →
+                  {t.verCredencial} →
                 </a>
               )}
             </div>
