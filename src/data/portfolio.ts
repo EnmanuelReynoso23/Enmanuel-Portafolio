@@ -256,13 +256,15 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       titulo: 'Desarrollo Web Front-End con Angular',
+      imagen: '/certificados/itla.jpg',
       entidad: 'ITLA — Instituto Tecnológico de las Américas',
-      fecha: 'Ene. 2026',
+      fecha: 'Dic. 2025',
       horas: '40 horas',
       color: '#dd0031',
     },
     {
       titulo: 'Desarrollo Web Full Stack — Nivel Intermedio',
+      imagen: '/certificados/cymetria.jpg',
       entidad: 'Cymetria Group / INDOTEL / BID',
       fecha: 'Ene. 2026',
       horas: '80 horas',
@@ -278,7 +280,8 @@ export const datosPortafolio: DatosPortafolio = {
       imagen: '/certificados/google-play.png',
     },
     {
-      titulo: 'Python Essentials 1',
+      titulo: 'Fundamentos de Python 1',
+      imagen: '/certificados/cisco.jpg',
       entidad: 'Cisco Networking Academy',
       fecha: 'Mar. 2025',
       // TODO: falta la URL pública del badge en Credly.
@@ -294,6 +297,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       titulo: 'Legacy Responsive Web Design V8',
+      imagen: '/certificados/fcc-responsive.png',
       entidad: 'freeCodeCamp',
       fecha: 'Oct. 2024',
       horas: '~300 horas',
