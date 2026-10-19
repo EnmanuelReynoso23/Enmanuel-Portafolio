@@ -252,6 +252,13 @@ export const portfolioData: DatosPortafolio = {
 
   certificaciones: [
     {
+      titulo: 'Full Stack Developer Certification Associate',
+      imagen: '/certificados/certiplus-fullstack.jpg',
+      entidad: 'Certiplus',
+      fecha: 'Oct 2026',
+      vencimiento: 'Oct 2029',
+    },
+    {
       titulo: 'Diploma Program in Databases',
       imagen: '/certificados/itla-bases-datos.jpg',
       entidad: 'ITLA — Instituto Tecnológico de las Américas',
