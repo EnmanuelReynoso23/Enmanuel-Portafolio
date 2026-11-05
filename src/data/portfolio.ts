@@ -1,5 +1,4 @@
 import type { DatosPortafolio } from "@/types";
-import { Github } from "lucide-react";
 
 export const datosPortafolio: DatosPortafolio = {
   sobreMi: {
@@ -287,8 +286,11 @@ export const datosPortafolio: DatosPortafolio = {
         "Computer Vision",
         "Reconocimiento Facial",
         "IA",
-        "Liderazgo",
-        "Gestión de Producto",
+        "Python",
+        "React",
+        "React Native",
+        "FastAPI",
+        "PostgreSQL",
       ],
       caracteristicas: [
         "Asistencia digital en tiempo real",
@@ -300,23 +302,74 @@ export const datosPortafolio: DatosPortafolio = {
         "Gestión de múltiples sedes",
       ],
       logros: [
-        "🏆 3er lugar nacional — MESCyT 2025",
-        "💰 RD$400,000 de capital semilla",
-        "📱 Publicada en Google Play y App Store",
+        "3er lugar nacional — MESCyT 2025",
+        "RD$400,000 de capital semilla",
+        "Publicada en Google Play y App Store",
       ],
       urlEnVivo: "https://asistoya.com",
-      // TODO: poner las URL reales de las fichas en Google Play y App Store.
-      // Apuntaba a play.google.com/store (la tienda genérica), no a la app.
+      urlRepositorio: "https://github.com/EnmanuelReynoso23/AsistoYa",
     },
     {
       id: 2,
+      titulo: "CompuShare",
+      subtitulo: "Computación distribuida P2P para inferencia de LLMs",
+      descripcion:
+        "Sistema de computación distribuida peer-to-peer que ejecuta modelos de lenguaje abiertos repartiendo sus capas entre múltiples computadoras conectadas por internet. Utiliza llama.cpp vía RPC y un relé WebSocket que abre túneles TCP sin necesidad de abrir puertos en el router, reduciendo el tráfico de salida de 993 KB a 4.1 KB por token generado.",
+      imagen: "",
+      tecnologias: [
+        "Python",
+        "TypeScript",
+        "Go",
+        "llama.cpp",
+        "WebSockets",
+        "P2P Networking",
+        "Distributed Systems",
+      ],
+      caracteristicas: [
+        "Partición de capas de LLMs entre múltiples computadoras",
+        "Túneles TCP por WebSocket sin abrir puertos en el router",
+        "Enrutamiento dinámico según ping y latencia de los nodos",
+        "Optimización de tensores de salida (de 993 KB a 4.1 KB por token)",
+        "Software libre bajo licencia MIT",
+      ],
+      urlEnVivo: "https://computer-share.vercel.app/",
+      urlRepositorio: "https://github.com/EnmanuelReynoso23/CompuShare",
+    },
+    {
+      id: 3,
+      titulo: "SyntaxRAG (SynRAG)",
+      subtitulo: "Motor AST-Native de búsqueda de código para agentes de IA (MCP)",
+      descripcion:
+        "Motor local de búsqueda semántica y comprensión de código para asistentes de IA bajo el protocolo Model Context Protocol (MCP). Analiza el árbol sintáctico abstracto (AST) del código para preservar funciones y jerarquías completas, eliminando el corte arbitrario de fragmentos y el desperdicio de tokens en agentes como Claude Code, Google Antigravity y Cursor.",
+      imagen: "",
+      tecnologias: [
+        "Python",
+        "TypeScript",
+        "Tree-sitter",
+        "LanceDB",
+        "FlashRank ONNX",
+        "React 19",
+        "Tailwind CSS",
+      ],
+      caracteristicas: [
+        "Indexación y segmentación semántica guiada por AST con Tree-sitter",
+        "Servidor local bajo especificación Model Context Protocol (MCP)",
+        "Almacenamiento vectorial embebido de alta velocidad con LanceDB",
+        "Reordenamiento local (reranking) con FlashRank y modelos ONNX",
+        "Panel web de observabilidad desarrollado con React 19 y Tailwind CSS",
+      ],
+      urlRepositorio: "https://github.com/EnmanuelReynoso23/synrag",
+    },
+    {
+      id: 4,
       titulo: "Sistema de Auditoría Nocturna",
-      subtitulo: "Aplicación web para hoteles",
+      subtitulo: "Aplicación web para hoteles y conciliación contable",
       descripcion:
         "Digitalicé el proceso de auditoría nocturna que yo mismo hacía a mano en la recepción del hotel: cuadrar a mano las transacciones del día antes de cerrar el sistema, hoja por hoja.\n\nLa aplicación registra check-ins y check-outs, factura automáticamente, desglosa las ventas por categoría, turno y método de pago, y muestra una cuenta regresiva para el cierre del sistema.\n\nEs el proyecto que mejor explica lo que hago: nació de un dolor que sufrí en la operación, no de un ejercicio de clase.",
       imagen: "",
-      tecnologias: ["React", "TypeScript", "Tailwind CSS"],
+      tecnologias: ["React", "TypeScript", "Tailwind CSS", "Vite"],
       urlEnVivo: "https://sistema-de-auditoria-nocturna.vercel.app/",
+      urlRepositorio: "https://github.com/EnmanuelReynoso23/Sistema-de-auditoria-nocturna",
       caracteristicas: [
         "Registro de check-in y check-out",
         "Facturación automática",
@@ -326,7 +379,7 @@ export const datosPortafolio: DatosPortafolio = {
       ],
     },
     {
-      id: 3,
+      id: 5,
       titulo: "El Pensum",
       subtitulo: "Plataforma educativa universitaria",
       descripcion:
@@ -346,26 +399,10 @@ export const datosPortafolio: DatosPortafolio = {
         "Integración de datos académicos",
         "Sistema de cobros digitales",
       ],
-      // El repositorio es privado: se enlaza el sitio público.
       urlEnVivo: "https://elpensum.com/inicio",
     },
     {
-      id: 5,
-      titulo: "ComputerShare",
-      subtitulo: "Computadora Compartida ",
-      descripcion:
-        "Un solo modelo de lenguaje abierto, repartido por capas entre varias computadoras conectadas por internet. Software libre de punta a punta",
-      imagen: "",
-      tecnologias: ["Python", "TypeScript", "GO"],
-      caracteristicas: [
-        "Computadora compartida via P2P network",
-        "Un solo modelo de lenguaje abierto",
-        "repartido por capas",
-      ],
-      urlEnVivo: "https://github.com/EnmanuelReynoso23/CompuShare",
-    },
-    {
-      id: 4,
+      id: 6,
       titulo: "Shine and Beauty",
       subtitulo: "Identidad de marca y e-commerce",
       descripcion:
