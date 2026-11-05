@@ -106,12 +106,11 @@ export const textos = {
     verEnGooglePlay: 'Ver en Google Play',
 
     // Configuración
-    apariencia: 'Apariencia',
+  
     reloj: 'Reloj',
     musicaDeFondo: 'Música de fondo',
     informacion: 'Información',
 
-    temaOscuro: 'Tema oscuro',
     formato24h: 'Formato 24 horas',
     mostrarAno: 'Mostrar año en la fecha',
 
@@ -238,12 +237,12 @@ export const textos = {
     verEnGooglePlay: 'View on Google Play',
 
     // Settings
-    apariencia: 'Appearance',
+
     reloj: 'Clock',
     musicaDeFondo: 'Background music',
     informacion: 'Information',
 
-    temaOscuro: 'Dark theme',
+
     formato24h: '24-hour format',
     mostrarAno: 'Show the year in the date',
 

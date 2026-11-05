@@ -14,7 +14,7 @@ export const portfolioData: DatosPortafolio = {
     titulo: 'Hospitality Technology & Software Engineer',
     headline: 'Hospitality tech · Cloudbeds & PMS · Software Engineering',
     biografia:
-      'I have worked both sides of hospitality technology. At the front desk I ran the daily operation on a PMS: reservations, check-in/check-out, billing and the nightly audit. Today I work in Cloudbeds every day and I manage a hotel’s website and booking engine.\n\nOn the other side, I build software. I am the founder and lead developer of AsistoYA, a multi-tenant SaaS in production that took 3rd place nationally at the MESCyT 2025 competition and raised RD$400,000 in seed capital.\n\nWhen I digitized the night audit I had been doing by hand, I understood what this combination is for: knowing where the operation hurts, and knowing how to turn that into a product.',
+      'I have worked both sides of hospitality technology. At the front desk I ran the daily operation on a PMS: reservations, check-in/check-out, billing and the nightly audit. Today I work in Cloudbeds every day and I manage a hotel’s website and booking engine.\n\nOn the other side, I build software. I am the founder and lead developer of , a multi-tenant SaaS in production that took 3rd place nationally at the MESCyT 2025 competition and raised RD$400,000 in seed capital.\n\nWhen I digitized the night audit I had been doing by hand, I understood what this combination is for: knowing where the operation hurts, and knowing how to turn that into a product.',
     avatar: '/tipos/Imagenes/image.png',
     ubicacion: 'Dominican Republic',
     disponibilidad: 'Open to remote opportunities',
@@ -103,14 +103,14 @@ export const portfolioData: DatosPortafolio = {
       tecnologias: ['Cloudbeds (PMS)', 'WordPress', 'Elementor', 'Booking engine', 'OTA', 'SEO'],
     },
     {
-      empresa: 'AsistoYA',
+      empresa: '',
       rol: 'Founder · CEO & Lead Developer',
       periodo: 'Aug 2025 – Present',
       tipo: 'Startup',
       ubicacion: 'Dominican Republic',
       actual: true,
       descripcion:
-        'I founded AsistoYA to solve a real problem: manual attendance tracking is slow, and families are not told when a student never arrives at school.\n\nI built an AI and facial-recognition app that notifies families in real time about arrivals, departures and absences. The result: 3rd place nationally (MESCyT 2025), seed capital raised, and the product shipped on both the Google Play Store and the App Store.',
+        'I founded  to solve a real problem: manual attendance tracking is slow, and families are not told when a student never arrives at school.\n\nI built an AI and facial-recognition app that notifies families in real time about arrivals, departures and absences. The result: 3rd place nationally (MESCyT 2025), seed capital raised, and the product shipped on both the Google Play Store and the App Store.',
       tecnologias: ['Computer vision', 'AI', 'Leadership', 'Product management', 'Innovation'],
     },
     {
@@ -158,10 +158,10 @@ export const portfolioData: DatosPortafolio = {
   proyectos: [
     {
       id: 1,
-      titulo: 'AsistoYA',
+      titulo: '',
       subtitulo: 'EdTech platform with AI and facial recognition',
       descripcion:
-        'AsistoYA is a school management platform that automates attendance tracking through facial recognition and AI, and strengthens the link between school and family.\n\nAs founder and CEO I led the product from idea to launch: 3rd place in the National Entrepreneurship Competition (MESCyT 2025) after being selected from 40 ideas and competing against 21 universities, RD$400,000 raised in seed capital, and the app published on both the Google Play Store and the App Store.',
+        ' is a school management platform that automates attendance tracking through facial recognition and AI, and strengthens the link between school and family.\n\nAs founder and CEO I led the product from idea to launch: 3rd place in the National Entrepreneurship Competition (MESCyT 2025) after being selected from 40 ideas and competing against 21 universities, RD$400,000 raised in seed capital, and the app published on both the Google Play Store and the App Store.',
       imagen: '',
       destacado: true,
       tecnologias: ['Computer vision', 'Facial recognition', 'AI', 'Leadership', 'Product management'],
@@ -179,10 +179,10 @@ export const portfolioData: DatosPortafolio = {
         '💰 RD$400,000 in seed capital',
         '📱 Shipped on Google Play and the App Store',
       ],
-      urlEnVivo: 'https://asistoya.com',
+      urlEnVivo: 'https://.com',
     },
     {
-      id: 4,
+      id: 2,
       titulo: 'Night Audit System',
       subtitulo: 'Web application for hotels',
       descripcion:
@@ -199,7 +199,7 @@ export const portfolioData: DatosPortafolio = {
       ],
     },
     {
-      id: 2,
+      id: 3,
       titulo: 'El Pensum',
       subtitulo: 'University education platform',
       descripcion:
@@ -216,7 +216,22 @@ export const portfolioData: DatosPortafolio = {
       urlEnVivo: 'https://elpensum.com/inicio',
     },
     {
-      id: 3,
+      id: 4,
+      titulo: 'ComputerShare',
+      subtitulo: 'Computadora Compartida ',
+      descripcion: 'Un solo modelo de lenguaje abierto, repartido por capas entre varias computadoras conectadas por internet. Software libre de punta a punta',
+      imagen: '',
+      tecnologias: ['Python', 'TypeScript', 'GO'],
+      caracteristicas: [
+        'Computadora compartida via P2P network',
+        'Un solo modelo de lenguaje abierto',
+        'repartido por capas',
+      ],
+      urlEnVivo: 'https://computer-share.vercel.app/',
+    },
+    {
+
+      id: 5,
       titulo: 'Shine and Beauty',
       subtitulo: 'Brand identity and e-commerce',
       descripcion:
@@ -367,7 +382,7 @@ export const portfolioData: DatosPortafolio = {
       entidad: 'Universidad Abierta para Adultos (UAPA)',
       fecha: 'Aug 2025',
       resumen:
-        'Official congratulations for taking 3rd place in the MESCyT Entrepreneurship Competition with the AsistoYA project: “Your talent and effort have been recognized on a stage this competitive and prestigious. Keep dreaming big, working with passion and believing in the power of your ideas!”',
+        'Official congratulations for taking 3rd place in the MESCyT Entrepreneurship Competition with the  project: “Your talent and effort have been recognized on a stage this competitive and prestigious. Keep dreaming big, working with passion and believing in the power of your ideas!”',
       imagen: '/certificados/carta-uapa.jpg',
       color: '#1d3557',
     },
@@ -387,7 +402,7 @@ export const portfolioData: DatosPortafolio = {
     gmail: 'reynosoenmanuel166@gmail.com',
     github: 'https://github.com/EnmanuelReynoso23',
     linkedin: 'https://www.linkedin.com/in/enmanuel-reynoso-salazar/',
-    sitioWeb: 'https://asistoya.com',
+    sitioWeb: 'https://.com',
     cv: '/CV-Enmanuel-Reynoso.pdf',
   },
 }

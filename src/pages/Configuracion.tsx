@@ -27,21 +27,6 @@ export function Configuracion() {
 
   return (
     <PageShell title={t.tituloConfiguracion}>
-      {/* Apariencia */}
-      <div className="page-section">
-        <h2 className="page-section__title">
-          <span className="section-icon"><Palette size={17} /></span>
-          {t.apariencia}
-        </h2>
-        <div className="page-card">
-          <ToggleSwitch
-            label={t.temaOscuro}
-            checked={theme === 'dark'}
-            onChange={toggleTheme}
-          />
-        </div>
-      </div>
-
       {/* Orden de los canales */}
       <div className="page-section">
         <h2 className="page-section__title">

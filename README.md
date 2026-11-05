@@ -2,7 +2,7 @@
 
 Portafolio personal interactivo con la interfaz del menú de canales de la Nintendo Wii.
 Cada sección es un canal: se navega desde una rejilla, con reloj, música de fondo
-opcional y temas claro/oscuro.
+opcional.
 
 **En vivo:** _(pendiente de publicar)_
 
