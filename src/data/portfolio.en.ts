@@ -161,18 +161,20 @@ export const portfolioData: DatosPortafolio = {
       titulo: 'AsistoYA',
       subtitulo: 'EdTech platform with AI and facial recognition',
       descripcion:
-        'AsistoYA is a school management platform that automates attendance tracking through facial recognition and AI, and strengthens the link between school and family.\n\nAs founder and CEO I led the product from idea to launch: 3rd place in the National Entrepreneurship Competition (MESCyT 2025) after being selected from 40 ideas and competing against 21 universities, RD$400,000 raised in seed capital, and the app published on both the Google Play Store and the App Store.',
+        'AsistoYA is a school management platform that automates attendance tracking through facial recognition and AI, and strengthens the link between school and family.\n\nAs founder and CEO I led the product from idea to launch: 3rd place in the National Entrepreneurship Competition (MESCyT 2025) after being selected from 40 ideas and competing against 21 universities, RD$400,000 raised in seed capital, and the app published on both the Google Play Store and the App Store.\n\nAs an engineer I write most of the code: a React + TypeScript web app packaged with Capacitor for iOS and Android, Node.js serverless functions, and a gateway that ingests XML access events from Hikvision facial terminals over ISAPI. In October 2026 I migrated production from Appwrite Cloud to a self-hosted Appwrite (Docker) on an Oracle Cloud ARM server, with a read-only SQLite replica kept fresh by webhooks so heavy reports never hit the primary database.\n\nRunning it in production meant debugging things like a webhook worker that leaked one file descriptor per failed delivery until it stopped delivering for 23 hours; I raised the limit and added a systemd watchdog that detects it and restarts the worker. Before growing, I measured the ceiling with load tests (k6 and JMeter): about 110 reads per second, CPU-bound.',
       imagen: '',
       destacado: true,
       tecnologias: [
-        'Computer Vision',
-        'Facial Recognition',
-        'AI',
-        'Python',
-        'React',
-        'React Native',
-        'FastAPI',
-        'PostgreSQL',
+        'React 18',
+        'TypeScript',
+        'Vite',
+        'Capacitor (iOS & Android)',
+        'Appwrite (self-hosted)',
+        'Node.js',
+        'Oracle Cloud (ARM)',
+        'Docker',
+        'Hikvision ISAPI',
+        'Sentry',
       ],
       caracteristicas: [
         'Real-time digital attendance',
@@ -182,6 +184,8 @@ export const portfolioData: DatosPortafolio = {
         'Student, course and teacher management',
         'Daily, weekly and monthly reporting',
         'Multi-campus management',
+        'Direct integration with Hikvision facial terminals (ISAPI events)',
+        'Webhook-fed SQLite read replica',
       ],
       logros: [
         '3rd place nationally — MESCyT 2025',
@@ -189,7 +193,6 @@ export const portfolioData: DatosPortafolio = {
         'Shipped on Google Play and the App Store',
       ],
       urlEnVivo: 'https://asistoya.com',
-      urlRepositorio: 'https://github.com/EnmanuelReynoso23/AsistoYa',
     },
     {
       id: 2,
@@ -222,7 +225,7 @@ export const portfolioData: DatosPortafolio = {
       titulo: 'SyntaxRAG (SynRAG)',
       subtitulo: 'AST-native local code intelligence engine for AI agents (MCP)',
       descripcion:
-        'AST-native local semantic code search and context engine for AI coding assistants built on the Model Context Protocol (MCP). Parses Abstract Syntax Trees to preserve complete functions and class hierarchies, eliminating arbitrary chunk boundaries, context drift, and token waste in agents like Claude Code, Google Antigravity, and Cursor.',
+        'AST-native local semantic code search and context engine for AI coding assistants built on the Model Context Protocol (MCP). Parses Abstract Syntax Trees to preserve complete functions and class hierarchies, eliminating arbitrary chunk boundaries, context drift, and token waste in agents like Claude Code, Google Antigravity, and Cursor.\n\nEvery number it publishes is measured with a real agent and documented in CLAIMS.md next to the script that produced it: v1.6 cut tokens by 63.9% across 10 multi-step tasks (95% CI: -83% to -24%) while quality went from 87% to 94%. It also documents where it loses: on short tasks the tool definitions cost more than the task itself.',
       imagen: '',
       tecnologias: [
         'Python',
@@ -240,7 +243,75 @@ export const portfolioData: DatosPortafolio = {
         'On-device local reranking using FlashRank and ONNX runtime',
         'Modern web dashboard and observability panel built with React 19',
       ],
+      logros: [
+        '-63.9% tokens measured with a real agent (v1.6)',
+        'Quality from 87% to 94% on the same tasks',
+        'Import resolution matches the TypeScript compiler on 100% of local imports',
+      ],
+      urlEnVivo: 'https://synrag.vercel.app',
       urlRepositorio: 'https://github.com/EnmanuelReynoso23/synrag',
+    },
+    {
+      id: 7,
+      titulo: 'AI Operations Bot (WhatsApp)',
+      subtitulo: 'Agent that supports AsistoYA families and the team',
+      descripcion:
+        'WhatsApp bot that handles AsistoYA support: it answers parents, checks accounts, links parents to their children and sends password recovery, reporting every action to the team group. It also drafts emails, keeps the team calendar and sends a daily summary.\n\nIt runs as a systemd service on the Oracle Cloud server, uses Baileys for WhatsApp and Gemini models with two keys to spread the quota. Coding tasks are delegated to agents (Antigravity or Claude Code), escalating to Claude only when the task is complex, to keep costs under control.',
+      imagen: '',
+      tecnologias: ['Node.js', 'Baileys', 'Gemini', 'systemd', 'Oracle Cloud', 'SQLite'],
+      caracteristicas: [
+        'Family support with real actions on their accounts',
+        'Every action reported to the team group',
+        'Email drafts that only go out after confirmation',
+        'Team calendar and daily summary',
+        'Delegation of coding tasks to AI agents',
+      ],
+    },
+    {
+      id: 8,
+      titulo: 'Animo',
+      subtitulo: 'Virtual pet with habits and P2P sync',
+      descripcion:
+        'A pet that grows with you: you take care of it, complete your daily habits and keep a streak with your friends, connected phone to phone over WebRTC with no backend of my own.\n\nThe pet rules are plain JavaScript and run unchanged in three places: an installable web app (PWA, works offline), a Raspberry Pi kiosk device and an ESP32-C3 egg whose firmware uses the Moddable SDK. The ESP32 joins the same friends through an MQTT broker.',
+      imagen: '',
+      tecnologias: ['TypeScript', 'React', 'WebRTC', 'PWA', 'MQTT', 'ESP32-C3', 'Moddable SDK', 'Raspberry Pi'],
+      caracteristicas: [
+        'Peer-to-peer sync between phones with no backend',
+        'Same rules on the web, the Raspberry Pi and the ESP32',
+        'Works offline',
+        'Shared streaks with friends',
+      ],
+      urlEnVivo: 'https://tama-p2p.vercel.app',
+      urlRepositorio: 'https://github.com/EnmanuelReynoso23/tama-p2p',
+    },
+    {
+      id: 9,
+      titulo: 'Hik-Connect MCP',
+      subtitulo: 'MCP server for Hikvision facial terminals',
+      descripcion:
+        'Model Context Protocol server with 24 tools to query and operate Hikvision facial recognition terminals from an AI agent: devices, people, faces, access levels and events.\n\nThere was no documented API for what I needed, so I studied the web portal flow (a ticket exchange with AES keys encrypted with RSA) and reproduced it in my own client. Reads are free; reboots and writes require explicit confirmation.',
+      imagen: '',
+      tecnologias: ['Node.js', 'MCP', 'Hikvision ISAPI', 'RSA / AES', 'Reverse engineering'],
+      caracteristicas: [
+        '24 MCP tools',
+        'Per-school diagnosis of devices and faces',
+        'Writes only with confirmation',
+      ],
+    },
+    {
+      id: 10,
+      titulo: 'Edge AI / TinyML',
+      subtitulo: 'Predictive maintenance on a microcontroller',
+      descripcion:
+        'Team project: an embedded system that reads temperature, vibration and usage intensity from a machine, classifies its state on the device itself (NORMAL, PREVENTIVE or LIKELY FAILURE) and alerts with a display, LEDs and a buzzer, while streaming telemetry over serial.',
+      imagen: '',
+      tecnologias: ['C', 'ESP32', 'Wokwi', 'DHT22', 'MPU6050', 'Edge AI'],
+      caracteristicas: [
+        'On-device classification, no cloud',
+        'Thresholds justified by industrial standards',
+        'Serial telemetry',
+      ],
+      urlRepositorio: 'https://github.com/EnmanuelReynoso23/Sistema-Edge-AI-TinyML',
     },
     {
       id: 4,

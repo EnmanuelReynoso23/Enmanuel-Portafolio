@@ -1,0 +1,342 @@
+<meta charset="utf-8">
+<title>Enmanuel Reynoso Salazar — CV</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  :root{
+    --tinta:#14181f; --gris:#454e5c; --suave:#6b7480;
+    --linea:#d7dce3; --acento:#12457f;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    font-family:"Calibri","Segoe UI",Arial,sans-serif;
+    color:var(--tinta); font-size:9.7pt; line-height:1.3;
+    max-width:830px; margin:0 auto; padding:26px 30px; background:#fff;
+  }
+  h1{ font-size:21pt; letter-spacing:.2px; margin:0 0 2px; font-weight:700; }
+  .rol{ font-size:10.5pt; color:var(--acento); font-weight:600; margin-bottom:5px; }
+  .contacto{ font-size:9.2pt; color:var(--gris); }
+  h2{
+    font-size:9.4pt; text-transform:uppercase; letter-spacing:1.1px;
+    color:var(--acento); font-weight:700;
+    border-bottom:1.2px solid var(--linea); padding-bottom:3px;
+    margin:14px 0 7px;
+  }
+  .resumen{ margin:9px 0 0; text-align:justify; }
+  .puesto{ margin-bottom:9px; }
+  .fila{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .cargo{ font-weight:700; }
+  .donde{ color:var(--gris); }
+  .fecha{ color:var(--suave); font-size:9pt; white-space:nowrap; }
+  ul{ margin:3px 0 0; padding-left:15px; }
+  li{ margin-bottom:2px; }
+  .stack{ color:var(--suave); font-size:9.1pt; margin-top:3px; }
+  .dato{ display:flex; gap:8px; margin-bottom:3px; }
+  .dato b{ min-width:126px; flex-shrink:0; }
+  .hito{ font-weight:600; }
+  .cert{ margin-bottom:4px; }
+  .certs{ display:grid; grid-template-columns:1fr 1fr; column-gap:20px; }
+  .certs .fila{ display:block; }
+  .certs .fecha{ margin-left:4px; }
+  .id{ color:var(--suave); font-size:8.8pt; }
+  .nota{ margin-top:12px; font-size:8.9pt; color:var(--suave); font-style:italic; }
+  @media print{
+    body{ padding:0; }
+    h2{ break-after:avoid; }
+    .puesto,.cert{ break-inside:avoid; }
+  }
+</style>
+
+<h1>Enmanuel Reynoso Salazar</h1>
+<div class="rol">Software Engineer &middot; Full-stack, Infrastructure &amp; AI tooling</div>
+<div class="contacto">
+  Dominican Republic &middot; Available remotely &middot; +1 809-389-1550 &middot;
+  reynosoenmanuel166@gmail.com<br>
+  <b>enmanuel-portafolio.vercel.app</b> &middot;
+  linkedin.com/in/enmanuel-reynoso-salazar &middot; github.com/EnmanuelReynoso23
+</div>
+
+<p class="resumen">
+  I build and run software in production. I am the founder and lead engineer of AsistoYA, a
+  multi-tenant school attendance SaaS in production at schools in Mexico:
+  a React + TypeScript web app shipped to iOS and Android with Capacitor, Node.js serverless
+  functions, a gateway for Hikvision facial terminals, and a self-hosted Appwrite stack I
+  migrated to an Oracle Cloud ARM server. I also build open-source developer tooling, such
+  as SyntaxRAG, a local MCP code search engine that cut an AI agent&rsquo;s token use by 63.9%
+  in measured benchmarks. Before and alongside that, two years in client-facing operations
+  (hotel PMS, night audit, technical support) taught me to debug with the user in front of me.
+</p>
+
+<h2>Experience</h2>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">Founder &amp; Lead Developer</span>
+      <span class="donde">&mdash; AsistoYA &middot; asistoya.com</span></span>
+    <span class="fecha">Aug 2025 &ndash; Present</span>
+  </div>
+  <ul>
+    <li>Built and run a multi-tenant SaaS for school attendance: dashboards for
+        administrators, teachers and parents, each scoped to its own school&rsquo;s data;
+        apps on Google Play and the App Store from one React + TypeScript codebase (Capacitor).</li>
+    <li>Migrated production from Appwrite Cloud to self-hosted Appwrite (Docker) on Oracle Cloud
+        ARM, adding a webhook-fed SQLite read replica so heavy reports never hit the primary.</li>
+    <li>Integrated Hikvision facial terminals over ISAPI (XML access events) and real-time
+        parent notifications for entries, exits and late arrivals.</li>
+    <li>Debugged a webhook worker leaking one file descriptor per failed delivery (23 h without
+        deliveries); fixed limits and added a systemd watchdog. Load-tested with k6 and JMeter
+        to find the ceiling (~110 reads/s, CPU-bound) before onboarding more schools.</li>
+    <li>First-line support for every school: reproduce the issue, find the root cause, ship
+        the fix; errors triaged through Sentry.</li>
+    <li class="hito">3rd place nationally &mdash; MESCyT National Entrepreneurship
+        Competition 2025, selected from 40 ideas across 21 universities; RD$400,000 in seed
+        capital.</li>
+  </ul>
+  <div class="stack">React &middot; TypeScript &middot; Node.js &middot; Appwrite &middot; Docker &middot; Oracle Cloud &middot; SQLite &middot; Capacitor &middot; Sentry</div>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">Web Administrator &amp; Reservations Agent</span>
+      <span class="donde">&mdash; Ultra Infinity Hotel</span></span>
+    <span class="fecha">Mar 2026 &ndash; Present</span>
+  </div>
+  <ul>
+    <li>Daily operator of Cloudbeds (PMS): reservations, rate plans, availability and
+        property configuration.</li>
+    <li>Keep rates and inventory consistent between the booking engine and OTA channels,
+        catching mismatches before they reach the guest.</li>
+    <li>Administer the hotel website on WordPress/Elementor: content updates, booking engine
+        configuration and page optimization.</li>
+  </ul>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">Front-End Developer, Internship</span>
+      <span class="donde">&mdash; El Pensum</span></span>
+    <span class="fecha">Nov 2025 &ndash; Feb 2026</span>
+  </div>
+  <ul>
+    <li>Built interactive interfaces in Angular and TypeScript consuming JSON APIs, for a
+        platform to explore Dominican universities and academic programs.</li>
+    <li>Contributed to the digital payments module.</li>
+  </ul>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">Front Desk Agent &amp; Night Auditor</span>
+      <span class="donde">&mdash; Velero Beach Resort</span></span>
+    <span class="fecha">Apr 2025 &ndash; Feb 2026</span>
+  </div>
+  <ul>
+    <li>Ran the nightly audit on Hotello (PMS): reconciled the day&rsquo;s transactions,
+        revenue and payment methods across front desk and restaurant, resolved discrepancies
+        and closed the system.</li>
+    <li>Managed reservations, check-in/check-out, billing and cash handling for national and
+        international guests; worked OTA channels daily (Booking.com, Expedia).</li>
+  </ul>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">Administrative &amp; Technical Support Assistant</span>
+      <span class="donde">&mdash; EyP Multiservices (Claro)</span></span>
+    <span class="fecha">Nov 2024 &ndash; Mar 2025</span>
+  </div>
+  <ul>
+    <li>Customer and technical support for clients and sales agents, working daily in CRM and
+        ERP portals.</li>
+    <li>Document management, invoicing, process organization and incident resolution; remote
+        assistance via AnyDesk.</li>
+  </ul>
+</div>
+
+<h2>Projects</h2>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">SyntaxRAG</span>
+      <span class="donde">&mdash; Open-source MCP code search for AI agents &middot; github.com/EnmanuelReynoso23/synrag</span></span>
+  </div>
+  <ul>
+    <li>Local code search that chunks by AST (Tree-sitter), resolves imports like the TypeScript
+        compiler (100% on local imports) and reranks on CPU with ONNX.</li>
+    <li>Every published number is measured with a real agent and tied to its script in CLAIMS.md:
+        -63.9% tokens on 10 multi-step tasks (95% CI -83% to -24%), quality 87% &rarr; 94%.</li>
+  </ul>
+  <div class="stack">Python &middot; Tree-sitter &middot; LanceDB &middot; FlashRank (ONNX) &middot; MCP &middot; React 19</div>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">CompuShare</span>
+      <span class="donde">&mdash; Distributed P2P LLM inference &middot; github.com/EnmanuelReynoso23/CompuShare</span></span>
+  </div>
+  <ul>
+    <li>Splits an open LLM&rsquo;s layers across internet-connected PCs with llama.cpp RPC and a
+        WebSocket relay that tunnels TCP without port forwarding; output traffic cut from
+        993 KB to 4.1 KB per token.</li>
+  </ul>
+  <div class="stack">Python &middot; Go &middot; TypeScript &middot; llama.cpp &middot; WebSockets</div>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">AI operations bot</span>
+      <span class="donde">&mdash; WhatsApp support agent for AsistoYA</span></span>
+  </div>
+  <ul>
+    <li>Answers parents and takes real actions on their accounts (checks, parent&ndash;child
+        linking, password recovery), reporting each one to the team; delegates coding tasks to
+        AI agents. Runs as a systemd service on Oracle Cloud.</li>
+  </ul>
+  <div class="stack">Node.js &middot; Baileys &middot; Gemini &middot; systemd</div>
+</div>
+
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">Night Audit System</span>
+      <span class="donde">&mdash; Web application for hotels</span></span>
+    <span class="fecha">Jul 2025 &ndash; Aug 2025</span>
+  </div>
+  <ul>
+    <li>Digitized the night-audit process I was running by hand: check-ins and check-outs,
+        automated billing, sales breakdowns by category, shift and payment method.</li>
+  </ul>
+  <div class="stack">React &middot; TypeScript &middot; Tailwind CSS</div>
+</div>
+
+<h2>Education</h2>
+<div class="puesto">
+  <div class="fila">
+    <span><span class="cargo">B.Sc. Software Engineering</span>
+      <span class="donde">&mdash; Universidad Abierta para Adultos (UAPA)</span></span>
+    <span class="fecha">Nov 2024 &ndash; Nov 2028 (expected)</span>
+  </div>
+  <div class="fila">
+    <span><span class="cargo">Technical Baccalaureate in Administrative &amp; Tax Management</span>
+      <span class="donde">&mdash; Polit&eacute;cnico Prof. Juan Emilio Bosch Gavi&ntilde;o</span></span>
+    <span class="fecha">2021 &ndash; 2024</span>
+  </div>
+</div>
+
+<h2>Certifications</h2>
+<div class="certs">
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Full Stack Developer Certification Associate</b>
+      <span class="donde">&mdash; Certiplus</span></span>
+    <span class="fecha">Oct 2026</span>
+  </div>
+  <div class="id">Valid until Oct 2029</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Diploma Program in Databases</b>
+      <span class="donde">&mdash; ITLA, Instituto Tecnol&oacute;gico de las Am&eacute;ricas</span></span>
+    <span class="fecha">Aug 2026</span>
+  </div>
+  <div class="id">300 hours</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>TypeScript: From First Steps to Professional</b>
+      <span class="donde">&mdash; Master.dev</span></span>
+    <span class="fecha">Feb 2026</span>
+  </div>
+  <div class="id">8 hours &middot; Credential ID baba173e58-jfuxcgueUy</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Front-End Web Development with Angular</b>
+      <span class="donde">&mdash; ITLA, Instituto Tecnol&oacute;gico de las Am&eacute;ricas</span></span>
+    <span class="fecha">Dec 2025</span>
+  </div>
+  <div class="id">40 hours</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Full Stack Web Development &mdash; Intermediate Level</b>
+      <span class="donde">&mdash; Cymetria Group / INDOTEL / IDB</span></span>
+    <span class="fecha">Jan 2026</span>
+  </div>
+  <div class="id">80 hours</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Google Play Store Listing Certificate</b>
+      <span class="donde">&mdash; Google Play Academy</span></span>
+    <span class="fecha">Sep 2025 &ndash; Sep 2028</span>
+  </div>
+  <div class="id">Credential ID 160885006</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Python Essentials 1</b>
+      <span class="donde">&mdash; Cisco Networking Academy</span></span>
+    <span class="fecha">Mar 2025</span>
+  </div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Collaborative Technology &amp; Project Management Tools</b>
+      <span class="donde">&mdash; Universidad Iberoamericana (UNIBE)</span></span>
+    <span class="fecha">Mar 2025</span>
+  </div>
+  <div class="id">8 hours</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Legacy Responsive Web Design V8</b>
+      <span class="donde">&mdash; freeCodeCamp</span></span>
+    <span class="fecha">Oct 2024</span>
+  </div>
+  <div class="id">~300 hours &middot; Credential fccc3509f1c-94fd-4e6a-9a7b-dfb836aa8fb3</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>Scientific Computing with Python</b>
+      <span class="donde">&mdash; freeCodeCamp</span></span>
+    <span class="fecha">Oct 2024</span>
+  </div>
+  <div class="id">~300 hours &middot; Credential fccc3509f1c-94fd-4e6a-9a7b-dfb836aa8fb3</div>
+</div>
+
+<div class="cert">
+  <div class="fila">
+    <span><b>English Language Diploma</b>
+      <span class="donde">&mdash; Natural Languages Institute (NLI)</span></span>
+    <span class="fecha">Dec 2019</span>
+  </div>
+  <div class="id">Registration 519448</div>
+</div>
+
+</div>
+
+<h2>Skills</h2>
+<div class="dato"><b>Development</b><span>JavaScript, TypeScript, React, Angular, Python, Node.js, HTML/CSS, Tailwind CSS</span></div>
+<div class="dato"><b>Infrastructure</b><span>Linux, Docker, systemd, Oracle Cloud, Appwrite (self-hosted), Nginx, Sentry, load testing (k6, JMeter)</span></div>
+<div class="dato"><b>APIs &amp; tooling</b><span>REST APIs, webhooks, Model Context Protocol (MCP), Git &amp; GitHub, Vite, Vitest, progressive web apps</span></div>
+<div class="dato"><b>Support &amp; operations</b><span>Technical troubleshooting, client onboarding and training, CRM and ERP portals, remote assistance (AnyDesk), incident resolution</span></div>
+<div class="dato"><b>Data &amp; databases</b><span>SQL, SQLite, relational database design, data cleaning and validation, reconciliation, reporting</span></div>
+<div class="dato"><b>Web</b><span>WordPress, Elementor, SEO</span></div>
+
+<h2>Languages</h2>
+<div class="dato"><b>Spanish</b><span>Native</span></div>
+<div class="dato"><b>English</b><span>Professional working proficiency &mdash; Duolingo English Test: 115 (Mar 2026) &middot; NLI English Diploma</span></div>
+
+<p class="nota">
+  Recommendation letters (UAPA Rectorate; Lic. Wilson Manuel Sosa, CPA) and references
+  available on request.
+</p>

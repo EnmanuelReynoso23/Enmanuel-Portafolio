@@ -279,18 +279,20 @@ export const datosPortafolio: DatosPortafolio = {
       titulo: "AsistoYA",
       subtitulo: "Plataforma EdTech con IA y Reconocimiento Facial",
       descripcion:
-        "AsistoYA es una plataforma de gestión educativa que automatiza el control de asistencia escolar mediante reconocimiento facial e inteligencia artificial, y fortalece la comunicación entre la escuela y las familias.\n\nComo fundador y CEO lideré el producto desde la idea hasta su lanzamiento: ganamos el 3er lugar en la Competencia Nacional de Emprendimiento (MESCyT 2025) tras ser seleccionados entre 40 ideas y competir contra 21 universidades, levantamos RD$400,000 de capital semilla y publicamos la app en Google Play y la App Store.",
+        "AsistoYA es una plataforma de gestión educativa que automatiza el control de asistencia escolar mediante reconocimiento facial e inteligencia artificial, y fortalece la comunicación entre la escuela y las familias.\n\nComo fundador y CEO lideré el producto desde la idea hasta su lanzamiento: ganamos el 3er lugar en la Competencia Nacional de Emprendimiento (MESCyT 2025) tras ser seleccionados entre 40 ideas y competir contra 21 universidades, levantamos RD$400,000 de capital semilla y publicamos la app en Google Play y la App Store.\n\nComo ingeniero escribo la mayor parte del código: una web en React y TypeScript empaquetada con Capacitor para iOS y Android, funciones serverless en Node.js y una pasarela que recibe los eventos XML de las terminales faciales Hikvision por ISAPI. En octubre de 2026 migré la producción de Appwrite Cloud a un Appwrite autoalojado con Docker en un servidor ARM de Oracle Cloud, con una copia de solo lectura en SQLite que se actualiza por webhooks para que los reportes pesados no toquen la base principal.\n\nEn producción me tocó depurar cosas como un worker de webhooks que perdía un descriptor de archivo por cada entrega fallida hasta dejar de entregar durante 23 horas; lo arreglé subiendo el límite y dejando un vigía con systemd que lo detecta y lo reinicia. Antes de crecer medí el techo con pruebas de carga (k6 y JMeter): unas 110 lecturas por segundo, limitado por CPU.",
       imagen: "",
       destacado: true,
       tecnologias: [
-        "Computer Vision",
-        "Reconocimiento Facial",
-        "IA",
-        "Python",
-        "React",
-        "React Native",
-        "FastAPI",
-        "PostgreSQL",
+        "React 18",
+        "TypeScript",
+        "Vite",
+        "Capacitor (iOS y Android)",
+        "Appwrite (autoalojado)",
+        "Node.js",
+        "Oracle Cloud (ARM)",
+        "Docker",
+        "Hikvision ISAPI",
+        "Sentry",
       ],
       caracteristicas: [
         "Asistencia digital en tiempo real",
@@ -300,6 +302,8 @@ export const datosPortafolio: DatosPortafolio = {
         "Gestión de estudiantes, cursos y profesores",
         "Reportes diarios, semanales y mensuales",
         "Gestión de múltiples sedes",
+        "Integración directa con terminales faciales Hikvision (eventos ISAPI)",
+        "Copia de lectura en SQLite alimentada por webhooks",
       ],
       logros: [
         "3er lugar nacional — MESCyT 2025",
@@ -307,7 +311,6 @@ export const datosPortafolio: DatosPortafolio = {
         "Publicada en Google Play y App Store",
       ],
       urlEnVivo: "https://asistoya.com",
-      urlRepositorio: "https://github.com/EnmanuelReynoso23/AsistoYa",
     },
     {
       id: 2,
@@ -340,7 +343,7 @@ export const datosPortafolio: DatosPortafolio = {
       titulo: "SyntaxRAG (SynRAG)",
       subtitulo: "Motor AST-Native de búsqueda de código para agentes de IA (MCP)",
       descripcion:
-        "Motor local de búsqueda semántica y comprensión de código para asistentes de IA bajo el protocolo Model Context Protocol (MCP). Analiza el árbol sintáctico abstracto (AST) del código para preservar funciones y jerarquías completas, eliminando el corte arbitrario de fragmentos y el desperdicio de tokens en agentes como Claude Code, Google Antigravity y Cursor.",
+        "Motor local de búsqueda semántica y comprensión de código para asistentes de IA bajo el protocolo Model Context Protocol (MCP). Analiza el árbol sintáctico abstracto (AST) del código para preservar funciones y jerarquías completas, eliminando el corte arbitrario de fragmentos y el desperdicio de tokens en agentes como Claude Code, Google Antigravity y Cursor.\n\nCada cifra que publica se mide con un agente real y queda documentada en CLAIMS.md con su script: la versión 1.6 bajó 63,9 % los tokens en 10 tareas de varios pasos (intervalo de confianza 95 %: -83 % a -24 %) y subió la calidad de 87 % a 94 %. También publica dónde pierde: en tareas cortas las definiciones de las herramientas pesan más que la tarea.",
       imagen: "",
       tecnologias: [
         "Python",
@@ -358,7 +361,75 @@ export const datosPortafolio: DatosPortafolio = {
         "Reordenamiento local (reranking) con FlashRank y modelos ONNX",
         "Panel web de observabilidad desarrollado con React 19 y Tailwind CSS",
       ],
+      logros: [
+        "-63,9 % de tokens medido con un agente real (v1.6)",
+        "Calidad de 87 % a 94 % en las mismas tareas",
+        "Imports resueltos igual que el compilador de TypeScript en el 100 % de los casos locales",
+      ],
+      urlEnVivo: "https://synrag.vercel.app",
       urlRepositorio: "https://github.com/EnmanuelReynoso23/synrag",
+    },
+    {
+      id: 7,
+      titulo: "Bot de operaciones con IA (WhatsApp)",
+      subtitulo: "Agente que atiende a familias y al equipo de AsistoYA",
+      descripcion:
+        "Bot de WhatsApp que atiende el soporte de AsistoYA: responde a las familias, revisa cuentas, vincula padres con sus hijos y envía la recuperación de contraseña, reportando cada acción al grupo del equipo. También redacta correos, lleva la agenda y manda un resumen diario.\n\nCorre como servicio systemd en el servidor de Oracle Cloud, usa Baileys para WhatsApp y modelos Gemini con dos claves para repartir la cuota. Las tareas de código las delega a agentes (Antigravity o Claude Code) y solo escala a Claude cuando la tarea es compleja, para controlar el costo.",
+      imagen: "",
+      tecnologias: ["Node.js", "Baileys", "Gemini", "systemd", "Oracle Cloud", "SQLite"],
+      caracteristicas: [
+        "Soporte a familias con acciones reales sobre sus cuentas",
+        "Cada acción queda reportada al grupo del equipo",
+        "Borradores de correo que solo salen con confirmación",
+        "Agenda del equipo y resumen diario",
+        "Delegación de tareas de código a agentes de IA",
+      ],
+    },
+    {
+      id: 8,
+      titulo: "Animo",
+      subtitulo: "Mascota virtual con hábitos y sincronización P2P",
+      descripcion:
+        "Una mascota que crece contigo: la cuidas, cumples tus hábitos del día y mantienes la racha con tus amigos, conectados directo entre teléfonos por WebRTC, sin servidor propio.\n\nLas reglas de la mascota son JavaScript puro y corren igual en tres lugares: la app web instalable (PWA, funciona sin internet), una maquinita con Raspberry Pi en modo kiosco y un huevo con ESP32-C3 cuyo firmware usa el Moddable SDK. El ESP32 se une a los mismos amigos por un broker MQTT.",
+      imagen: "",
+      tecnologias: ["TypeScript", "React", "WebRTC", "PWA", "MQTT", "ESP32-C3", "Moddable SDK", "Raspberry Pi"],
+      caracteristicas: [
+        "Sincronización P2P entre teléfonos sin backend",
+        "Mismas reglas en la web, la Raspberry Pi y el ESP32",
+        "Funciona sin conexión",
+        "Rachas compartidas con amigos",
+      ],
+      urlEnVivo: "https://tama-p2p.vercel.app",
+      urlRepositorio: "https://github.com/EnmanuelReynoso23/tama-p2p",
+    },
+    {
+      id: 9,
+      titulo: "Hik-Connect MCP",
+      subtitulo: "Servidor MCP para terminales faciales Hikvision",
+      descripcion:
+        "Servidor Model Context Protocol con 24 herramientas para consultar y operar terminales de reconocimiento facial Hikvision desde un agente de IA: dispositivos, personas, rostros, niveles de acceso y eventos.\n\nNo había una API documentada para lo que necesitaba, así que estudié el flujo del portal web (intercambio de tickets con claves AES cifradas por RSA) y lo reproduje en un cliente propio. Las lecturas son libres; los reinicios y escrituras exigen confirmación explícita.",
+      imagen: "",
+      tecnologias: ["Node.js", "MCP", "Hikvision ISAPI", "RSA / AES", "Ingeniería inversa"],
+      caracteristicas: [
+        "24 herramientas MCP",
+        "Diagnóstico de máquinas y rostros por escuela",
+        "Escrituras solo con confirmación",
+      ],
+    },
+    {
+      id: 10,
+      titulo: "Edge AI / TinyML",
+      subtitulo: "Mantenimiento predictivo en un microcontrolador",
+      descripcion:
+        "Proyecto en equipo: un sistema embebido que lee temperatura, vibración e intensidad de uso de un equipo, clasifica su estado en el propio dispositivo (NORMAL, PREVENTIVO o FALLA PROBABLE) y avisa con pantalla, LEDs y buzzer, además de enviar telemetría por puerto serial.",
+      imagen: "",
+      tecnologias: ["C", "ESP32", "Wokwi", "DHT22", "MPU6050", "Edge AI"],
+      caracteristicas: [
+        "Clasificación en el dispositivo, sin nube",
+        "Umbrales justificados con estándares industriales",
+        "Telemetría por puerto serial",
+      ],
+      urlRepositorio: "https://github.com/EnmanuelReynoso23/Sistema-Edge-AI-TinyML",
     },
     {
       id: 4,

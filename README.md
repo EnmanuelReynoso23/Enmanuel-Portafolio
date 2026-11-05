@@ -4,7 +4,7 @@ Portafolio personal interactivo con la interfaz del menú de canales de la Ninte
 Cada sección es un canal: se navega desde una rejilla, con reloj, música de fondo
 opcional.
 
-**En vivo:** _(pendiente de publicar)_
+**En vivo:** https://enmanuel-portafolio.vercel.app
 
 ![Vista del menú de canales](image.png)
 
