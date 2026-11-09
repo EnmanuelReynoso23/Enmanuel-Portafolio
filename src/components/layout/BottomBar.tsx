@@ -5,6 +5,7 @@ import { useAudio } from '@/context/AudioContext'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import './BottomBar.css'
+import { Music } from 'lucide-react'
 
 export function BottomBar() {
   const { contacto } = usePortafolio()
@@ -110,7 +111,7 @@ export function BottomBar() {
         {showPlayer && (
           <div className={`music-popup ${isClosing ? 'music-popup--closing' : ''}`}>
             <div className="music-popup__header">
-              <span className="music-popup__title">🎵 {t.reproductor}</span>
+              <span className="music-popup__title"><Music size={15} /> {t.reproductor}</span>
               <button className="music-popup__close" onClick={closePlayer}>✕</button>
             </div>
 
@@ -126,7 +127,7 @@ export function BottomBar() {
                 className="music-popup__thumbnail"
               />
               <div className="music-popup__video-overlay">
-                {isPlaying && <span className="music-popup__playing-indicator">♪ {t.reproduciendo}</span>}
+                {isPlaying && <span className="music-popup__playing-indicator">{t.reproduciendo}</span>}
               </div>
             </div>
 

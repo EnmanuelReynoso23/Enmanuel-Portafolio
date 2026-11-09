@@ -4,6 +4,7 @@ import { ImageLightbox } from '@/components/ui/ImageLightbox'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import type { Recomendacion } from '@/types'
 import './pages.css'
+import { FileText } from 'lucide-react'
 
 function iniciales(nombre: string) {
   return nombre
@@ -41,7 +42,7 @@ export function Recomendaciones() {
               </div>
             </div>
             <button className="rec-card__view" onClick={() => setAbierta(rec)}>
-              📄 {t.verCarta}
+              <FileText size={15} /> {t.verCarta}
             </button>
           </div>
         ))}

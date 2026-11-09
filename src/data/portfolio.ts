@@ -3,30 +3,23 @@ import type { DatosPortafolio } from "@/types";
 export const datosPortafolio: DatosPortafolio = {
   sobreMi: {
     nombre: "Enmanuel Reynoso Salazar",
-    titulo: "Tecnología Hotelera & Software Engineer",
-    headline: "Tecnología hotelera · Cloudbeds y PMS · Ingeniería de Software",
+    titulo: "Software Engineer · Full-stack, infraestructura y herramientas de IA",
+    headline: "Software Engineer · Full-stack · Infraestructura · Herramientas de IA",
     biografia:
-      "He trabajado los dos lados de la tecnología hotelera. En recepción llevé la operación diaria sobre un PMS: reservas, check-in/check-out, facturación y auditoría nocturna. Hoy trabajo a diario en Cloudbeds y administro el sitio web y el motor de reservas de un hotel.\n\nDel otro lado construyo software. Soy fundador y desarrollador principal de AsistoYA, una plataforma SaaS multi-tenant en producción que ganó el 3er lugar nacional en el MESCyT 2025 y levantó RD$400,000 de capital semilla.\n\nCuando digitalicé la auditoría nocturna que yo mismo hacía a mano, entendí para qué sirve esta combinación: conocer el dolor de la operación y saber convertirlo en producto.",
+      "Construyo y opero software en producción. Soy fundador y desarrollador principal de AsistoYA, una plataforma SaaS multi-tenant de asistencia escolar en producción en escuelas de México, que ganó el 3er lugar nacional en el MESCyT 2025 y levantó RD$400,000 de capital semilla. Llevo todo el sistema: la app web y móvil en React y TypeScript, las funciones en Node.js, la integración con terminales faciales Hikvision y el servidor propio en Oracle Cloud.\n\nTambién publico herramientas de código abierto para agentes de IA, como SyntaxRAG, con cada cifra medida y ligada al script que la produjo.\n\nVengo de la operación: recepción, auditoría nocturna y soporte técnico. Hoy trabajo a diario en Cloudbeds y administro el sitio web y el motor de reservas de un hotel. Eso me enseñó a depurar con el usuario delante y a convertir lo que duele en la operación en producto.",
     avatar: "/tipos/Imagenes/image.png",
     ubicacion: "República Dominicana",
     disponibilidad: "Abierto a oportunidades remotas",
-    aptitudesPrincipales: [
-      "Cloudbeds (PMS)",
-      "React",
-      "TypeScript",
-      "Python",
-      "Node.js",
-      "Git",
-    ],
+    aptitudesPrincipales: ["React", "TypeScript", "Node.js", "Python", "Docker", "Git", "Cloudbeds (PMS)"],
     logros: [
-      { icono: "🏆", valor: "3er Lugar", etiqueta: "Nacional MESCyT 2025" },
-      { icono: "💰", valor: "RD$400K", etiqueta: "Capital semilla levantado" },
+      { icono: "trofeo", valor: "3er Lugar", etiqueta: "Nacional MESCyT 2025" },
+      { icono: "dinero", valor: "RD$400K", etiqueta: "Capital semilla levantado" },
       {
-        icono: "📱",
+        icono: "movil",
         valor: "iOS y Android",
         etiqueta: "Publicada en ambas tiendas",
       },
-      { icono: "💼", valor: "3 años", etiqueta: "De trayectoria laboral" },
+      { icono: "trabajo", valor: "3 años", etiqueta: "De trayectoria laboral" },
     ],
   },
 
@@ -94,7 +87,7 @@ export const datosPortafolio: DatosPortafolio = {
   stackTecnico: [
     {
       categoria: "Lenguajes",
-      icono: "💻",
+      icono: "codigo",
       tecnologias: [
         "Python",
         "JavaScript",
@@ -107,7 +100,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       categoria: "Frontend",
-      icono: "🎨",
+      icono: "diseno",
       tecnologias: [
         "Angular",
         "React",
@@ -119,7 +112,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       categoria: "Backend & Bases de Datos",
-      icono: "⚙️",
+      icono: "sistema",
       tecnologias: [
         "Node.js",
         "Express",
@@ -131,7 +124,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       categoria: "IA & Visión por Computadora",
-      icono: "🤖",
+      icono: "ia",
       tecnologias: [
         "Computer Vision",
         "Reconocimiento Facial",
@@ -141,7 +134,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       categoria: "Herramientas & DevOps",
-      icono: "🛠️",
+      icono: "herramientas",
       tecnologias: [
         "Git",
         "GitHub",
@@ -154,7 +147,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       categoria: "Hostelería & CMS",
-      icono: "🌐",
+      icono: "web",
       tecnologias: [
         "Cloudbeds",
         "Hotello (PMS)",
@@ -166,7 +159,7 @@ export const datosPortafolio: DatosPortafolio = {
     },
     {
       categoria: "Diseño & Productividad",
-      icono: "📐",
+      icono: "arquitectura",
       tecnologias: [
         "Figma",
         "Canva",
@@ -615,14 +608,14 @@ export const datosPortafolio: DatosPortafolio = {
       nivel: "Lengua materna",
       porcentaje: 100,
       detalle: "Competencia nativa",
-      bandera: "🇩🇴",
+      bandera: "ES",
     },
     {
       nombre: "Inglés",
       nivel: "Competencia profesional",
       porcentaje: 70,
       detalle: "Duolingo English Test: 115 · Mar. 2026",
-      bandera: "🇺🇸",
+      bandera: "EN",
     },
   ],
 
@@ -654,6 +647,6 @@ export const datosPortafolio: DatosPortafolio = {
     github: "https://github.com/EnmanuelReynoso23",
     linkedin: "https://www.linkedin.com/in/enmanuel-reynoso-salazar/",
     sitioWeb: "https://asistoya.com",
-    cv: "/CV-Enmanuel-Reynoso.pdf",
+    cv: "/CV-Enmanuel-Reynoso-Software-Engineer.pdf",
   },
 };

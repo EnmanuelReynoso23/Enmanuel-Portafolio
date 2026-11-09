@@ -1,6 +1,7 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
-import { UserRound, Sparkles } from 'lucide-react'
+import { BadgeCheck, CircleCheck, MapPin, UserRound } from 'lucide-react'
+import { IconoDato } from '@/components/ui/IconoDato'
 import './pages.css'
 
 export function SobreMi() {
@@ -17,8 +18,8 @@ export function SobreMi() {
           <h2 className="profile__name">{sobreMi.nombre}</h2>
           <p className="profile__title">{sobreMi.headline}</p>
           <div className="profile__badges">
-            <span className="profile__badge profile__badge--location">📍 {sobreMi.ubicacion}</span>
-            <span className="profile__badge profile__badge--available">🟢 {sobreMi.disponibilidad}</span>
+            <span className="profile__badge profile__badge--location"><MapPin size={14} /> {sobreMi.ubicacion}</span>
+            <span className="profile__badge profile__badge--available"><CircleCheck size={14} /> {sobreMi.disponibilidad}</span>
           </div>
         </div>
       </div>
@@ -27,7 +28,7 @@ export function SobreMi() {
       <div className="stats-grid">
         {sobreMi.logros.map((logro, i) => (
           <div key={i} className="stat-card">
-            <span className="stat-card__icon">{logro.icono}</span>
+            <span className="stat-card__icon"><IconoDato nombre={logro.icono} /></span>
             <span className="stat-card__value">{logro.valor}</span>
             <span className="stat-card__label">{logro.etiqueta}</span>
           </div>
@@ -48,7 +49,7 @@ export function SobreMi() {
       {/* Aptitudes principales */}
       <div className="page-section">
         <h2 className="page-section__title">
-          <span className="section-icon"><Sparkles size={17} /></span>
+          <span className="section-icon"><BadgeCheck size={17} /></span>
           {t.aptitudesPrincipales}
         </h2>
         <div className="tech-tags">

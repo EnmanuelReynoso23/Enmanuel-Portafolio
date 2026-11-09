@@ -3,6 +3,7 @@ import { useAudio } from '@/context/AudioContext'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import './IntroScreen.css'
+import { Music } from 'lucide-react'
 
 interface IntroScreenProps {
   onComplete: () => void
@@ -73,7 +74,7 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
         {step === 'music_ask' && (
           <div className="intro-card fade-in">
             <div className="intro-card__body" style={{ textAlign: 'center', margin: '40px 0' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '20px' }}>🎵</div>
+              <div style={{ marginBottom: '20px' }}><Music size={48} /></div>
               <h2 style={{ marginBottom: '15px' }}>{t.preguntaMusica}</h2>
               <p style={{ color: 'var(--text-secondary)' }}>
                 {t.textoMusica}
@@ -94,7 +95,7 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
         {step === 'music_declined' && (
           <div className="intro-card fade-in">
             <div className="intro-card__body" style={{ textAlign: 'center', margin: '40px 0' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '20px', filter: 'grayscale(100%)' }}>🎵</div>
+              <div style={{ marginBottom: '20px', opacity: 0.6 }}><Music size={48} /></div>
               <h2 style={{ marginBottom: '15px' }}>{t.musicaDesactivada}</h2>
               <p style={{ color: 'var(--text-secondary)' }}>
                 {t.textoMusicaDesactivada}

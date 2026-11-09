@@ -11,19 +11,19 @@ import type { DatosPortafolio } from '@/types'
 export const portfolioData: DatosPortafolio = {
   sobreMi: {
     nombre: 'Enmanuel Reynoso Salazar',
-    titulo: 'Hospitality Technology & Software Engineer',
-    headline: 'Hospitality tech · Cloudbeds & PMS · Software Engineering',
+    titulo: 'Software Engineer · Full-stack, Infrastructure & AI tooling',
+    headline: 'Software Engineer · Full-stack · Infrastructure · AI tooling',
     biografia:
-      'I have worked both sides of hospitality technology. At the front desk I ran the daily operation on a PMS: reservations, check-in/check-out, billing and the nightly audit. Today I work in Cloudbeds every day and I manage a hotel’s website and booking engine.\n\nOn the other side, I build software. I am the founder and lead developer of , a multi-tenant SaaS in production that took 3rd place nationally at the MESCyT 2025 competition and raised RD$400,000 in seed capital.\n\nWhen I digitized the night audit I had been doing by hand, I understood what this combination is for: knowing where the operation hurts, and knowing how to turn that into a product.',
+      'I build and run software in production. I am the founder and lead developer of AsistoYA, a multi-tenant school attendance SaaS in production at schools in Mexico, which took 3rd place nationally at the MESCyT 2025 competition and raised RD$400,000 in seed capital. I own the whole system: the web and mobile apps in React and TypeScript, the Node.js functions, the integration with Hikvision facial terminals and the self-hosted server on Oracle Cloud.\n\nI also publish open-source tools for AI agents, such as SyntaxRAG, with every number measured and tied to the script that produced it.\n\nI come from operations: front desk, night audit and technical support. Today I work in Cloudbeds every day and I manage a hotel’s website and booking engine. That taught me to debug with the user in front of me and to turn what hurts in the operation into a product.',
     avatar: '/tipos/Imagenes/image.png',
     ubicacion: 'Dominican Republic',
     disponibilidad: 'Open to remote opportunities',
-    aptitudesPrincipales: ['Cloudbeds (PMS)', 'React', 'TypeScript', 'Python', 'Node.js', 'Git'],
+    aptitudesPrincipales: ['React', 'TypeScript', 'Node.js', 'Python', 'Docker', 'Git', 'Cloudbeds (PMS)'],
     logros: [
-      { icono: '🏆', valor: '3rd place', etiqueta: 'MESCyT 2025, national' },
-      { icono: '💰', valor: 'RD$400K', etiqueta: 'Seed capital raised' },
-      { icono: '📱', valor: 'iOS & Android', etiqueta: 'Shipped on both stores' },
-      { icono: '💼', valor: '3 years', etiqueta: 'Of work experience' },
+      { icono: 'trofeo', valor: '3rd place', etiqueta: 'MESCyT 2025, national' },
+      { icono: 'dinero', valor: 'RD$400K', etiqueta: 'Seed capital raised' },
+      { icono: 'movil', valor: 'iOS & Android', etiqueta: 'Shipped on both stores' },
+      { icono: 'trabajo', valor: '3 years', etiqueta: 'Of work experience' },
     ],
   },
 
@@ -55,37 +55,37 @@ export const portfolioData: DatosPortafolio = {
   stackTecnico: [
     {
       categoria: 'Languages',
-      icono: '💻',
+      icono: 'codigo',
       tecnologias: ['Python', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SQL', 'JSON'],
     },
     {
       categoria: 'Frontend',
-      icono: '🎨',
+      icono: 'diseno',
       tecnologias: ['Angular', 'React', 'Vite', 'Tailwind CSS', 'RxJS', 'Responsive design'],
     },
     {
       categoria: 'Backend & Databases',
-      icono: '⚙️',
+      icono: 'sistema',
       tecnologias: ['Node.js', 'Express', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Firebase'],
     },
     {
       categoria: 'AI & Computer Vision',
-      icono: '🤖',
+      icono: 'ia',
       tecnologias: ['Computer vision', 'Facial recognition', 'OpenCV', 'Machine learning'],
     },
     {
       categoria: 'Tools & DevOps',
-      icono: '🛠️',
+      icono: 'herramientas',
       tecnologias: ['Git', 'GitHub', 'Docker', 'Nginx', 'VS Code', 'npm', 'Postman'],
     },
     {
       categoria: 'Hospitality & CMS',
-      icono: '🌐',
+      icono: 'web',
       tecnologias: ['Cloudbeds', 'Hotello (PMS)', 'Booking engines', 'WordPress', 'Elementor', 'SEO'],
     },
     {
       categoria: 'Design & Productivity',
-      icono: '📐',
+      icono: 'arquitectura',
       tecnologias: ['Figma', 'Canva', 'Microsoft Excel', 'Google Workspace', 'CRM / ERP'],
     },
   ],
@@ -481,14 +481,14 @@ export const portfolioData: DatosPortafolio = {
       nivel: 'Native',
       porcentaje: 100,
       detalle: 'Native proficiency',
-      bandera: '🇩🇴',
+      bandera: 'ES',
     },
     {
       nombre: 'English',
       nivel: 'Professional working proficiency',
       porcentaje: 70,
       detalle: 'Duolingo English Test: 115 · Mar 2026',
-      bandera: '🇺🇸',
+      bandera: 'EN',
     },
   ],
 
@@ -520,6 +520,6 @@ export const portfolioData: DatosPortafolio = {
     github: 'https://github.com/EnmanuelReynoso23',
     linkedin: 'https://www.linkedin.com/in/enmanuel-reynoso-salazar/',
     sitioWeb: 'https://.com',
-    cv: '/CV-Enmanuel-Reynoso.pdf',
+    cv: '/CV-Enmanuel-Reynoso-Software-Engineer.pdf',
   },
 }

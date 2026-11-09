@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { ImageLightbox } from '@/components/ui/ImageLightbox'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import './pages.css'
+import { FileText, GraduationCap } from 'lucide-react'
 
 export function Educacion() {
   const { educacion } = usePortafolio()
@@ -17,7 +18,7 @@ export function Educacion() {
       <div className="edu-list">
         {educacion.map((entry, index) => (
           <div key={index} className="edu-card">
-            <div className="edu-card__icon">🎓</div>
+            <div className="edu-card__icon"><GraduationCap size={28} /></div>
             <div className="edu-card__body">
               <div className="edu-card__top">
                 <h3 className="edu-card__title">{entry.titulo}</h3>
@@ -30,7 +31,7 @@ export function Educacion() {
                   className="edu-card__cert-btn"
                   onClick={() => setImagen({ src: entry.imagen!, title: entry.titulo })}
                 >
-                  📄 {t.verTitulo}
+                  <FileText size={15} /> {t.verTitulo}
                 </button>
               )}
             </div>

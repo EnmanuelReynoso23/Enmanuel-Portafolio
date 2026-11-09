@@ -1,7 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { PageShell } from '@/components/layout/PageShell'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
-import { FileText, Sparkles, Wrench, Link2 } from 'lucide-react'
+import { Code2, FileText, Globe, Link2, ListChecks, Smartphone, Wrench } from 'lucide-react'
 import './pages.css'
 
 export function Proyecto() {
@@ -21,7 +21,7 @@ export function Proyecto() {
     <PageShell title={proyecto.titulo} subtitle={proyecto.subtitulo}>
       {proyecto.destacado && (
         <div className="project-hero">
-          <span className="badge badge--featured">★ {t.proyectoDestacado}</span>
+          <span className="badge badge--featured">{t.proyectoDestacado}</span>
         </div>
       )}
 
@@ -60,7 +60,7 @@ export function Proyecto() {
       {proyecto.caracteristicas && proyecto.caracteristicas.length > 0 && (
         <div className="page-section">
           <h2 className="page-section__title">
-            <span className="section-icon"><Sparkles size={17} /></span>
+            <span className="section-icon"><ListChecks size={17} /></span>
             {t.caracteristicas}
           </h2>
           <div className="page-card">
@@ -96,21 +96,21 @@ export function Proyecto() {
           <div style={{ display: 'grid', gap: '10px' }}>
             {proyecto.urlEnVivo && (
               <a href={proyecto.urlEnVivo} target="_blank" rel="noopener noreferrer" className="contact-link">
-                <div style={{ fontSize: '1.2rem' }}>🌐</div>
+                <Globe size={19} />
                 <div style={{ flex: 1 }}>{t.verEnVivo}</div>
                 <div>→</div>
               </a>
             )}
             {proyecto.urlGooglePlay && (
               <a href={proyecto.urlGooglePlay} target="_blank" rel="noopener noreferrer" className="contact-link">
-                <div style={{ fontSize: '1.2rem' }}>📱</div>
+                <Smartphone size={19} />
                 <div style={{ flex: 1 }}>{t.verEnGooglePlay}</div>
                 <div>→</div>
               </a>
             )}
             {proyecto.urlRepositorio && (
               <a href={proyecto.urlRepositorio} target="_blank" rel="noopener noreferrer" className="contact-link">
-                <div style={{ fontSize: '1.2rem' }}>💻</div>
+                <Code2 size={19} />
                 <div style={{ flex: 1 }}>{t.verRepositorio}</div>
                 <div>→</div>
               </a>
