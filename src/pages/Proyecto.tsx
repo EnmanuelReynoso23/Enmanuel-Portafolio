@@ -1,7 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { PageShell } from '@/components/layout/PageShell'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
-import { Code2, FileText, Globe, Link2, ListChecks, Smartphone, Wrench } from 'lucide-react'
+import { ArrowRight, Code2, FileText, Globe, Link2, ListChecks, Smartphone, Wrench } from 'lucide-react'
 import './pages.css'
 
 export function Proyecto() {
@@ -98,21 +98,21 @@ export function Proyecto() {
               <a href={proyecto.urlEnVivo} target="_blank" rel="noopener noreferrer" className="contact-link">
                 <Globe size={19} />
                 <div style={{ flex: 1 }}>{t.verEnVivo}</div>
-                <div>→</div>
+                <div><ArrowRight size={18} aria-hidden="true" /></div>
               </a>
             )}
             {proyecto.urlGooglePlay && (
               <a href={proyecto.urlGooglePlay} target="_blank" rel="noopener noreferrer" className="contact-link">
                 <Smartphone size={19} />
                 <div style={{ flex: 1 }}>{t.verEnGooglePlay}</div>
-                <div>→</div>
+                <div><ArrowRight size={18} aria-hidden="true" /></div>
               </a>
             )}
             {proyecto.urlRepositorio && (
               <a href={proyecto.urlRepositorio} target="_blank" rel="noopener noreferrer" className="contact-link">
                 <Code2 size={19} />
                 <div style={{ flex: 1 }}>{t.verRepositorio}</div>
-                <div>→</div>
+                <div><ArrowRight size={18} aria-hidden="true" /></div>
               </a>
             )}
           </div>

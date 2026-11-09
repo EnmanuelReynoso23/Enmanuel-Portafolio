@@ -14,6 +14,7 @@ import { Educacion } from '@/pages/Educacion'
 import { Certificaciones } from '@/pages/Certificaciones'
 import { Idiomas } from '@/pages/Idiomas'
 import { Recomendaciones } from '@/pages/Recomendaciones'
+import { Repositorios } from '@/pages/Repositorios'
 import { Contacto } from '@/pages/Contacto'
 import { Configuracion } from '@/pages/Configuracion'
 import './App.css'
@@ -21,10 +22,11 @@ import './App.css'
 const CLAVE_INTRO = 'portafolio:intro-visto'
 
 function AppContent() {
-  // El intro son tres pantallas encadenadas. Mostrarlo en cada carga obliga
-  // a quien abre un enlace directo a una sección a pasarlo otra vez, así que
-  // se recuerda por sesión del navegador.
+  // El intro solo corresponde a la portada: un enlace directo lleva a su
+  // sección sin pasos previos. En la portada se recuerda por sesión del
+  // navegador para no repetirlo en cada carga.
   const [showIntro, setShowIntro] = useState(() => {
+    if (window.location.pathname !== '/') return false
     try {
       return sessionStorage.getItem(CLAVE_INTRO) !== '1'
     } catch {
@@ -57,6 +59,7 @@ function AppContent() {
       <Route path="/certificaciones" element={<Certificaciones />} />
       <Route path="/idiomas" element={<Idiomas />} />
       <Route path="/recomendaciones" element={<Recomendaciones />} />
+      <Route path="/repositorios" element={<Repositorios />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/configuracion" element={<Configuracion />} />
     </Routes>

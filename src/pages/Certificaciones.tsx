@@ -4,7 +4,7 @@ import { CertificateVisual } from '@/components/ui/CertificateVisual'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import type { Certificacion } from '@/types'
 import './pages.css'
-import { ZoomIn } from 'lucide-react'
+import { ArrowRight, X, ZoomIn } from 'lucide-react'
 
 export function Certificaciones() {
   const { certificaciones, sobreMi } = usePortafolio()
@@ -42,7 +42,7 @@ export function Certificaciones() {
       {/* Lightbox */}
       {seleccionada && (
         <div className="cert-lightbox" onClick={() => setSeleccionada(null)}>
-          <button className="cert-lightbox__close" onClick={() => setSeleccionada(null)} aria-label={t.cerrar}>✕</button>
+          <button className="cert-lightbox__close" onClick={() => setSeleccionada(null)} aria-label={t.cerrar}><X size={22} aria-hidden="true" /></button>
           <div className="cert-lightbox__content" onClick={(e) => e.stopPropagation()}>
             <div className="cert-lightbox__cert">
               {seleccionada.imagen ? (
@@ -72,7 +72,7 @@ export function Certificaciones() {
                   rel="noopener noreferrer"
                   className="cert-lightbox__link"
                 >
-                  {t.verCredencial} →
+                  {t.verCredencial} <ArrowRight size={14} aria-hidden="true" style={{ verticalAlign: '-2px' }} />
                 </a>
               )}
             </div>

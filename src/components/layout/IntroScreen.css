@@ -4,10 +4,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
   background: var(--bg-gradient);
   display: flex;
   justify-content: center;
-  align-items: center;
   z-index: 9999;
   font-family: 'Inter', sans-serif;
   color: var(--text-primary);
@@ -28,9 +29,13 @@
   }
 }
 
+/* El margen automático centra la tarjeta cuando cabe y, a diferencia de
+   align-items: center, deja llegar con scroll al principio y al botón final
+   cuando la pantalla es más baja que la tarjeta. */
 .intro-screen__container {
   width: 100%;
   max-width: 600px;
+  margin: auto;
   padding: 20px;
 }
 
@@ -141,4 +146,20 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 14px;
+}
+
+@media (max-width: 480px) {
+  .intro-card {
+    padding: 24px;
+    gap: 14px;
+  }
+
+  .intro-card__name {
+    font-size: 1.45rem;
+  }
+
+  .intro-card__body {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }

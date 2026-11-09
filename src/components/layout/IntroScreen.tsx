@@ -9,7 +9,7 @@ interface IntroScreenProps {
   onComplete: () => void
 }
 
-type Step = 'info' | 'music_ask' | 'music_declined'
+type Step = 'info' | 'music_ask'
 
 export function IntroScreen({ onComplete }: IntroScreenProps) {
   const [step, setStep] = useState<Step>('info')
@@ -32,14 +32,6 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
   const handleMusicYes = () => {
     if (!isPlaying) togglePlay() // Activa la música
     finishIntro() // Pasa a la app con animación
-  }
-
-  const handleMusicNo = () => {
-    setStep('music_declined')
-  }
-
-  const handleUnderstood = () => {
-    finishIntro()
   }
 
   return (
@@ -82,7 +74,7 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
             </div>
 
             <div className="intro-card__footer" style={{ justifyContent: 'center', gap: '20px' }}>
-              <button className="intro-btn intro-btn--secondary" onClick={handleMusicNo}>
+              <button className="intro-btn intro-btn--secondary" onClick={finishIntro}>
                 {t.noGracias}
               </button>
               <button className="intro-btn intro-btn--primary" onClick={handleMusicYes}>
@@ -92,23 +84,6 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
           </div>
         )}
 
-        {step === 'music_declined' && (
-          <div className="intro-card fade-in">
-            <div className="intro-card__body" style={{ textAlign: 'center', margin: '40px 0' }}>
-              <div style={{ marginBottom: '20px', opacity: 0.6 }}><Music size={48} /></div>
-              <h2 style={{ marginBottom: '15px' }}>{t.musicaDesactivada}</h2>
-              <p style={{ color: 'var(--text-secondary)' }}>
-                {t.textoMusicaDesactivada}
-              </p>
-            </div>
-
-            <div className="intro-card__footer" style={{ justifyContent: 'center' }}>
-              <button className="intro-btn intro-btn--primary" onClick={handleUnderstood}>
-                {t.entendido}
-              </button>
-            </div>
-          </div>
-        )}
 
       </div>
     </div>

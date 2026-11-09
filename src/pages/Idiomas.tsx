@@ -20,13 +20,6 @@ export function Idiomas() {
                 <h3 className="lang-card__name">{idioma.nombre}</h3>
                 <span className="lang-card__level">{idioma.nivel}</span>
               </div>
-              <span className="lang-card__pct">{idioma.porcentaje}%</span>
-            </div>
-            <div className="lang-bar">
-              <div
-                className="lang-bar__fill"
-                style={{ width: `${idioma.porcentaje}%` }}
-              />
             </div>
             {idioma.detalle && <p className="lang-card__detail">{idioma.detalle}</p>}
           </div>
