@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
-import { AtSign, BriefcaseBusiness, Code2, Download, Globe, Mail } from 'lucide-react'
+import { ArrowRight, AtSign, BriefcaseBusiness, Code2, Download, Globe, Mail } from 'lucide-react'
 import './pages.css'
 
 export function Contacto() {
@@ -47,7 +47,7 @@ export function Contacto() {
               <span className="contact-card__label">{enlace.etiqueta}</span>
               <span className="contact-card__value">{enlace.valor}</span>
             </div>
-            <span className="contact-card__arrow">→</span>
+            <span className="contact-card__arrow"><ArrowRight size={20} aria-hidden="true" /></span>
           </a>
         ))}
       </div>

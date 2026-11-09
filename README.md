@@ -1,102 +1,106 @@
-# Portafolio — Enmanuel Reynoso Salazar
+# Portfolio: Enmanuel Reynoso Salazar
 
-Portafolio personal interactivo con la interfaz del menú de canales de la Nintendo Wii.
-Cada sección es un canal: se navega desde una rejilla, con reloj, música de fondo
-opcional.
+Interactive personal portfolio inspired by the Nintendo Wii channel menu. Each
+section is a channel on a grid, with a clock and optional background music, in
+Spanish and English.
 
-**En vivo:** https://enmanuel-portafolio.vercel.app
+**Live:** https://enmanuel-portafolio.vercel.app
 
-![Vista del menú de canales](image.png)
+Español: [README.es.md](README.es.md)
 
-## Sobre el perfil
+![Channel menu](image.png)
 
-Tecnología hotelera e ingeniería de software: operación diaria sobre PMS
-(Cloudbeds, Hotello), auditoría nocturna y motores de reserva, más desarrollo de
-producto — fundador de [AsistoYA](https://asistoya.com), 3er lugar nacional en el
-concurso de emprendimiento del MESCyT 2025.
+## About the author
+
+Full-stack software engineer. Founder and lead developer of
+[AsistoYA](https://asistoya.com), a school attendance SaaS in production that
+took 3rd place nationally at the MESCyT 2025 entrepreneurship competition. Also
+publishes open-source tools for AI agents, and comes from hotel operations: PMS
+(Cloudbeds, Hotello), night audit and booking engines.
 
 ## Stack
 
-| Área | Tecnologías |
+| Area | Technology |
 | --- | --- |
 | Framework | React 19, TypeScript, Vite 7 |
-| Rutas | React Router 7 |
-| Estilos | CSS con custom properties (temas claro/oscuro) |
-| Iconos | lucide-react |
+| Routing | React Router 7 |
+| Styles | CSS custom properties (light and dark themes) |
+| Icons | lucide-react |
 | Audio | react-player |
 
-Sin librería de UI ni de estilos: el sistema de diseño (superficies, elevación,
-brillo, radios) vive en custom properties de CSS en `src/App.css`.
+There is no UI or styling library: the design system (surfaces, elevation,
+gloss, radii) lives in CSS custom properties in `src/App.css`.
 
-## Arrancar en local
+## Run locally
 
 ```bash
 npm install
-npm run dev      # servidor de desarrollo
-npm run build    # compila a dist/
-npm run preview  # sirve el build
+npm run dev      # development server
+npm run build    # builds to dist/
+npm run preview  # serves the build
 npm run lint     # ESLint
 ```
 
-Requiere Node 20 o superior.
+Requires Node 20 or later.
 
-## Estructura
+## Structure
 
 ```
 src/
 ├── components/
 │   ├── layout/      PageShell, ChannelGrid, BottomBar, IntroScreen
-│   └── ui/          ChannelTile, ToggleSwitch, VolumeSlider, ImageLightbox…
+│   └── ui/          ChannelTile, ToggleSwitch, VolumeSlider, ImageLightbox
 ├── context/         AudioContext, ThemeContext
 ├── data/
-│   ├── portfolio.ts Todo el contenido del portafolio (fuente única)
-│   └── channels.tsx Definición de los canales del menú
+│   ├── portfolio.ts Spanish content (portfolio.en.ts is the English version)
+│   ├── repositorios.ts Public repositories and where each one came from
+│   └── channels.tsx Menu channels and their order
 ├── hooks/           useClock, useLocalStorage
-├── pages/           Una página por canal + pages.css compartido
-└── types/           Tipos del dominio
+├── pages/           One page per channel, plus the shared pages.css
+└── types/           Domain types
 ```
 
-### Dónde se edita el contenido
+### Where the content lives
 
-Todo el contenido vive en `src/data/portfolio.ts` (español) y
-`src/data/portfolio.en.ts` (inglés): experiencia, proyectos, educación,
-certificaciones, idiomas, recomendaciones y contacto. Las páginas solo lo
-renderizan, así que para actualizar el portafolio normalmente basta con tocar
-esos dos archivos.
+All content lives in `src/data/portfolio.ts` (Spanish) and
+`src/data/portfolio.en.ts` (English): experience, projects, education,
+certifications, languages, recommendations and contact. Pages only render it,
+so updating the portfolio usually means editing those two files.
 
-**Los dos deben mantenerse en paralelo**: misma cantidad de entradas y mismo
-orden, para que el contenido no cambie de forma al cambiar de idioma.
+**Keep both in parallel**: same number of entries and same order, so the content
+does not change shape when the language changes.
 
-Los textos de la interfaz (botones, títulos de sección, etiquetas) están aparte,
-en `src/i18n/strings.ts`. Si le falta una clave al inglés, el proyecto deja de
-compilar.
+Interface text (buttons, section titles, labels) is separate, in
+`src/i18n/strings.ts`. If a key is missing in English, the project stops
+compiling.
 
-Los escaneos de certificados y cartas van en `public/certificados/`, y se
-referencian desde `portfolio.ts` con el campo `imagen`.
+Certificate and letter scans go in `public/certificados/` and are referenced
+from `portfolio.ts` with the `imagen` field.
 
-Los CV viven en `cv/` como HTML y se publican en `public/` como PDF:
+CVs live in `cv/` as HTML and are published in `public/` as PDF:
 
-| Archivo | Uso |
+| File | Use |
 | --- | --- |
-| `CV-Enmanuel-Reynoso` | General. Es el que enlaza el portafolio. |
-| `CV-Enmanuel-Reynoso-Cloudbeds` | Variante enfocada a tecnología hotelera y datos. |
+| `CV-Enmanuel-Reynoso-Automattic` | Software engineering. Also published as `CV-Enmanuel-Reynoso-Software-Engineer.pdf`, the one the portfolio links to. |
+| `CV-Enmanuel-Reynoso` | General, focused on SaaS and technical support. |
+| `CV-Enmanuel-Reynoso-Cloudbeds` | Focused on hotel technology and data. |
 
-Para regenerar un PDF: abrir el HTML en el navegador e imprimir a PDF en A4
-(los márgenes ya están definidos con `@page`).
+To regenerate a PDF, open the HTML in a browser and print to A4 PDF (margins are
+already set with `@page`).
 
-## Detalles de implementación
+## Implementation notes
 
-- **Idiomas:** selector ES/EN con el idioma guardado en `localStorage`. En la
-  primera visita se detecta el del navegador. El `<html lang>` y el formato de
-  la fecha del reloj siguen al idioma activo.
-- **Temas:** `data-theme` en `<html>`, con dos bloques de custom properties en
-  `src/App.css`. Nada de colores fijos en los componentes.
-- **Intro:** las tres pantallas de bienvenida se recuerdan por sesión
-  (`sessionStorage`), para no repetirlas a quien abre un enlace directo.
-- **Animaciones:** la entrada escalonada de las tarjetas va por `nth-child` en
-  CSS, y todo se desactiva bajo `prefers-reduced-motion`.
+- **Languages:** ES/EN switch, saved in `localStorage`. The first visit follows
+  the browser language. `<html lang>` and the clock format follow the active
+  language.
+- **Themes:** `data-theme` on `<html>`, with two blocks of custom properties in
+  `src/App.css`. Components use no fixed colors.
+- **Intro:** shown only on the home page and remembered per session
+  (`sessionStorage`). A direct link goes straight to its section.
+- **Animations:** the staggered card entrance uses `nth-child` in CSS, and
+  everything is disabled under `prefers-reduced-motion`.
 
-## Licencia
+## License
 
-Código disponible como referencia. El contenido personal, las imágenes y los
-certificados no son reutilizables.
+Code available for reference. Personal content, images and certificates may not
+be reused.

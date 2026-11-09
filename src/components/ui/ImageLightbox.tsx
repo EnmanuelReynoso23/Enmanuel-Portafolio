@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { X } from 'lucide-react'
 import './ImageLightbox.css'
 
 interface ImageLightboxProps {
@@ -20,7 +21,7 @@ export function ImageLightbox({ src, alt, title, subtitle, onClose }: ImageLight
 
   return (
     <div className="img-lightbox" onClick={onClose}>
-      <button className="img-lightbox__close" onClick={onClose} aria-label="Cerrar">✕</button>
+      <button className="img-lightbox__close" onClick={onClose} aria-label="Cerrar"><X size={22} aria-hidden="true" /></button>
       <div className="img-lightbox__content" onClick={(e) => e.stopPropagation()}>
         <img src={src} alt={alt} className="img-lightbox__img" />
         {(title || subtitle) && (

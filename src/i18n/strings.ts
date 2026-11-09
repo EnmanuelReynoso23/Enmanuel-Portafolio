@@ -38,6 +38,7 @@ export const textos = {
     tituloIdiomas: 'Idiomas',
     tituloRecomendaciones: 'Recomendaciones',
     tituloContacto: 'Contacto',
+    tituloRepositorios: 'Repositorios',
     tituloConfiguracion: 'Configuración',
 
     // Descripciones de los canales
@@ -50,6 +51,7 @@ export const textos = {
     descIdiomas: 'Idiomas que domino',
     descRecomendaciones: 'Cartas y reconocimientos',
     descContacto: 'Ponte en contacto conmigo',
+    descRepositorios: 'Todo mi código público y su origen',
 
     // Habilidades / Stack / Idiomas
     introHabilidades:
@@ -57,6 +59,13 @@ export const textos = {
     introStack:
       'Tecnologías y herramientas que utilizo para construir productos de principio a fin.',
     introIdiomas: 'Idiomas que hablo y utilizo en entornos profesionales y de aprendizaje.',
+    introRepositorios:
+      'Todos los repositorios públicos de mi GitHub. Indico cuáles construí, cuáles fueron trabajo en equipo y cuáles parten de código de otras personas.',
+    grupoReposPropios: 'Proyectos que construí',
+    grupoReposEquipo: 'Universidad y equipo',
+    grupoReposPersonales: 'Personales y primeros proyectos',
+    grupoReposTerceros: 'Forks y código de otras personas',
+    notaReposTerceros: 'La base no es obra mía. Los conservo como referencia y para experimentar.',
 
     // Sobre Mí
     quienSoy: 'Quién soy',
@@ -121,10 +130,6 @@ export const textos = {
       'La experiencia original de este portafolio incluye música ambiente estilo retro.',
     noGracias: 'No, gracias',
     siActivar: 'Sí, activar música',
-    musicaDesactivada: 'Música desactivada',
-    textoMusicaDesactivada:
-      'Recuerda que puedes activarla o cambiar la pista cuando lo desees usando el icono de música en la barra de control inferior.',
-    entendido: 'Entendido',
 
     // Reproductor
     descargarCVCorto: 'Descargar CV',
@@ -133,7 +138,7 @@ export const textos = {
     reproducir: 'Reproducir',
     reproduciendo: 'Reproduciendo…',
     enlaceYoutube: 'Enlace YouTube',
-    presionaEnter: 'Presiona Enter ↵',
+    presionaEnter: 'Presiona Enter',
     pegaEnlace: 'Pega el enlace y presiona Enter',
     musica: 'Música',
   },
@@ -170,6 +175,7 @@ export const textos = {
     tituloIdiomas: 'Languages',
     tituloRecomendaciones: 'Recommendations',
     tituloContacto: 'Contact',
+    tituloRepositorios: 'Repositories',
     tituloConfiguracion: 'Settings',
 
     // Channel descriptions
@@ -182,12 +188,20 @@ export const textos = {
     descIdiomas: 'Languages I speak',
     descRecomendaciones: 'Letters and recognitions',
     descContacto: 'Get in touch',
+    descRepositorios: 'All my public code and where it came from',
 
     // Skills / Stack / Languages
     introHabilidades:
       'A balance between software development, product leadership and professional skills.',
     introStack: 'Technologies and tools I use to build products end to end.',
     introIdiomas: 'Languages I speak and use in professional and learning settings.',
+    introRepositorios:
+      'Every public repository on my GitHub. I mark which ones I built, which were team work, and which started from other people\'s code.',
+    grupoReposPropios: 'Projects I built',
+    grupoReposEquipo: 'University and team projects',
+    grupoReposPersonales: 'Personal and early projects',
+    grupoReposTerceros: 'Forks and other people\'s code',
+    notaReposTerceros: 'The base code is not mine. I keep these for reference and experiments.',
 
     // About Me
     quienSoy: 'Who I am',
@@ -253,10 +267,6 @@ export const textos = {
       'The original experience of this portfolio includes retro-style ambient music.',
     noGracias: 'No, thanks',
     siActivar: 'Yes, play music',
-    musicaDesactivada: 'Music off',
-    textoMusicaDesactivada:
-      'You can turn it on or change the track at any time with the music icon in the bottom bar.',
-    entendido: 'Got it',
 
     // Player
     descargarCVCorto: 'Download CV',
@@ -265,7 +275,7 @@ export const textos = {
     reproducir: 'Play',
     reproduciendo: 'Now playing…',
     enlaceYoutube: 'YouTube link',
-    presionaEnter: 'Press Enter ↵',
+    presionaEnter: 'Press Enter',
     pegaEnlace: 'Paste the link and press Enter',
     musica: 'Music',
   },

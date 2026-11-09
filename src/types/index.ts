@@ -59,7 +59,6 @@ export interface SobreMi {
 
 export interface Habilidad {
   nombre: string
-  nivel: number
   categoria: string
 }
 
@@ -130,7 +129,6 @@ export interface Certificacion {
 export interface Idioma {
   nombre: string
   nivel: string
-  porcentaje: number
   detalle?: string
   bandera?: string
 }

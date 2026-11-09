@@ -29,34 +29,34 @@ export const portfolioData: DatosPortafolio = {
 
   habilidades: [
     // Development
-    { nombre: 'JavaScript', nivel: 85, categoria: 'Development' },
-    { nombre: 'TypeScript', nivel: 82, categoria: 'Development' },
-    { nombre: 'Python', nivel: 80, categoria: 'Development' },
-    { nombre: 'Angular', nivel: 80, categoria: 'Development' },
-    { nombre: 'React', nivel: 78, categoria: 'Development' },
-    { nombre: 'HTML5 & CSS3', nivel: 88, categoria: 'Development' },
-    { nombre: 'Git & GitHub', nivel: 85, categoria: 'Development' },
-    { nombre: 'Node.js', nivel: 72, categoria: 'Development' },
+    { nombre: 'JavaScript', categoria: 'Development' },
+    { nombre: 'TypeScript', categoria: 'Development' },
+    { nombre: 'Python', categoria: 'Development' },
+    { nombre: 'Angular', categoria: 'Development' },
+    { nombre: 'React', categoria: 'Development' },
+    { nombre: 'HTML5 & CSS3', categoria: 'Development' },
+    { nombre: 'Git & GitHub', categoria: 'Development' },
+    { nombre: 'Node.js', categoria: 'Development' },
 
     // Product & leadership
-    { nombre: 'Project management', nivel: 85, categoria: 'Product & Leadership' },
-    { nombre: 'Team leadership', nivel: 82, categoria: 'Product & Leadership' },
-    { nombre: 'Innovation & entrepreneurship', nivel: 90, categoria: 'Product & Leadership' },
-    { nombre: 'Problem solving', nivel: 88, categoria: 'Product & Leadership' },
+    { nombre: 'Project management', categoria: 'Product & Leadership' },
+    { nombre: 'Team leadership', categoria: 'Product & Leadership' },
+    { nombre: 'Innovation & entrepreneurship', categoria: 'Product & Leadership' },
+    { nombre: 'Problem solving', categoria: 'Product & Leadership' },
 
     // Professional
-    { nombre: 'Customer service', nivel: 92, categoria: 'Professional Skills' },
-    { nombre: 'Communication', nivel: 90, categoria: 'Professional Skills' },
-    { nombre: 'Administrative management', nivel: 85, categoria: 'Professional Skills' },
-    { nombre: 'Teamwork', nivel: 90, categoria: 'Professional Skills' },
-    { nombre: 'Adaptability', nivel: 88, categoria: 'Professional Skills' },
+    { nombre: 'Customer service', categoria: 'Professional Skills' },
+    { nombre: 'Communication', categoria: 'Professional Skills' },
+    { nombre: 'Administrative management', categoria: 'Professional Skills' },
+    { nombre: 'Teamwork', categoria: 'Professional Skills' },
+    { nombre: 'Adaptability', categoria: 'Professional Skills' },
   ],
 
   stackTecnico: [
     {
       categoria: 'Languages',
       icono: 'codigo',
-      tecnologias: ['Python', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SQL', 'JSON'],
+      tecnologias: ['TypeScript', 'JavaScript', 'Python', 'SQL', 'Go', 'C#', 'C++', 'HTML5', 'CSS3'],
     },
     {
       categoria: 'Frontend',
@@ -66,17 +66,17 @@ export const portfolioData: DatosPortafolio = {
     {
       categoria: 'Backend & Databases',
       icono: 'sistema',
-      tecnologias: ['Node.js', 'Express', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Firebase'],
+      tecnologias: ['Node.js', 'Express', 'REST APIs', 'Webhooks', 'Appwrite (self-hosted)', 'SQLite', 'PostgreSQL', 'MongoDB', 'Firebase'],
     },
     {
       categoria: 'AI & Computer Vision',
       icono: 'ia',
-      tecnologias: ['Computer vision', 'Facial recognition', 'OpenCV', 'Machine learning'],
+      tecnologias: ['Computer vision', 'Facial recognition', 'OpenCV', 'Machine learning', 'MCP (Model Context Protocol)', 'llama.cpp', 'Tree-sitter'],
     },
     {
       categoria: 'Tools & DevOps',
       icono: 'herramientas',
-      tecnologias: ['Git', 'GitHub', 'Docker', 'Nginx', 'VS Code', 'npm', 'Postman'],
+      tecnologias: ['Git', 'GitHub', 'Docker', 'Linux', 'systemd', 'Nginx', 'Oracle Cloud', 'Sentry', 'k6', 'JMeter', 'VS Code', 'npm', 'Postman'],
     },
     {
       categoria: 'Hospitality & CMS',
@@ -103,15 +103,15 @@ export const portfolioData: DatosPortafolio = {
       tecnologias: ['Cloudbeds (PMS)', 'WordPress', 'Elementor', 'Booking engine', 'OTA', 'SEO'],
     },
     {
-      empresa: '',
+      empresa: 'AsistoYA',
       rol: 'Founder · CEO & Lead Developer',
       periodo: 'Aug 2025 – Present',
       tipo: 'Startup',
       ubicacion: 'Dominican Republic',
       actual: true,
       descripcion:
-        'I founded  to solve a real problem: manual attendance tracking is slow, and families are not told when a student never arrives at school.\n\nI built an AI and facial-recognition app that notifies families in real time about arrivals, departures and absences. The result: 3rd place nationally (MESCyT 2025), seed capital raised, and the product shipped on both the Google Play Store and the App Store.',
-      tecnologias: ['Computer vision', 'AI', 'Leadership', 'Product management', 'Innovation'],
+        'I founded AsistoYA to solve a real problem: manual attendance tracking is slow, and families are not told when a student never arrives at school.\n\nI built and run the whole system: the web and mobile apps in React and TypeScript, the Node.js functions, the integration with Hikvision facial terminals and a self-hosted server on Oracle Cloud. Families are notified in real time about arrivals, departures and absences.\n\nThe result: 3rd place nationally (MESCyT 2025), seed capital raised, and the product shipped on both the Google Play Store and the App Store.',
+      tecnologias: ['React', 'TypeScript', 'Node.js', 'Appwrite', 'Docker', 'Oracle Cloud', 'Capacitor', 'Hikvision ISAPI', 'Sentry'],
     },
     {
       empresa: 'El Pensum',
@@ -217,7 +217,6 @@ export const portfolioData: DatosPortafolio = {
         'Tensor output optimization (from 993 KB to 4.1 KB per token)',
         '100% open-source software (MIT License)',
       ],
-      urlEnVivo: 'https://computer-share.vercel.app/',
       urlRepositorio: 'https://github.com/EnmanuelReynoso23/CompuShare',
     },
     {
@@ -479,14 +478,12 @@ export const portfolioData: DatosPortafolio = {
     {
       nombre: 'Spanish',
       nivel: 'Native',
-      porcentaje: 100,
       detalle: 'Native proficiency',
       bandera: 'ES',
     },
     {
       nombre: 'English',
       nivel: 'Professional working proficiency',
-      porcentaje: 70,
       detalle: 'Duolingo English Test: 115 · Mar 2026',
       bandera: 'EN',
     },
@@ -499,7 +496,7 @@ export const portfolioData: DatosPortafolio = {
       entidad: 'Universidad Abierta para Adultos (UAPA)',
       fecha: 'Aug 2025',
       resumen:
-        'Official congratulations for taking 3rd place in the MESCyT Entrepreneurship Competition with the  project: “Your talent and effort have been recognized on a stage this competitive and prestigious. Keep dreaming big, working with passion and believing in the power of your ideas!”',
+        'Official congratulations for taking 3rd place in the MESCyT Entrepreneurship Competition with the AsistoYA project: “Your talent and effort have been recognized on a stage this competitive and prestigious. Keep dreaming big, working with passion and believing in the power of your ideas!”',
       imagen: '/certificados/carta-uapa.jpg',
       color: '#1d3557',
     },
@@ -519,7 +516,7 @@ export const portfolioData: DatosPortafolio = {
     gmail: 'reynosoenmanuel166@gmail.com',
     github: 'https://github.com/EnmanuelReynoso23',
     linkedin: 'https://www.linkedin.com/in/enmanuel-reynoso-salazar/',
-    sitioWeb: 'https://.com',
+    sitioWeb: 'https://asistoya.com',
     cv: '/CV-Enmanuel-Reynoso-Software-Engineer.pdf',
   },
 }
