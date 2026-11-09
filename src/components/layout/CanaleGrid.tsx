@@ -50,15 +50,16 @@ export function ChannelGrid() {
 
   const paginaValida = Math.min(currentPage, totalPages - 1)
 
+  // Si el número de páginas se reduce, no dejar una página fuera de rango.
+  if (paginaValida !== currentPage) setCurrentPage(paginaValida)
+
   useEffect(() => {
-    // Si el número de páginas se reduce, no dejar una página fuera de rango.
-    if (paginaValida !== currentPage) setCurrentPage(paginaValida)
     try {
       sessionStorage.setItem(CLAVE_PAGINA, String(paginaValida))
     } catch {
       // Sin persistencia se comporta como antes.
     }
-  }, [paginaValida, currentPage])
+  }, [paginaValida])
 
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('')
   const [isAnimating, setIsAnimating] = useState(false)

@@ -1,5 +1,6 @@
-import { createContext, useContext, useCallback, useState, useMemo, type ReactNode } from 'react'
+import { useCallback, useState, useMemo, type ReactNode } from 'react'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { AudioCtx } from './useAudio'
 
 const DEFAULT_URL = 'https://www.youtube.com/watch?v=djdxSEks2ww&t=197s'
 
@@ -12,15 +13,6 @@ function extractStartTime(url: string): number {
   const match = url.match(/[?&]t=(\d+)/)
   return match ? parseInt(match[1]) : 0
 }
-
-interface AudioContextType {
-  isPlaying: boolean
-  videoUrl: string
-  togglePlay: () => void
-  setVideoUrl: (url: string) => void
-}
-
-const AudioCtx = createContext<AudioContextType | undefined>(undefined)
 
 export function AudioProvider({ children }: { children: ReactNode }) {
   const [videoUrl, setVideoUrl] = useLocalStorage('wii-video-url', DEFAULT_URL)
@@ -75,10 +67,4 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       {children}
     </AudioCtx.Provider>
   )
-}
-
-export function useAudio(): AudioContextType {
-  const context = useContext(AudioCtx)
-  if (!context) throw new Error('useAudio debe usarse dentro de AudioProvider')
-  return context
 }

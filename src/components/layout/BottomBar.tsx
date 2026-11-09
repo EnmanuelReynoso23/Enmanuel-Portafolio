@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useClock } from '@/hooks/useClock'
-import { useAudio } from '@/context/AudioContext'
+import { useAudio } from '@/context/useAudio'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import './BottomBar.css'

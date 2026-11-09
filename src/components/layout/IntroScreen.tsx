@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAudio } from '@/context/AudioContext'
+import { useAudio } from '@/context/useAudio'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import './IntroScreen.css'

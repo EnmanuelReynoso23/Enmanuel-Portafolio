@@ -1,5 +1,5 @@
 import { PageShell } from '@/components/layout/PageShell'
-import { useAudio } from '@/context/AudioContext'
+import { useAudio } from '@/context/useAudio'
 import './pages.css'
 
 export function Musica() {
