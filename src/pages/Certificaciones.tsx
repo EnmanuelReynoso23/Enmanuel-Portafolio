@@ -4,6 +4,7 @@ import { CertificateVisual } from '@/components/ui/CertificateVisual'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
 import type { Certificacion } from '@/types'
 import './pages.css'
+import { ZoomIn } from 'lucide-react'
 
 export function Certificaciones() {
   const { certificaciones, sobreMi } = usePortafolio()
@@ -33,7 +34,7 @@ export function Certificaciones() {
             aria-label={`${t.verCertificado}: ${cert.titulo}`}
           >
             <CertificateVisual cert={cert} nombre={sobreMi.nombre} />
-            <span className="cert-thumb__zoom">🔍 {t.ampliar}</span>
+            <span className="cert-thumb__zoom"><ZoomIn size={15} /> {t.ampliar}</span>
           </button>
         ))}
       </div>

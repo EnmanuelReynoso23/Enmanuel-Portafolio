@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
-import { Download } from 'lucide-react'
+import { AtSign, BriefcaseBusiness, Code2, Download, Globe, Mail } from 'lucide-react'
 import './pages.css'
 
 export function Contacto() {
@@ -8,17 +8,17 @@ export function Contacto() {
   const t = useTextos()
 
   const enlaces = [
-    { icono: '✉️', etiqueta: t.etiquetaEmail, valor: contacto.gmail, href: `mailto:${contacto.gmail}` },
-    { icono: '💼', etiqueta: 'LinkedIn', valor: 'in/enmanuel-reynoso-salazar', href: contacto.linkedin },
-    { icono: '💻', etiqueta: 'GitHub', valor: 'EnmanuelReynoso23', href: contacto.github },
-    ...(contacto.sitioWeb ? [{ icono: '🌐', etiqueta: t.etiquetaSitioWeb, valor: contacto.sitioWeb.replace(/^https?:\/\//, ''), href: contacto.sitioWeb }] : []),
-    ...(contacto.twitter ? [{ icono: '🐦', etiqueta: 'Twitter', valor: contacto.twitter, href: contacto.twitter }] : []),
+    { icono: <Mail size={22} />, etiqueta: t.etiquetaEmail, valor: contacto.gmail, href: `mailto:${contacto.gmail}` },
+    { icono: <BriefcaseBusiness size={22} />, etiqueta: 'LinkedIn', valor: 'in/enmanuel-reynoso-salazar', href: contacto.linkedin },
+    { icono: <Code2 size={22} />, etiqueta: 'GitHub', valor: 'EnmanuelReynoso23', href: contacto.github },
+    ...(contacto.sitioWeb ? [{ icono: <Globe size={22} />, etiqueta: t.etiquetaSitioWeb, valor: contacto.sitioWeb.replace(/^https?:\/\//, ''), href: contacto.sitioWeb }] : []),
+    ...(contacto.twitter ? [{ icono: <AtSign size={22} />, etiqueta: 'Twitter', valor: contacto.twitter, href: contacto.twitter }] : []),
   ]
 
   return (
     <PageShell title={t.tituloContacto} subtitle={t.subtituloContacto}>
       <p className="page-intro">
-        {t.introContacto} 🚀
+        {t.introContacto}
       </p>
 
       {contacto.cv && (

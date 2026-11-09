@@ -1,5 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { usePortafolio, useTextos } from '@/i18n/useLanguage'
+import { IconoDato } from '@/components/ui/IconoDato'
 import './pages.css'
 
 export function StackTecnico() {
@@ -15,7 +16,7 @@ export function StackTecnico() {
         {stackTecnico.map(category => (
           <div key={category.categoria} className="page-card stack-card">
             <h3 className="stack-card__title">
-              {category.icono && <span className="stack-card__icon">{category.icono}</span>}
+              {category.icono && <span className="stack-card__icon"><IconoDato nombre={category.icono} /></span>}
               {category.categoria}
             </h3>
             <div className="tech-tags">
