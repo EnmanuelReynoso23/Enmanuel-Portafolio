@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { ToggleSwitch } from '@/components/ui/ToggleSwitch'
-import { useAudio } from '@/context/AudioContext'
+import { useAudio } from '@/context/useAudio'
 import { useTextos } from '@/i18n/useLanguage'
 import { useClock } from '@/hooks/useClock'
 import { useState } from 'react'
